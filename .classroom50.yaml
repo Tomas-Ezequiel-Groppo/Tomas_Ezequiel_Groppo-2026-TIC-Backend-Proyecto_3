@@ -1,0 +1,12 @@
+schema: "classroom50/repo-config/v1"
+classroom: "proyecto-3"
+assignment: "backend"
+owner:
+  username: "Tomas-Ezequiel-Groppo"
+  id: 272604192
+  accepted_at: "2026-09-22T14:21:18Z"
+source:
+  owner: "Shulian-Templates"
+  owner_id: 285188652
+  repo: "Template-TS"
+  branch: "main"
