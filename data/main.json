@@ -8,5 +8,25 @@
   "username": "123456778",
   "password": "sdfghhjkl",
   "profileID": 2
+ },
+ {
+  "username": "hola",
+  "password": "234455",
+  "profileID": 3
+ },
+ {
+  "username": "totot",
+  "password": "1234",
+  "profileID": 4
+ },
+ {
+  "username": "qwerty",
+  "password": "abcde",
+  "profileID": 5
+ },
+ {
+  "username": "alalala",
+  "password": "vamos_a_volar",
+  "profileID": 6
  }
 ]
