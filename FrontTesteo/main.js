@@ -1,4 +1,6 @@
 console.log("Hola")
+let posicionX=0;
+let posicionY=0;
 function profileReg(user){
     return fetch("/saveProfile" , {
         method:"POST",
@@ -14,6 +16,13 @@ function profileLog(user){
         body: JSON.stringify(user)
     })
     .then(res => res.json());
+}
+function savelevel(nivel){
+  return fetch("/saveLevel" , {
+      method:"POST",
+      headers:{"Content-Type": "application/json"},
+      body: "hola"
+  })
 }
 
 button.addEventListener("click" ,() => {
@@ -52,3 +61,9 @@ buttonL.addEventListener("click" ,() => {
     }
   })
 });
+
+selec1.addEventListener("click",() =>{
+  posicionX=1
+  posicionY=1
+  
+})

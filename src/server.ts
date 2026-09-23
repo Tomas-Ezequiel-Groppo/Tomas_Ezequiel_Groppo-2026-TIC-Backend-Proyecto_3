@@ -11,6 +11,8 @@ const jsontxtcompleto : string = fs.readFileSync(archivojson, "utf-8");
 const jsonjsoncompleto : Profile[] = JSON.parse(jsontxtcompleto);
 
 type Profile = {username:string ; password:string ; profileID:number};
+type Objeto = {orientacion:string|null;propiedadEspecial:string|null};
+type Elemento ={tipo:Objeto; posicionX:number; posicionY:number}|null;
 
 app.use(express.json());
 app.use(express.static('FrontTesteo'));
@@ -51,7 +53,7 @@ app.post("/saveProfile", (req,res) =>{
     jsonjsoncompleto.push(newProfile);
     jsonnuevofun=JSON.stringify(jsonjsoncompleto, null, 1);
     fs.writeFileSync(archivojson,jsonnuevofun);
-    res.json({estado:"Perfil-guardado"})
+    res.status(200).json({estado:"Perfil-guardado"})
 }
 });
 
