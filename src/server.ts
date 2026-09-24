@@ -33,6 +33,8 @@ app.post("/logProfile", loadProfile);
 
 app.get("/loadLevels" , loadLevels);
 
+app.get("/loadLevels/:user", loadLevelsUsers)
+
 app.post("/saveLevel", saveLevel);
 
 app.listen(PUERTO, (): void => {

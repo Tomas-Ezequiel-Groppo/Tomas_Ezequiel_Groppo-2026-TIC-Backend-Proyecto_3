@@ -94,7 +94,14 @@ export function loadLevels (request:RequestLoadLevels , response:Response){
      response.json(listajson)
 }
 export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:Response){
+let listaOG :string = fs.readFileSync("./data/niveles.json", "utf-8");
+let listajsonOG : Nivel[]=JSON.parse(listaOG);
+let usuario=request.params.username;
+let n: number = 0;
+let listajson: Nivel[]=[];
+while (n<listajsonOG.length){
 
+}
 }
 export function saveLevel (request:RequestSaveLevel, response:Response){
   
