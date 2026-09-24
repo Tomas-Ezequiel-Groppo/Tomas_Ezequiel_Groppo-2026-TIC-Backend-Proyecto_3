@@ -4,10 +4,12 @@ import fs from 'fs'
 import express from 'express'
 
 import type { Express, Request, Response } from 'express';
+
 import type {Profile} from './tipos.js'
 import type {Objeto, Elemento, Nivel} from './tipos.js'
 
 import type {RequestSaveProfile, RequestLoadProfile} from './request&responseTypes.js'
+import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel } from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -86,6 +88,24 @@ export function loadProfile(request:RequestLoadProfile, response:Response){
         response.status(404)
     }
 }
-export function loadLevels (request:Request , response:Response){
+export function loadLevels (request:RequestLoadLevels , response:Response){
+     let lista:string=fs.readFileSync("./data/niveles.json" , "utf-8");
+     let listajson: Nivel[]=JSON.parse(lista);
+     response.json(listajson)
+}
+export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:Response){
 
+}
+export function saveLevel (request:RequestSaveLevel, response:Response){
+  
+    let newLevel: Nivel = {
+        elementos:request.body.elementos,
+        usuario:request.body.usuario
+     }
+     let lista:string=fs.readFileSync("./data/niveles.json", "utf-8");
+     let listajson: Nivel[] = JSON.parse(lista);
+     listajson.push(newLevel);
+     let nuevalistatxt:string = JSON.stringify(listajson);
+     fs.writeFileSync("./data/niveles.json", nuevalistatxt);
+     response.json({"estado":"Nivel guardado"})
 }

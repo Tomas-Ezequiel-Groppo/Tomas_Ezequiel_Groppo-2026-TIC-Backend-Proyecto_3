@@ -4,7 +4,7 @@ import express, { response } from 'express';
 import type { Express, Request, Response } from 'express';
 import fs from 'fs'
 import { saveProfile , loadProfile} from './funcionesApis.js';
-import { loadLevels } from './funcionesApis.js';
+import { loadLevels , loadLevelsUsers, saveLevel} from './funcionesApis.js';
 import type {Profile , Objeto , Elemento} from './tipos.js'
 
 const app: Express = express();
@@ -32,6 +32,8 @@ app.post("/saveProfile" , saveProfile)
 app.post("/logProfile", loadProfile);
 
 app.get("/loadLevels" , loadLevels);
+
+app.post("/saveLevel", saveLevel);
 
 app.listen(PUERTO, (): void => {
   console.log(`Servidor abierto en http://localhost:${PUERTO}`);
