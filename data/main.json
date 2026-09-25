@@ -38,5 +38,15 @@
   "username": "Pepito",
   "password": "Juansito",
   "profileID": 8
+ },
+ {
+  "username": "Hola",
+  "password": "Hola",
+  "profileID": 9
+ },
+ {
+  "username": "holalan",
+  "password": "Primera_vez_que_hay_un_error_en_el_.json",
+  "profileID": 10
  }
 ]
