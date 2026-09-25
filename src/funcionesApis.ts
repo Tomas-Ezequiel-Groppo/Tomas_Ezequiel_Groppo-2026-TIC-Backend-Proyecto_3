@@ -100,8 +100,14 @@ let usuario=request.params.username;
 let n: number = 0;
 let listajson: Nivel[]=[];
 while (n<listajsonOG.length){
-
+  if (listajsonOG[n].usuario===usuario){
+     listajson.push(listajsonOG[n]);
+  }
+  else{
+    n++;
+  }
 }
+response.json(listajson);
 }
 export function saveLevel (request:RequestSaveLevel, response:Response){
   
