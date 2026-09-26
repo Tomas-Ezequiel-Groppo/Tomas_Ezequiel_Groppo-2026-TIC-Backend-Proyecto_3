@@ -5,11 +5,11 @@ import express from 'express'
 
 import type { Express, Request, Response } from 'express';
 
-import type {Profile, WholeProfile} from './tipos.js'
+import type {Profile, WholeProfile, Config} from './tipos.js'
 import type {Objeto, Elemento, Nivel} from './tipos.js'
 
-import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile} from './request&responseTypes.js'
-import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel } from './request&responseTypes.js';
+import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig} from './request&responseTypes.js'
+import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel } from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -25,6 +25,15 @@ const nivelesjsonjsoncompleto: Nivel[]= JSON.parse(nivelesjsontxtcompleto);
 export function saveProfile(request: RequestSaveProfile, response:Response){
     let n:number=0;
     let yaExiste:boolean=false;
+
+    let configstxt:string=fs.readFileSync("./data/configs.json" , "utf-8");
+    let configsjson:Config[]=JSON.parse(configstxt);
+    let configPred:Config={
+        theme:"Dark",
+        volume:75,
+        resolution:"1920x1080",
+        user:request.body.username
+    }
 
     while (n<mainjsonjsoncompleto.length){
         if (request.body.username===mainjsonjsoncompleto[n]!.username){
@@ -49,6 +58,9 @@ export function saveProfile(request: RequestSaveProfile, response:Response){
     mainjsonjsoncompleto.push(newProfile);
     jsonnuevofun=JSON.stringify(mainjsonjsoncompleto, null, 1);
     fs.writeFileSync(mainarchivojson,jsonnuevofun);
+    configsjson.push(configPred)
+    let configsjsontxt:string=JSON.stringify(configsjson)
+    fs.writeFileSync("./data/configs.json" , configsjsontxt);
     response.status(200).json({estado:"Perfil-guardado"})
 }
 }
@@ -113,7 +125,6 @@ if (listajson===listavacia){
  response.status(404).json({"estatus":"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"});
 }
 response.json(listajson);
-response.status(200).json({"estatus":"Niveles-cargados"});
 }
 export function saveLevel (request:RequestSaveLevel, response:Response){
   let lista:string=fs.readFileSync("./data/niveles.json", "utf-8");
@@ -122,6 +133,7 @@ export function saveLevel (request:RequestSaveLevel, response:Response){
     let newLevel: Nivel = {
         elementos:request.body.elementos,
         usuario:request.body.usuario,
+        nombre:request.body.nombre,
         id:listajson.length+1
      }
      
@@ -177,6 +189,138 @@ let userUsername:string=profileLoaded.username
             createdLevels:profileLevels
         }
             response.json(perfilEncontrado)
-            response.status(200).json({"estatus":"Perfil-encontrado-y-cargado"})
         }
+}
+export function loadLevel (request:RequestLoadLevel, response:Response){
+    let listaNivelesOGtxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+    let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt);
+
+    let nivelVacio:Nivel={
+         elementos:[],
+    usuario:"",
+    id:0,
+    nombre:""
+    }
+    let n:number = 0;
+
+    let nivelQueHayQueCargar:Nivel= nivelVacio
+
+    while (n<listaNivelesOGjson.length){
+        if (listaNivelesOGjson[n].nombre===request.params.nombre){
+           nivelQueHayQueCargar=listaNivelesOGjson[n]
+           n=listaNivelesOGjson.length;
+        }
+        else{
+          n++;
+        }
+    }
+
+    if (nivelQueHayQueCargar===nivelVacio){
+        response.status(404).json({"estatus":"No-se-ha-encontrado-un-nivel-con-dicho-nombre"});
+    }
+    else{
+        response.json(nivelQueHayQueCargar);
+    }
+}
+export function loadConfig (request:RequestLoadConfig, response:Response){
+  let listaConfigOGtxt:string=fs.readFileSync("./data/configs.json", "utf-8");
+  let listaConfigOGjson:Config[]=JSON.parse(listaConfigOGtxt);
+
+  let configVacia :Config={
+    theme:"",
+    volume:0,
+    resolution:"",
+    user:""
+  }
+  let n :number = 0;
+  let configCargada:Config={
+    theme:"",
+    volume:0,
+    resolution:"",
+    user:""
+  }
+
+  while (n<listaConfigOGjson.length){
+   
+    if (listaConfigOGjson[n].user===request.params.username){
+       configCargada.user=listaConfigOGjson[n].user;
+       configCargada.resolution=listaConfigOGjson[n].resolution;
+       configCargada.theme=listaConfigOGjson[n].theme;
+       configCargada.volume=listaConfigOGjson[n].volume;
+       n++;
+    }
+    else{
+        n++;
+    }
+
+  }
+    if (configCargada.user===configVacia.user){
+        response.status(404).json({"estatus":"Usuario-no-encontrado"});
+    }
+    else{
+        response.json(configCargada)
+    }
+}
+export function saveConfig (request:RequestSaveConfig, response:Response){
+
+    let listaConfigsOGtxt:string=fs.readFileSync("./data/configs.json", "utf-8");
+    let listaConfigsOGjson:Config[]=JSON.parse(listaConfigsOGtxt);
+
+    let configNueva:Config={
+        theme:request.body.theme,
+        volume:request.body.volume,
+        resolution:request.body.resolution,
+        user:request.params.username
+    }
+
+    let n:number=0;
+    let lamisma:number=0;
+    
+     while (n<listaConfigsOGjson.length){
+        if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].resolution===configNueva.resolution&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volume===configNueva.volume){
+            lamisma=1;
+            n=listaConfigsOGjson.length;
+        }
+        else{
+            lamisma=0;
+            n++;
+        }
+     }
+
+     if (lamisma===0){
+
+      let listaDeConfigsPreliminar: Config[]=[];
+    
+      while (listaConfigsOGjson.length>0){
+        if (listaConfigsOGjson[n-1].user===configNueva.user){
+            listaConfigsOGjson.pop();
+            n--;
+           
+        }
+        else{
+            listaDeConfigsPreliminar.push(listaConfigsOGjson[n-1]);
+            listaConfigsOGjson.pop();
+            n--;
+        }
+      }
+n=0;
+      while (n<listaDeConfigsPreliminar.length){
+        listaConfigsOGjson.push(listaDeConfigsPreliminar[n]);
+        n++;
+      }
+      while (listaDeConfigsPreliminar.length>0){
+        listaDeConfigsPreliminar.pop()
+      }
+     
+      listaConfigsOGjson.push(configNueva);
+      let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson)
+      fs.writeFileSync("./data/configs.json", listaConfigOGjsontxt)
+      response.status(200).json({"estatus":"Nueva-configuracion-guardada"})
+        }
+        else{
+            console.log("Error(3)")
+            response.json({"estado":"Misma-configuracion"})
+        }
+
+    
 }

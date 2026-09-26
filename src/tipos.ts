@@ -11,6 +11,13 @@ export type ElementoPP = {propiedadEspecial:string}
 export type Elemento ={tipo:Objeto | ElementoPP; posicionX:number; posicionY:number}|null;
 export type Nivel = {
     elementos:Elemento[],
-    usuario:string
-    id:number
+    usuario:string,
+    id:number,
+    nombre:string
+}
+export type Config = {
+    theme:string,
+    volume:number,
+    resolution:string,
+    user:string
 }

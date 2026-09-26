@@ -3,12 +3,12 @@
 import express, { response } from 'express';
 import type { Express, Request, Response } from 'express';
 import fs from 'fs'
-import { saveProfile , logProfile , loadProfile} from './funcionesApis.js';
-import { loadLevels , loadLevelsUsers, saveLevel} from './funcionesApis.js';
+import { saveProfile , logProfile , loadProfile, loadConfig, saveConfig} from './funcionesApis.js';
+import { loadLevels , loadLevelsUsers, saveLevel, loadLevel} from './funcionesApis.js';
 import type {Profile , Objeto , Elemento} from './tipos.js'
 
 const app: Express = express();
-const PUERTO: number = Number(process.env.PORT ?? 5173);
+const PUERTO: number = Number(process.env.PORT ?? 3000);
 
 
 const archivojson = 'data/main.json';
@@ -27,17 +27,25 @@ app.get('/health', (req: Request, res: Response): void => {
 
 // [TODO] Registrar acá todas sus rutas de la API
 
-app.post("/saveProfile" , saveProfile);
-
-app.post("/logProfile", logProfile);
-
+//NIVELES
 app.get("/loadLevels" , loadLevels);
 
 app.get("/loadLevels/:username", loadLevelsUsers);
 
 app.post("/saveLevel", saveLevel);
 
-app.get("/:username" , loadProfile)
+app.get("/loadLevels/level/:nombre", loadLevel);
+
+//PERFILES
+app.post("/saveProfile" , saveProfile);
+
+app.post("/logProfile", logProfile);
+
+app.get("/:username" , loadProfile);
+
+app.get("/:username/configs" , loadConfig);
+
+app.post("/:username/saveConfigs" , saveConfig);
 
 app.listen(PUERTO, (): void => {
   console.log(`Servidor abierto en http://localhost:${PUERTO}`);
