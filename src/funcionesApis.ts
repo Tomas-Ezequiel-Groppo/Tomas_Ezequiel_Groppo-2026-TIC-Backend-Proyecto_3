@@ -11,6 +11,9 @@ import type {Objeto, Elemento, Nivel} from './tipos.js'
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig} from './request&responseTypes.js'
 import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel } from './request&responseTypes.js';
 
+import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
+import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel} from './request&responseTypes.js';
+
 const app:Express= express();
 
 const mainarchivojson = 'data/main.json';
@@ -22,7 +25,7 @@ const mainjsonjsoncompleto : Profile[] = JSON.parse(mainjsontxtcompleto);
 const nivelesjsontxtcompleto:string=fs.readFileSync(mainNivelesjson, "utf-8");
 const nivelesjsonjsoncompleto: Nivel[]= JSON.parse(nivelesjsontxtcompleto);
 
-export function saveProfile(request: RequestSaveProfile, response:Response){
+export function saveProfile(request: RequestSaveProfile, response:ResponseSaveProfile){
     let n:number=0;
     let yaExiste:boolean=false;
 
@@ -45,7 +48,7 @@ export function saveProfile(request: RequestSaveProfile, response:Response){
         }
     }
     if (yaExiste===true){
-     response.status(409).json({error:"Perfil_Preexistente"})
+     response.status(409).json({estatus:"Perfil-preexistente"})
     }
     else{
     const newProfile:Profile={
@@ -61,10 +64,10 @@ export function saveProfile(request: RequestSaveProfile, response:Response){
     configsjson.push(configPred)
     let configsjsontxt:string=JSON.stringify(configsjson)
     fs.writeFileSync("./data/configs.json" , configsjsontxt);
-    response.status(200).json({estado:"Perfil-guardado"})
+    response.status(200).json({estatus:"Perfil-guardado"})
 }
 }
-export function logProfile(request:RequestLogProfile, response:Response){
+export function logProfile(request:RequestLogProfile, response:ResponseLogProfile){
     let logProfile:Profile={
         username:request.body.username,
         password:request.body.password,
@@ -87,25 +90,25 @@ export function logProfile(request:RequestLogProfile, response:Response){
   }
     if (existeElUsername===true){
      if (logProfile.password===correctProfile?.password){
-         response.json({entrada:"Todo"})
+         response.json({estatus:"Todo"})
          response.status(200)
      }
      else{
-         response.json({entrada:"ContraIncorrecta"})
+         response.json({estatus:"ContraIncorrecta"})
          response.status(401)
      }
     }
     else{
-        response.json({entrada:"TodoMal"})
+        response.json({estatus:"TodoMal"})
         response.status(404)
     }
 }
-export function loadLevels (request:RequestLoadLevels , response:Response){
+export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLevels){
      let lista:string=fs.readFileSync("./data/niveles.json" , "utf-8");
      let listajson: Nivel[]=JSON.parse(lista);
      response.json(listajson)
 }
-export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:Response){
+export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:ResponseLoadLevelUsers){
 let listaOG :string = fs.readFileSync("./data/niveles.json", "utf-8");
 let listajsonOG : Nivel[]=JSON.parse(listaOG);
 let usuario=request.params.username;
@@ -122,11 +125,11 @@ while (n<listajsonOG.length){
   }
 }
 if (listajson===listavacia){
- response.status(404).json({"estatus":"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"});
+ response.status(404).json({estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"});
 }
 response.json(listajson);
 }
-export function saveLevel (request:RequestSaveLevel, response:Response){
+export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel){
   let lista:string=fs.readFileSync("./data/niveles.json", "utf-8");
      let listajson: Nivel[] = JSON.parse(lista);
 
@@ -140,9 +143,9 @@ export function saveLevel (request:RequestSaveLevel, response:Response){
      listajson.push(newLevel);
      let nuevalistatxt:string = JSON.stringify(listajson);
      fs.writeFileSync("./data/niveles.json", nuevalistatxt);
-     response.status(200).json({"estado":"Nivel guardado"})
+     response.status(200).json({estatus:"Nivel guardado"})
 }
-export function loadProfile (request:RequestLoadProfile, response:Response){
+export function loadProfile (request:RequestLoadProfile, response:ResponseLoadProfile){
       let listaUsersOGtxt:string=fs.readFileSync(mainarchivojson, "utf-8");
       let listaUsersOGjson: Profile[]=JSON.parse(listaUsersOGtxt);
       
@@ -172,7 +175,7 @@ n=0;
 let userUsername:string=profileLoaded.username
 
       if (profileLoaded===profileNew){
-            response.status(404).json({"estatus":"Perfil-no-encontrado"})
+            response.status(404).json({estatus:"Perfil-no-encontrado"})
         }
         else{
             while (n<listaLevelsOGjson.length){
@@ -191,7 +194,7 @@ let userUsername:string=profileLoaded.username
             response.json(perfilEncontrado)
         }
 }
-export function loadLevel (request:RequestLoadLevel, response:Response){
+export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel){
     let listaNivelesOGtxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
     let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt);
 
@@ -216,13 +219,13 @@ export function loadLevel (request:RequestLoadLevel, response:Response){
     }
 
     if (nivelQueHayQueCargar===nivelVacio){
-        response.status(404).json({"estatus":"No-se-ha-encontrado-un-nivel-con-dicho-nombre"});
+        response.status(404).json({estatus:"No-se-ha-encontrado-un-nivel-con-dicho-nombre"});
     }
     else{
         response.json(nivelQueHayQueCargar);
     }
 }
-export function loadConfig (request:RequestLoadConfig, response:Response){
+export function loadConfig (request:RequestLoadConfig, response:ResponseLoadConfig){
   let listaConfigOGtxt:string=fs.readFileSync("./data/configs.json", "utf-8");
   let listaConfigOGjson:Config[]=JSON.parse(listaConfigOGtxt);
 
@@ -255,13 +258,13 @@ export function loadConfig (request:RequestLoadConfig, response:Response){
 
   }
     if (configCargada.user===configVacia.user){
-        response.status(404).json({"estatus":"Usuario-no-encontrado"});
+        response.status(404).json({estatus:"Usuario-no-encontrado"});
     }
     else{
         response.json(configCargada)
     }
 }
-export function saveConfig (request:RequestSaveConfig, response:Response){
+export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConfig){
 
     let listaConfigsOGtxt:string=fs.readFileSync("./data/configs.json", "utf-8");
     let listaConfigsOGjson:Config[]=JSON.parse(listaConfigsOGtxt);
@@ -315,11 +318,10 @@ n=0;
       listaConfigsOGjson.push(configNueva);
       let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson)
       fs.writeFileSync("./data/configs.json", listaConfigOGjsontxt)
-      response.status(200).json({"estatus":"Nueva-configuracion-guardada"})
+      response.status(200).json({estatus:"Nueva-configuracion-guardada"})
         }
         else{
-            console.log("Error(3)")
-            response.json({"estado":"Misma-configuracion"})
+            response.json({estatus:"Misma-configuracion"})
         }
 
     

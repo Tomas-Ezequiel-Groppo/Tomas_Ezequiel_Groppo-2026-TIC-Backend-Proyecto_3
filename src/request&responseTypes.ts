@@ -16,17 +16,40 @@ type ConfigNoUser={
     resolution:string
 }
 
+type Estatus={
+    estatus:string
+}
+
+//REQUEST
+
 //Usuarios
 
-export type RequestSaveProfile = Request<unknown, unknown , UserProfile>
-export type RequestSaveConfig = Request<UserUsername, Config, ConfigNoUser> 
-export type RequestLogProfile = Request<unknown,unknown , UserProfile>
-export type RequestLoadProfile = Request<UserUsername, WholeProfile>
-export type RequestLoadConfig = Request<UserUsername, Config>
+export type RequestSaveProfile = Request<unknown, unknown , UserProfile>;
+export type RequestSaveConfig = Request<UserUsername, unknown, ConfigNoUser>;
+export type RequestLogProfile = Request<unknown,unknown , UserProfile>;
+export type RequestLoadProfile = Request<UserUsername, WholeProfile>;
+export type RequestLoadConfig = Request<UserUsername, Config>;
 
 //Niveles
 
-export type RequestSaveLevel = Request<unknown, Nivel, Nivel>
-export type RequestLoadLevels = Request<unknown, Nivel[]>
-export type RequestLoadLevelsUsers = Request<UserUsername, Nivel[]>
-export type RequestLoadLevel = Request<{nombre:string},Nivel>
+export type RequestSaveLevel = Request<unknown, Nivel, Nivel>;
+export type RequestLoadLevels = Request<unknown, Nivel[]>;
+export type RequestLoadLevelsUsers = Request<UserUsername, Nivel[]>;
+export type RequestLoadLevel = Request<{nombre:string},Nivel>;
+
+//RESPONSE
+
+//Usuarios
+
+export type ResponseSaveProfile = Response<Estatus>;
+export type ResponseSaveConfig = Response<Estatus>;
+export type ResponseLogProfile = Response<Estatus>;
+export type ResponseLoadProfile = Response<Estatus | WholeProfile>;
+export type ResponseLoadConfig = Response<Estatus | Config>;
+
+//Niveles
+
+export type ResponseSaveLevel = Response<Estatus | Nivel>;
+export type ResponseLoadLevels = Response<Estatus | Nivel[]>;
+export type ResponseLoadLevelUsers = Response<Estatus | Nivel[]>;
+export type ResponseLoadLevel = Response<Estatus | Nivel>;
