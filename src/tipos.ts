@@ -21,3 +21,10 @@ export type Config = {
     resolution:string,
     user:string
 }
+export type SaveFile = {
+    nivelesOG1:boolean[],
+    nivelesOG2:boolean[],
+    nivelesOG3:boolean[],
+    nivelesCreados:Nivel[],
+    usernsame:string
+}

@@ -7,12 +7,19 @@ import type { Express, Request, Response } from 'express';
 
 import type {Profile, WholeProfile, Config} from './tipos.js'
 import type {Objeto, Elemento, Nivel} from './tipos.js'
+import type { SaveFile } from './tipos.js';
 
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig} from './request&responseTypes.js'
 import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel } from './request&responseTypes.js';
 
+import type { RequestLoadSaveFile } from './request&responseTypes.js';
+import type { ResponseLoadSaveFile } from './request&responseTypes.js';
+
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel} from './request&responseTypes.js';
+
+import type { RequestLoadOgLevels } from './request&responseTypes.js';
+import type { ResponseLoadOgLevels } from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -325,4 +332,44 @@ n=0;
         }
 
     
+}
+export function loadLevelsOG (request:RequestLoadOgLevels , response:ResponseLoadOgLevels){
+     let lista:string=fs.readFileSync("./data/nivelesOriginales.json" , "utf-8");
+     let listajson: Nivel[]=JSON.parse(lista);
+     response.json(listajson)
+}
+export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoadSaveFile){
+   let usuario:string=request.params.username
+   let n:number=0;
+
+   let saveFilestxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+   let saveFilesjson: SaveFile[] = JSON.parse(saveFilestxt);
+   let requestedSaveFile: SaveFile = {
+       nivelesOG1:[],
+       nivelesOG2:[],
+       nivelesOG3:[],
+       nivelesCreados:[],
+       usernsame:""
+   }
+
+   while (n<saveFilesjson.length){
+    if (saveFilesjson[n].usernsame===usuario){
+          requestedSaveFile.nivelesOG1=saveFilesjson[n].nivelesOG1;
+          requestedSaveFile.nivelesOG2=saveFilesjson[n].nivelesOG2;
+          requestedSaveFile.nivelesOG3=saveFilesjson[n].nivelesOG3;
+          requestedSaveFile.nivelesCreados=saveFilesjson[n].nivelesCreados;
+          requestedSaveFile.usernsame=request.params.username;
+          n=saveFilesjson.length;
+    }
+    else{
+        n++;
+    }
+   }
+   if (requestedSaveFile.usernsame===""){
+      response.status(404).json({estatus:"Archivo-de-guardado-no-encontrado"});
+   }
+   else{
+    response.json(requestedSaveFile);
+   }
+   
 }

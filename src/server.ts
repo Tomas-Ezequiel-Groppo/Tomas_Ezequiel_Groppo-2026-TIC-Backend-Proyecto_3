@@ -5,6 +5,7 @@ import type { Express, Request, Response } from 'express';
 import fs from 'fs'
 import { saveProfile , logProfile , loadProfile, loadConfig, saveConfig} from './funcionesApis.js';
 import { loadLevels , loadLevelsUsers, saveLevel, loadLevel} from './funcionesApis.js';
+import { loadLevelsOG } from './funcionesApis.js'; 
 import type {Profile , Objeto , Elemento} from './tipos.js'
 
 const app: Express = express();
@@ -28,6 +29,9 @@ app.get('/health', (req: Request, res: Response): void => {
 // [TODO] Registrar acá todas sus rutas de la API
 
 //NIVELES
+
+//online
+
 app.get("/loadLevels" , loadLevels);
 
 app.get("/loadLevels/:username", loadLevelsUsers);
@@ -35,6 +39,10 @@ app.get("/loadLevels/:username", loadLevelsUsers);
 app.post("/saveLevel", saveLevel);
 
 app.get("/loadLevels/level/:nombre", loadLevel);
+
+//offline
+
+app.get("/loadLevels/Original", loadLevelsOG)
 
 //PERFILES
 app.post("/saveProfile" , saveProfile);

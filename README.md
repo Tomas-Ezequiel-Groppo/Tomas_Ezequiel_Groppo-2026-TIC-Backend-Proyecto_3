@@ -1,5 +1,7 @@
 # [TODO: Nombre del proyecto]
 
+Lindsey's Lasers
+
 [TODO: descripción en una línea de qué hace esta API]
 
 ## Endpoints

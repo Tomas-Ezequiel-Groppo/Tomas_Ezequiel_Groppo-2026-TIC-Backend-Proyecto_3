@@ -2,6 +2,7 @@
 
 import type {Request, Response } from 'express';
 import type {Nivel, WholeProfile, Config} from './tipos.js'
+import type { SaveFile } from './tipos.js';
 
 type UserProfile = {
     username:string,
@@ -30,12 +31,18 @@ export type RequestLogProfile = Request<unknown,unknown , UserProfile>;
 export type RequestLoadProfile = Request<UserUsername, WholeProfile>;
 export type RequestLoadConfig = Request<UserUsername, Config>;
 
+
 //Niveles
 
 export type RequestSaveLevel = Request<unknown, Nivel, Nivel>;
 export type RequestLoadLevels = Request<unknown, Nivel[]>;
 export type RequestLoadLevelsUsers = Request<UserUsername, Nivel[]>;
 export type RequestLoadLevel = Request<{nombre:string},Nivel>;
+export type RequestLoadOgLevels = Request<unknown, Nivel[]>;
+
+//SaveFile
+
+export type RequestLoadSaveFile = Request<UserUsername,SaveFile>;
 
 //RESPONSE
 
@@ -53,3 +60,8 @@ export type ResponseSaveLevel = Response<Estatus | Nivel>;
 export type ResponseLoadLevels = Response<Estatus | Nivel[]>;
 export type ResponseLoadLevelUsers = Response<Estatus | Nivel[]>;
 export type ResponseLoadLevel = Response<Estatus | Nivel>;
+export type ResponseLoadOgLevels = Response<Estatus | Nivel[]>;
+
+//SaveFile
+
+export type ResponseLoadSaveFile = Response<Estatus | SaveFile>;
