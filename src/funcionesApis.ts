@@ -18,8 +18,8 @@ import type { ResponseLoadSaveFile } from './request&responseTypes.js';
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel} from './request&responseTypes.js';
 
-import type { RequestLoadOgLevels } from './request&responseTypes.js';
-import type { ResponseLoadOgLevels } from './request&responseTypes.js';
+import type { RequestLoadOgLevels, RequestCompleteLevel } from './request&responseTypes.js';
+import type { ResponseLoadOgLevels, ResponseCompleteLevel} from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -43,6 +43,16 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
         volume:75,
         resolution:"1920x1080",
         user:request.body.username
+    }
+
+    let saveFiletxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+    let saveFilejson:SaveFile[]=JSON.parse(saveFiletxt);
+    let saveFilePred:SaveFile={
+        nivelesOG1:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+        nivelesOG2:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+        nivelesOG3:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+        nivelesCreados:[],
+        usernsame:request.body.username
     }
 
     while (n<mainjsonjsoncompleto.length){
@@ -71,6 +81,9 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
     configsjson.push(configPred)
     let configsjsontxt:string=JSON.stringify(configsjson)
     fs.writeFileSync("./data/configs.json" , configsjsontxt);
+    saveFilejson.push(saveFilePred);
+    let saveFilejsontxt:string=JSON.stringify(saveFilejson);
+    fs.writeFileSync("./data/saveFiles.json" , saveFilejsontxt);
     response.status(200).json({estatus:"Perfil-guardado"})
 }
 }
@@ -372,4 +385,53 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
     response.json(requestedSaveFile);
    }
    
+}
+export function completeLevel (request:RequestCompleteLevel, response:ResponseCompleteLevel){
+  let numNivel:number=Number(request.params.numNivel)-1;
+  let usuario=request.body.username;
+  let saveFile=Number(request.body.saveFile);
+  
+    let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json" , "utf-8");
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+
+    let n:number = 0;
+    let m:number=0;
+    
+
+    while (n<listaSaveFilesjson.length){
+        if (listaSaveFilesjson[n].usernsame===usuario){
+            m=n
+            n=listaSaveFilesjson.length
+        }
+        else{
+            n++;
+        }
+    }
+    if (numNivel<1 || numNivel>15){
+       response.status(404).json({estatus:"No-hay-tal-nivel"});
+    }
+    else{
+    
+    if (saveFile===1){
+       listaSaveFilesjson[m].nivelesOG1[numNivel]=true;
+       let listaSaveFilesjsontxt:string=JSON.stringify(listaSaveFilesjson);
+       fs.writeFileSync("./data/saveFiles.json", listaSaveFilesjsontxt);
+       response.status(200).json({estatus:"Complecion-de-nivel-guardada"});
+    }
+    else if (saveFile===2){
+        listaSaveFilesjson[m].nivelesOG2[numNivel]=true;
+         let listaSaveFilesjsontxt:string=JSON.stringify(listaSaveFilesjson);
+       fs.writeFileSync("./data/saveFiles.json", listaSaveFilesjsontxt);
+       response.status(200).json({estatus:"Complecion-de-nivel-guardada"});
+    }
+    else if (saveFile===3){
+        listaSaveFilesjson[m].nivelesOG3[numNivel]=true;
+         let listaSaveFilesjsontxt:string=JSON.stringify(listaSaveFilesjson);
+       fs.writeFileSync("./data/saveFiles.json", listaSaveFilesjsontxt);
+       response.status(200).json({estatus:"Complecion-de-nivel-guardada"});
+    }
+    else{
+        response.status(404).json({estatus:"No-hay-tal-archivo-de-guardado"});
+    }
+    }
 }
