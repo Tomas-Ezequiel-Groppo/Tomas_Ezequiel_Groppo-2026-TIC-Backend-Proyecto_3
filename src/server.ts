@@ -5,7 +5,7 @@ import type { Express, Request, Response } from 'express';
 import fs from 'fs'
 import { saveProfile , logProfile , loadProfile, loadConfig, saveConfig} from './funcionesApis.js';
 import { loadLevels , loadLevelsUsers, saveLevel, loadLevel} from './funcionesApis.js';
-import { loadLevelsOG, completeLevel } from './funcionesApis.js'; 
+import { loadLevelsOG, completeLevel, loadLevelOG } from './funcionesApis.js'; 
 import { loadSaveFile } from './funcionesApis.js';
 import type {Profile , Objeto , Elemento} from './tipos.js'
 
@@ -45,6 +45,7 @@ app.get("/loadLevels/level/:nombre", loadLevel);
 
 app.get("/loadLevels/Original", loadLevelsOG);
 app.post("/level/original/:numNivel", completeLevel);
+app.get("/level/original/:numNivel", loadLevelOG)
 
 //PERFILES
 app.post("/saveProfile" , saveProfile);

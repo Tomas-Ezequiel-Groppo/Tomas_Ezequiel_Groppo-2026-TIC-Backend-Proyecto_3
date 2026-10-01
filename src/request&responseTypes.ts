@@ -40,6 +40,7 @@ export type RequestLoadLevelsUsers = Request<UserUsername, Nivel[]>;
 export type RequestLoadLevel = Request<{nombre:string},Nivel>;
 export type RequestLoadOgLevels = Request<unknown, Nivel[]>;
 export type RequestCompleteLevel = Request<{numNivel:string}, Estatus, UserUsername & {saveFile:string}>;
+export type RequestLoadOgLevel = Request<{numNivel:string}, Nivel>
 
 //SaveFile
 
@@ -63,6 +64,7 @@ export type ResponseLoadLevelUsers = Response<Estatus | Nivel[]>;
 export type ResponseLoadLevel = Response<Estatus | Nivel>;
 export type ResponseLoadOgLevels = Response<Estatus | Nivel[]>;
 export type ResponseCompleteLevel = Response<Estatus>;
+export type ResponseLoadOgLevel = Response<Estatus |  Nivel>
 
 //SaveFile
 

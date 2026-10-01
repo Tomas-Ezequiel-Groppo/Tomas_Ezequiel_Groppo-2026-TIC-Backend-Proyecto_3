@@ -18,8 +18,8 @@ import type { ResponseLoadSaveFile } from './request&responseTypes.js';
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel} from './request&responseTypes.js';
 
-import type { RequestLoadOgLevels, RequestCompleteLevel } from './request&responseTypes.js';
-import type { ResponseLoadOgLevels, ResponseCompleteLevel} from './request&responseTypes.js';
+import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel } from './request&responseTypes.js';
+import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel} from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -65,7 +65,7 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
         }
     }
     if (yaExiste===true){
-     response.status(409).json({estatus:"Perfil-preexistente"})
+     response.status(409).json({estatus:"Perfil-ya-existe"})
     }
     else{
     const newProfile:Profile={
@@ -110,17 +110,17 @@ export function logProfile(request:RequestLogProfile, response:ResponseLogProfil
   }
     if (existeElUsername===true){
      if (logProfile.password===correctProfile?.password){
-         response.json({estatus:"Todo"})
-         response.status(200)
+         response.json({estatus:"Logueado-correctamente"})
+         response.status(200);
      }
      else{
-         response.json({estatus:"ContraIncorrecta"})
-         response.status(401)
+         response.json({estatus:"Contraseña-incorrecta"})
+         response.status(401);
      }
     }
     else{
-        response.json({estatus:"TodoMal"})
-        response.status(404)
+        response.json({estatus:"Usuario-y/o-contraseña-incorrecta"});
+        response.status(404);
     }
 }
 export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLevels){
@@ -135,19 +135,27 @@ let usuario=request.params.username;
 let n: number = 0;
 let listajson: Nivel[]=[];
 let listavacia:Nivel[]=[];
+let userExists:boolean=false
 while (n<listajsonOG.length){
   if (listajsonOG[n].usuario===usuario){
      listajson.push(listajsonOG[n]);
+     userExists=true;
      n++;
   }
   else{
     n++;
   }
 }
-if (listajson===listavacia){
- response.status(404).json({estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"});
+if (userExists===true){
+    if (listajson===listavacia){
+        response.status(404).json({estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"});
+       }
+       response.json(listajson);
 }
-response.json(listajson);
+else{
+    response.status(404).json({estatus:"No-se-ha-encontrado-el-usuario-marcado"});
+}
+
 }
 export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel){
   let lista:string=fs.readFileSync("./data/niveles.json", "utf-8");
@@ -434,4 +442,37 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
         response.status(404).json({estatus:"No-hay-tal-archivo-de-guardado"});
     }
     }
+}
+export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgLevel){
+  let listaNivelesOGtxt:string=fs.readFileSync("./data/nivelesOriginales.json", "utf-8");
+  let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt);
+  let numNivel=Number(request.params.numNivel);
+
+  let nivelBuscado:Nivel={
+    elementos:[],
+    usuario:"",
+    id:0,
+    nombre:""
+  }
+
+  let n:number=0;
+
+  while (n<listaNivelesOGjson.length){
+    if (listaNivelesOGjson[n].id===numNivel){
+      nivelBuscado.elementos=listaNivelesOGjson[n].elementos;
+      nivelBuscado.id=listaNivelesOGjson[n].id;
+      nivelBuscado.nombre=listaNivelesOGjson[n].nombre
+      n=listaNivelesOGjson.length
+    }
+    else{
+      n++;
+    }
+  }
+   if (nivelBuscado.id===0){
+response.status(404).json({estatus:"Nivel-no-encontrado"})
+   }
+   else{
+response.json(nivelBuscado);
+   }
+   
 }
