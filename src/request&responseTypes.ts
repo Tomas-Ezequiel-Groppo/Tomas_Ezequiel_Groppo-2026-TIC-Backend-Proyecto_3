@@ -34,7 +34,7 @@ export type RequestLoadConfig = Request<UserUsername, Config>;
 
 //Niveles
 
-export type RequestSaveLevel = Request<unknown, Nivel, Nivel>;
+export type RequestSaveLevel = Request<unknown, Estatus, Nivel>;
 export type RequestLoadLevels = Request<unknown, Nivel[]>;
 export type RequestLoadLevelsUsers = Request<UserUsername, Nivel[]>;
 export type RequestLoadLevel = Request<{nombre:string},Nivel>;

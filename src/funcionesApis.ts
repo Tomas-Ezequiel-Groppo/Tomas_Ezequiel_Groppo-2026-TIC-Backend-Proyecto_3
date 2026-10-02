@@ -167,11 +167,28 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
         nombre:request.body.nombre,
         id:listajson.length+1
      }
-     
-     listajson.push(newLevel);
-     let nuevalistatxt:string = JSON.stringify(listajson);
-     fs.writeFileSync("./data/niveles.json", nuevalistatxt);
-     response.status(200).json({estatus:"Nivel guardado"})
+    let vacioLevel:Nivel={
+        elementos:[],
+        usuario:"",
+        nombre:"",
+        id:0
+    }
+     if (newLevel.elementos===vacioLevel.elementos){
+        response.status(400).json({estatus:"Nivel-vacio"});
+     }
+     else if (newLevel.nombre===vacioLevel.nombre){
+        response.status(400).json({estatus:"No-se-le-ha-puesto-nombre-al-nivel"});
+     }
+     else if (newLevel.usuario===vacioLevel.usuario){
+        response.status(400).json({estatus:"No-se-especifico-un-usuario"});
+     }
+     else{
+        listajson.push(newLevel);
+        let nuevalistatxt:string = JSON.stringify(listajson);
+        fs.writeFileSync("./data/niveles.json", nuevalistatxt);
+        response.status(200).json({estatus:"Nivel-guardado"})
+     }
+    
 }
 export function loadProfile (request:RequestLoadProfile, response:ResponseLoadProfile){
       let listaUsersOGtxt:string=fs.readFileSync(mainarchivojson, "utf-8");

@@ -9,21 +9,21 @@ Lindsey's Lasers
 | Método | Ruta          | Body / params | Respuesta |
 | ------ | ------------- | -------------- | --------- |
 | `GET`  | `/health`     |—| `200 OK` (texto plano) |
-|`POST`| `/saveProfile`|{username:string; password:string; profileID:number}|`200 OK`{estatus:"Perfil-guardado"}|
-|`POST`| `/saveProfile`|{username:string; password:string; profileID:number}|`409 ERROR`{estatus:"Perfil-ya-existe"}|
-|`POST`|`/logProfile`|{username:string; password:string; profileID:number}|`200 OK`{estatus:"Logueado-correctamente"}|
-|`POST`|`/logProfile`|{username:string; password:string; profileID:number}|`401 ERROR`{estatus:"Contraseña-incorrecta"}|
-|`POST`| `/logProfile` |{username:string; password:string; profileID:number}|`404 ERROR`{estatus:"Usuario-y/o-contraseña-incorrecta"}|
-|`GET`|`/loadLevels`|-| `200 OK`{estatus:"Niveles-cargados"}|
-|`GET`|`/loadLevelsUsers`|{username:string}|`200 OK`{estatus:"Niveles-cargados"}|
-|`GET`|`/loadLevelsUsers`|{username:string}|`404 ERROR`{estatus:"No-se-ha-encontrado-el-usuario-marcado"}|
-|`GET`|`/loadLevelsUsers`|{username:string}|`404 ERROR`{estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"}|
-|`POST`|`/saveLevel`|{}| [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
+|`POST`| `/saveProfile`|UserProfile|`200 OK`{estatus:"Perfil-guardado"}|
+|`POST`| `/saveProfile`|UserProfile|`409 ERROR`{estatus:"Perfil-ya-existe"}|
+|`POST`|`/logProfile`|UserProfile|`200 OK`{estatus:"Logueado-correctamente"}|
+|`POST`|`/logProfile`|UserProfile|`401 ERROR`{estatus:"Contraseña-incorrecta"}|
+|`POST`| `/logProfile` |UserProfile|`404 ERROR`{estatus:"Usuario-y/o-contraseña-incorrecta"}|
+|`GET`|`/loadLevels`|—| `200 OK`(listaDeNiveles)|
+|`GET`|`/loadLevelsUsers`|UserUsername|`200 OK`(listaDeNiveles)|
+|`GET`|`/loadLevelsUsers`|UserUsername|`404 ERROR`{estatus:"No-se-ha-encontrado-el-usuario-marcado"}|
+|`GET`|`/loadLevelsUsers`|UserUsername|`404 ERROR`{estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"}|
+|`POST`|`/saveLevel`|Nivel|`200 OK` {estatus:"Nivel-guardado"}|
+|`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"Nivel-vacio"}|
+|`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"No-se-le-ha-puesto-nombre-al-nivel"}|
+|`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"No-se-especifico-un-usuario"}|
+|`GET`|`/:username`|UserUsername|`200`(PerfilCompletoDelUsuario)|
+|`GET`|`/:username`|UserUsername|`400`{estatus:"Perfil-no-encontrado"}|
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
