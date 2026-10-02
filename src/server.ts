@@ -43,7 +43,7 @@ app.get("/loadLevels/level/:nombre", loadLevel);
 
 //offline
 
-app.get("/loadLevels/Original", loadLevelsOG);
+app.get("/loadLevels/original/all", loadLevelsOG);
 app.post("/level/original/:numNivel", completeLevel);
 app.get("/level/original/:numNivel", loadLevelOG)
 

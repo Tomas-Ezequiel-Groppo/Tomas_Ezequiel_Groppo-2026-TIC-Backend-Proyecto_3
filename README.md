@@ -22,8 +22,19 @@ Lindsey's Lasers
 |`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"Nivel-vacio"}|
 |`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"No-se-le-ha-puesto-nombre-al-nivel"}|
 |`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"No-se-especifico-un-usuario"}|
-|`GET`|`/:username`|UserUsername|`200`(PerfilCompletoDelUsuario)|
-|`GET`|`/:username`|UserUsername|`400`{estatus:"Perfil-no-encontrado"}|
+|`GET`|`/:username`|UserUsername|`200 OK`(PerfilCompletoDelUsuario)|
+|`GET`|`/:username`|UserUsername|`404 ERROR`{estatus:"Perfil-no-encontrado"}|
+|`GET`|`/loadLevel/level/:nombre`|{nombre:string}|`200 OK` (nivelQueHayQueCargar)|
+|`GET`|`/loadLevel/level/:nombre`|{nombre:string}|`404 ERROR` {estatus:"No-se-ha-encontrado-un-nivel-con-dicho-nombre"}|
+|`GET`|`/:username/configs`|UserUsername|`200 OK` (configCargada)|
+|`GET`|`/:username/configs`|UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
+|`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Nueva-configuracion-guardada"}|
+|`POST`|`/username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Misma-configuracion"}|
+|`GET`|`/loadLevels/original`| [TODO]         | [TODO] |
+| [TODO] | [TODO]        | [TODO]         | [TODO] |
+| [TODO] | [TODO]        | [TODO]         | [TODO] |
+| [TODO] | [TODO]        | [TODO]         | [TODO] |
+| [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |

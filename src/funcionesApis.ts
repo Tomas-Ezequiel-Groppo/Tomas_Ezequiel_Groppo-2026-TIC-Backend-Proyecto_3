@@ -366,7 +366,7 @@ n=0;
       response.status(200).json({estatus:"Nueva-configuracion-guardada"})
         }
         else{
-            response.json({estatus:"Misma-configuracion"})
+            response.status(200).json({estatus:"Misma-configuracion"})
         }
 
     
