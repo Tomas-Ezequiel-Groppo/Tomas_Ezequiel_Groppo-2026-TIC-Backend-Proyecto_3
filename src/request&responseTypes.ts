@@ -8,7 +8,7 @@ type UserProfile = {
     username:string,
     password:string
 }
-type UserUsername = {
+export type UserUsername = {
     username:string
 }
 type ConfigNoUser={
@@ -41,6 +41,8 @@ export type RequestLoadLevel = Request<{nombre:string},Nivel>;
 export type RequestLoadOgLevels = Request<unknown, Nivel[]>;
 export type RequestCompleteLevel = Request<{numNivel:string}, Estatus, UserUsername & {saveFile:string}>;
 export type RequestLoadOgLevel = Request<{numNivel:string}, Nivel>
+export type RequestPublishLevel= Request<UserUsername, Estatus , {nombre:string}>;
+export type RequestCompleteOnlineLevel = Request<{nombre:string}, Estatus , UserUsername>;
 
 //SaveFile
 
@@ -64,7 +66,9 @@ export type ResponseLoadLevelUsers = Response<Estatus | Nivel[]>;
 export type ResponseLoadLevel = Response<Estatus | Nivel>;
 export type ResponseLoadOgLevels = Response<Estatus | Nivel[]>;
 export type ResponseCompleteLevel = Response<Estatus>;
-export type ResponseLoadOgLevel = Response<Estatus |  Nivel>
+export type ResponseLoadOgLevel = Response<Estatus | Nivel>;
+export type ResponsePublishLevel = Response<Estatus>;
+export type ResponseCompleteOnlineLevel = Response<Estatus>;
 
 //SaveFile
 

@@ -3,23 +3,23 @@
 import fs from 'fs'
 import express from 'express'
 
-import type { Express, Request, Response } from 'express';
+import type {Express} from 'express';
 
 import type {Profile, WholeProfile, Config} from './tipos.js'
 import type {Objeto, Elemento, Nivel} from './tipos.js'
 import type { SaveFile } from './tipos.js';
 
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig} from './request&responseTypes.js'
-import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel } from './request&responseTypes.js';
+import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel } from './request&responseTypes.js';
 
 import type { RequestLoadSaveFile } from './request&responseTypes.js';
 import type { ResponseLoadSaveFile } from './request&responseTypes.js';
 
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
-import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel} from './request&responseTypes.js';
+import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel, ResponsePublishLevel} from './request&responseTypes.js';
 
-import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel } from './request&responseTypes.js';
-import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel} from './request&responseTypes.js';
+import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel, RequestCompleteOnlineLevel } from './request&responseTypes.js';
+import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel} from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -158,20 +158,54 @@ else{
 
 }
 export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel){
-  let lista:string=fs.readFileSync("./data/niveles.json", "utf-8");
-     let listajson: Nivel[] = JSON.parse(lista);
+  let listaSaveFiles:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+     let listasaveFilesjson: SaveFile[] = JSON.parse(listaSaveFiles);
+
+     let usuario:string=request.body.usuario;
+
+     let saveFileAModificar:SaveFile={
+        nivelesOG1:[],
+        nivelesOG2:[],
+        nivelesOG3:[],
+        nivelesCreados:[],
+        usernsame:""
+     }
+     let n:number = 0;
+     let m:number= 0;
+
+     while (n<listasaveFilesjson.length){
+          if (listasaveFilesjson[n].usernsame===usuario){
+              saveFileAModificar.nivelesOG1=listasaveFilesjson[n].nivelesOG1;
+              saveFileAModificar.nivelesOG2=listasaveFilesjson[n].nivelesOG2;
+              saveFileAModificar.nivelesOG3=listasaveFilesjson[n].nivelesOG3;
+              saveFileAModificar.nivelesCreados=listasaveFilesjson[n].nivelesCreados;
+              saveFileAModificar.usernsame=listasaveFilesjson[n].usernsame;
+              m=n;
+              n=listasaveFilesjson.length;
+          }
+          else{
+            n++;
+          }
+     }
+
+     if (saveFileAModificar.usernsame===""){
+response.status(404).json({estatus:"Perfil-no-encontrado"});
+     }
+     else{
 
     let newLevel: Nivel = {
         elementos:request.body.elementos,
-        usuario:request.body.usuario,
+        usuario:usuario,
         nombre:request.body.nombre,
-        id:listajson.length+1
+        id:saveFileAModificar.nivelesCreados.length+1,
+        usuariosQueCompletaron:[]
      }
     let vacioLevel:Nivel={
         elementos:[],
         usuario:"",
         nombre:"",
-        id:0
+        id:0,
+        usuariosQueCompletaron:[]
     }
      if (newLevel.elementos===vacioLevel.elementos){
         response.status(400).json({estatus:"Nivel-vacio"});
@@ -183,12 +217,56 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
         response.status(400).json({estatus:"No-se-especifico-un-usuario"});
      }
      else{
-        listajson.push(newLevel);
-        let nuevalistatxt:string = JSON.stringify(listajson);
-        fs.writeFileSync("./data/niveles.json", nuevalistatxt);
-        response.status(200).json({estatus:"Nivel-guardado"})
+
+    let o:number=0;
+    let existe:boolean=false;
+
+    while (o<saveFileAModificar.nivelesCreados.length){
+        if (saveFileAModificar.nivelesCreados[o].nombre===newLevel.nombre){
+           existe=true;
+           o=saveFileAModificar.nivelesCreados.length
+        }
+        else{
+            o++;
+        }
+    }
+
+    if (existe===true){
+     let listaMedia:Nivel[]=[];
+     
+
+let p:number=0;
+     while (0<saveFileAModificar.nivelesCreados.length){
+             p=saveFileAModificar.nivelesCreados.length-1
+        if (saveFileAModificar.nivelesCreados[p].nombre===newLevel.nombre){
+            newLevel.id=saveFileAModificar.nivelesCreados[p].id;
+         saveFileAModificar.nivelesCreados.pop();
+        }
+        else{
+            listaMedia.push(saveFileAModificar.nivelesCreados[p]);
+            saveFileAModificar.nivelesCreados.pop();
+        }
      }
-    
+     while (0<listaMedia.length){
+        p=listaMedia.length-1;
+        saveFileAModificar.nivelesCreados.push(listaMedia[p]);
+        listaMedia.pop()
+     }
+ saveFileAModificar.nivelesCreados.push(newLevel);
+        listasaveFilesjson[m]=saveFileAModificar;
+        let nuevalistatxt:string = JSON.stringify(listasaveFilesjson,null,1);
+        fs.writeFileSync("./data/saveFiles.json", nuevalistatxt);
+        response.status(200).json({estatus:"Nivel-guardado"});
+    }
+    else{
+  saveFileAModificar.nivelesCreados.push(newLevel);
+        listasaveFilesjson[m]=saveFileAModificar
+        let nuevalistatxt:string = JSON.stringify(listasaveFilesjson,null,1);
+        fs.writeFileSync("./data/saveFiles.json", nuevalistatxt);
+        response.status(200).json({estatus:"Nivel-guardado"})
+    }
+     }
+     } 
 }
 export function loadProfile (request:RequestLoadProfile, response:ResponseLoadProfile){
       let listaUsersOGtxt:string=fs.readFileSync(mainarchivojson, "utf-8");
@@ -247,7 +325,8 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
          elementos:[],
     usuario:"",
     id:0,
-    nombre:""
+    nombre:"",
+    usuariosQueCompletaron:[]
     }
     let n:number = 0;
 
@@ -413,7 +492,7 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
 }
 export function completeLevel (request:RequestCompleteLevel, response:ResponseCompleteLevel){
   let numNivel:number=Number(request.params.numNivel)-1;
-  let usuario=request.body.username;
+  let usuario:string=request.body.username;
   let saveFile=Number(request.body.saveFile);
   
     let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json" , "utf-8");
@@ -469,7 +548,8 @@ export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgL
     elementos:[],
     usuario:"",
     id:0,
-    nombre:""
+    nombre:"",
+    usuariosQueCompletaron:[]
   }
 
   let n:number=0;
@@ -492,4 +572,101 @@ response.status(404).json({estatus:"Nivel-no-encontrado"})
 response.json(nivelBuscado);
    }
    
+}
+export function publishLevel(request:RequestPublishLevel, response:ResponsePublishLevel){
+let listaNivelesOnlinetxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+let listaNivelesOnlinejson: Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+
+let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+
+
+let nivelAGuardar:Nivel={
+    elementos:[],
+    usuario:"",
+    usuariosQueCompletaron:[],
+    id:listaNivelesOnlinejson.length+1,
+    nombre:""
+}
+
+let usuario:string=request.params.username;
+
+let n:number=0;
+let m:number=0;
+
+while (n<listaSaveFilesjson.length){
+    if (listaSaveFilesjson[n].usernsame===usuario){
+       while (m<listaSaveFilesjson[n].nivelesCreados.length){
+           if (listaSaveFilesjson[n].nivelesCreados[m].nombre===request.body.nombre){
+            nivelAGuardar.elementos=listaSaveFilesjson[n].nivelesCreados[m].elementos;
+            nivelAGuardar.nombre=listaSaveFilesjson[n].nivelesCreados[m].nombre;
+            nivelAGuardar.usuario=listaSaveFilesjson[n].nivelesCreados[m].usuario;
+            nivelAGuardar.usuariosQueCompletaron=listaSaveFilesjson[n].nivelesCreados[m].usuariosQueCompletaron;
+            m=listaSaveFilesjson[n].nivelesCreados.length;
+           }
+           else{
+            m++;
+           }
+       }
+       n=listaSaveFilesjson.length
+    }
+    else{
+        n++;
+    }
+}
+
+if (nivelAGuardar.usuario===""){
+    response.status(404).json({estatus:"No-hay-niveles-creados-por-ese-usuario"});
+}
+else{
+let existe:boolean=false;
+let o:number=0;
+
+while (o<listaNivelesOnlinejson.length){
+    if (listaNivelesOnlinejson[o].nombre===nivelAGuardar.nombre){
+      existe=true;
+      o=listaNivelesOnlinejson.length
+    }
+    else{
+        o++;
+    }
+}
+
+if (existe===true){
+response.status(409).json({estatus:"Ya-existe-un-nivel-con-ese-nombre"});
+}
+else{
+listaNivelesOnlinejson.push(nivelAGuardar);
+let nuevaListaNivelesOnlinetxt:string=JSON.stringify(listaNivelesOnlinejson, null, 1);
+fs.writeFileSync("./data/niveles.json", nuevaListaNivelesOnlinetxt);
+response.status(200).json({estatus:"Nivel-publicado"});
+}
+}
+}
+export function completeOnlineLevel (request:RequestCompleteOnlineLevel, response:ResponseCompleteOnlineLevel){
+     let listaNivelesOnlinetxt=fs.readFileSync("./data/niveles.json", "utf-8");
+     let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+
+     let n:number = 0;
+     let existe:boolean=false;
+
+     while (n<listaNivelesOnlinejson.length){
+        if (listaNivelesOnlinejson[n].nombre===request.params.nombre){
+            listaNivelesOnlinejson[n].usuariosQueCompletaron.push(request.body.username);
+            existe=true;
+            n=listaNivelesOnlinejson.length;
+        }
+        else{
+            n++;
+        }
+     }
+     if (existe===true){
+        let listaNivelesOnlinejsontxt:string=JSON.stringify(listaNivelesOnlinejson, null, 1);
+        fs.writeFileSync("./data/niveles.json", listaNivelesOnlinejsontxt);
+        response.status(200).json({estatus:"Nivel-completado"});
+     }
+     else{
+        response.status(404).json({estatus:"Nivel-no-encontrado"});
+     }
+    
 }

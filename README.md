@@ -1,6 +1,4 @@
-# [TODO: Nombre del proyecto]
-
-Lindsey's Lasers
+# [Lindsey's Lasers]
 
 [TODO: descripción en una línea de qué hace esta API]
 
@@ -30,7 +28,7 @@ Lindsey's Lasers
 |`GET`|`/:username/configs`|UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 |`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Nueva-configuracion-guardada"}|
 |`POST`|`/username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Misma-configuracion"}|
-|`GET`|`/loadLevels/original`| [TODO]         | [TODO] |
+|`GET`|`/loadLevels/original/all`|—|`200 OK`|
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
 | [TODO] | [TODO]        | [TODO]         | [TODO] |
