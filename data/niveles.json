@@ -7,7 +7,7 @@
      "propiedadEspecial": null
     },
     "posicionX": 1,
-    "posicionY": 15
+    "posicionY": 14
    },
    {
     "tipo": {
@@ -20,7 +20,8 @@
   ],
   "usuario": "holalan",
   "id": 1,
-  "nombre": "Primer-nivel-testeo"
+  "nombre": "Primer-nivel-testeo",
+  "version": 4
  },
  {
   "elementos": [
@@ -436,6 +437,7 @@
   "usuario": "Pepito",
   "usuariosQueCompletaron": [],
   "id": 2,
-  "nombre": "Jusenkyo"
+  "nombre": "Jusenkyo",
+  "version": 1
  }
 ]

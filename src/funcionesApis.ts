@@ -18,8 +18,8 @@ import type { ResponseLoadSaveFile } from './request&responseTypes.js';
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel, ResponsePublishLevel} from './request&responseTypes.js';
 
-import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel, RequestCompleteOnlineLevel } from './request&responseTypes.js';
-import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel} from './request&responseTypes.js';
+import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel, RequestCompleteOnlineLevel, RequestUpdateLevel } from './request&responseTypes.js';
+import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel, ResponseUpdateLevel} from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -198,14 +198,16 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         usuario:usuario,
         nombre:request.body.nombre,
         id:saveFileAModificar.nivelesCreados.length+1,
-        usuariosQueCompletaron:[]
+        usuariosQueCompletaron:[],
+        version:0
      }
     let vacioLevel:Nivel={
         elementos:[],
         usuario:"",
         nombre:"",
         id:0,
-        usuariosQueCompletaron:[]
+        usuariosQueCompletaron:[],
+        version:0
     }
      if (newLevel.elementos===vacioLevel.elementos){
         response.status(400).json({estatus:"Nivel-vacio"});
@@ -326,7 +328,8 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
     usuario:"",
     id:0,
     nombre:"",
-    usuariosQueCompletaron:[]
+    usuariosQueCompletaron:[],
+    version:0
     }
     let n:number = 0;
 
@@ -549,7 +552,8 @@ export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgL
     usuario:"",
     id:0,
     nombre:"",
-    usuariosQueCompletaron:[]
+    usuariosQueCompletaron:[],
+    version:0
   }
 
   let n:number=0;
@@ -586,7 +590,8 @@ let nivelAGuardar:Nivel={
     usuario:"",
     usuariosQueCompletaron:[],
     id:listaNivelesOnlinejson.length+1,
-    nombre:""
+    nombre:"",
+    version:1
 }
 
 let usuario:string=request.params.username;
@@ -649,12 +654,29 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
 
      let n:number = 0;
      let existe:boolean=false;
+     let m:number=0;
+     let yaPaso:boolean=false
 
      while (n<listaNivelesOnlinejson.length){
         if (listaNivelesOnlinejson[n].nombre===request.params.nombre){
+            while(m<listaNivelesOnlinejson[n].usuariosQueCompletaron.length){
+                if (listaNivelesOnlinejson[n].usuariosQueCompletaron[m]===request.body.username){
+                    yaPaso=true
+                    m=listaNivelesOnlinejson[n].usuariosQueCompletaron.length
+                }
+                else{
+                    m++;
+                }
+            }
+
+            if (yaPaso===true){
+            
+            }
+            else{
             listaNivelesOnlinejson[n].usuariosQueCompletaron.push(request.body.username);
             existe=true;
             n=listaNivelesOnlinejson.length;
+            }
         }
         else{
             n++;
@@ -663,10 +685,57 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
      if (existe===true){
         let listaNivelesOnlinejsontxt:string=JSON.stringify(listaNivelesOnlinejson, null, 1);
         fs.writeFileSync("./data/niveles.json", listaNivelesOnlinejsontxt);
-        response.status(200).json({estatus:"Nivel-completado"});
+
+        if (yaPaso===true){
+            response.status(200).json({estatus:"Usuario-ya-se-paso-el-nivel"});
+
+        }
+        else{
+            response.status(200).json({estatus:"Nivel-completado"});
+        }
      }
      else{
         response.status(404).json({estatus:"Nivel-no-encontrado"});
      }
     
+}
+export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdateLevel){
+   let listaNivelesOnlinetxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+   let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+
+   let nombreDeNivel:string=request.params.nombre
+
+   let nivelAActualizar: Nivel = {
+    elementos:[],
+    usuario:"",
+    usuariosQueCompletaron:[],
+    id:0,
+    nombre:"",
+    version:0
+   }
+
+   let n:number = 0;
+   let existe:boolean=false
+
+   while (n<listaNivelesOnlinejson.length){
+    if (listaNivelesOnlinejson[n].nombre===nombreDeNivel){
+        nivelAActualizar=request.body;
+        nivelAActualizar.version=listaNivelesOnlinejson[n].version+1;
+        listaNivelesOnlinejson[n]=nivelAActualizar;
+        existe=true;
+        n=listaNivelesOnlinejson.length
+    }
+    else{
+        n++;
+    }
+   }
+   
+   if (existe===true){
+    let listaNivelesOnlinejsontxt:string = JSON.stringify(listaNivelesOnlinejson, null, 1);
+    fs.writeFileSync("./data/niveles.json", listaNivelesOnlinejsontxt);
+    response.status(200).json({estatus:"Nivel-actualizado"});
+   }
+   else{
+    response.status(404).json({estatus:"El-nivel-no-ha-sido-publicado"});
+   }
 }

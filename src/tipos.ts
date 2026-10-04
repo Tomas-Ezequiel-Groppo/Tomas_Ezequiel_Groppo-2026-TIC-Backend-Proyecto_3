@@ -1,7 +1,5 @@
 //ARCHIVO DE LOS TIPOS DEL PROYECTO
 
-import type {UserUsername} from './request&responseTypes.js'
-
 export type Profile = {username:string ; password:string ; profileID:number};
 export type WholeProfile={
     profileData:Profile,
@@ -16,7 +14,8 @@ export type Nivel = {
     usuario:string,
     id:number,
     nombre:string,
-    usuariosQueCompletaron: string[]
+    usuariosQueCompletaron: string[],
+    version:number
 }
 export type Config = {
     theme:string,

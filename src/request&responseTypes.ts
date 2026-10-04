@@ -43,6 +43,7 @@ export type RequestCompleteLevel = Request<{numNivel:string}, Estatus, UserUsern
 export type RequestLoadOgLevel = Request<{numNivel:string}, Nivel>
 export type RequestPublishLevel= Request<UserUsername, Estatus , {nombre:string}>;
 export type RequestCompleteOnlineLevel = Request<{nombre:string}, Estatus , UserUsername>;
+export type RequestUpdateLevel = Request<{nombre:string}, Estatus, Nivel>;
 
 //SaveFile
 
@@ -69,6 +70,7 @@ export type ResponseCompleteLevel = Response<Estatus>;
 export type ResponseLoadOgLevel = Response<Estatus | Nivel>;
 export type ResponsePublishLevel = Response<Estatus>;
 export type ResponseCompleteOnlineLevel = Response<Estatus>;
+export type ResponseUpdateLevel = Response<Estatus>;
 
 //SaveFile
 
