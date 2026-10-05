@@ -79,10 +79,10 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
     jsonnuevofun=JSON.stringify(mainjsonjsoncompleto, null, 1);
     fs.writeFileSync(mainarchivojson,jsonnuevofun);
     configsjson.push(configPred)
-    let configsjsontxt:string=JSON.stringify(configsjson)
+    let configsjsontxt:string=JSON.stringify(configsjson, null, 1)
     fs.writeFileSync("./data/configs.json" , configsjsontxt);
     saveFilejson.push(saveFilePred);
-    let saveFilejsontxt:string=JSON.stringify(saveFilejson);
+    let saveFilejsontxt:string=JSON.stringify(saveFilejson, null, 1);
     fs.writeFileSync("./data/saveFiles.json" , saveFilejsontxt);
     response.status(200).json({estatus:"Perfil-guardado"})
 }
@@ -114,13 +114,11 @@ export function logProfile(request:RequestLogProfile, response:ResponseLogProfil
          response.status(200);
      }
      else{
-         response.json({estatus:"Contraseña-incorrecta"})
-         response.status(401);
+         response.status(401).json({estatus:"Contraseña-incorrecta"});
      }
     }
     else{
-        response.json({estatus:"Usuario-y/o-contraseña-incorrecta"});
-        response.status(404);
+        response.status(404).json({estatus:"Usuario-y/o-contraseña-incorrecta"});
     }
 }
 export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLevels){
@@ -409,60 +407,78 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
         user:""
     }
 
+
     let n:number=0;
     let lamisma:number=0;
-    
-     while (n<listaConfigsOGjson.length){
-        if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].resolution===configNueva.resolution&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volume===configNueva.volume){
-            lamisma=1;
-            n=listaConfigsOGjson.length;
+    let existe:boolean=false
+    while (n<listaConfigsOGjson.length){
+        if (listaConfigsOGjson[n].user===request.params.username){
+            existe=true;
+            n=listaConfigsOGjson.length
         }
         else{
-            lamisma=0;
             n++;
         }
-     }
+    }
 
-     if (lamisma===0){
-
-      let listaDeConfigsPreliminar: Config[]=[];
+    if (existe===true){
+        n=0;
+        while (n<listaConfigsOGjson.length){
+           if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].resolution===configNueva.resolution&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volume===configNueva.volume){
+               lamisma=1;
+               n=listaConfigsOGjson.length;
+           }
+           else{
+               lamisma=0;
+               n++;
+           }
+        }
+   
+        if (lamisma===0){
+   
+         let listaDeConfigsPreliminar: Config[]=[];
+       
+         while (listaConfigsOGjson.length>0){
+           if (listaConfigsOGjson[n-1].user===configNueva.user){
+               listaConfigsOGjson.pop();
+               n--;
+              
+           }
+           else{
+               listaDeConfigsPreliminar.push(listaConfigsOGjson[n-1]);
+               listaConfigsOGjson.pop();
+               n--;
+           }
+         }
+   n=0;
+         while (n<listaDeConfigsPreliminar.length){
+           listaConfigsOGjson.push(listaDeConfigsPreliminar[n]);
+           n++;
+         }
+         while (listaDeConfigsPreliminar.length>0){
+           listaDeConfigsPreliminar.pop()
+         }
+   
+         if (configNueva===configVacia){
+          response.status(404).json({estatus:"Configuracion-vacia"});
+         }
+         else{
+   listaConfigsOGjson.push(configNueva);
+         let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson)
+         fs.writeFileSync("./data/configs.json", listaConfigOGjsontxt)
+         response.status(200).json({estatus:"Nueva-configuracion-guardada"})
+         }
+        
+         
+           }
+           else{
+               response.status(200).json({estatus:"Misma-configuracion"})
+           }
+    }
+    else{
+        response.status(404).json({estatus:"Tal-perfil-no-existe"});
+    }
     
-      while (listaConfigsOGjson.length>0){
-        if (listaConfigsOGjson[n-1].user===configNueva.user){
-            listaConfigsOGjson.pop();
-            n--;
-           
-        }
-        else{
-            listaDeConfigsPreliminar.push(listaConfigsOGjson[n-1]);
-            listaConfigsOGjson.pop();
-            n--;
-        }
-      }
-n=0;
-      while (n<listaDeConfigsPreliminar.length){
-        listaConfigsOGjson.push(listaDeConfigsPreliminar[n]);
-        n++;
-      }
-      while (listaDeConfigsPreliminar.length>0){
-        listaDeConfigsPreliminar.pop()
-      }
-
-      if (configNueva===configVacia){
-       response.status(404).json({estatus:"Configuracion-vacia"});
-      }
-      else{
-listaConfigsOGjson.push(configNueva);
-      let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson)
-      fs.writeFileSync("./data/configs.json", listaConfigOGjsontxt)
-      response.status(200).json({estatus:"Nueva-configuracion-guardada"})
-      }
-     
-      
-        }
-        else{
-            response.status(200).json({estatus:"Misma-configuracion"})
-        }
 
     
 }
