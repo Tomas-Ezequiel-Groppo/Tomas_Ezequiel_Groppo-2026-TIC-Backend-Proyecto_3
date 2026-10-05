@@ -1,6 +1,70 @@
-# [Lindsey's Lasers]
+# Lindsey's Lasers
 
-[TODO: descripción en una línea de qué hace esta API]
+## Explicación de los endpoints
+
+"/saveProfile"
+
+Registra un perfil y verifica si hay un perfil con el username recibido en la base de datos
+
+"/logProfile"
+
+Verifica el username y contraseña recibidos para ver si coinciden en un perfil o si el username siquiera existe en la base de datos
+
+"/loadLevels"
+
+Carga todos los niveles online del json "data/niveles.json"
+
+"/loadLevels/:username"
+
+Carga todos los niveles online del json "data/niveles.json" que correspondan a un usuario específico
+
+"/saveLevel"
+
+Guarda un nivel en la sección "nivelesCompletados" del save file de un usuario en específico, en el archivo "saveFiles.json"
+
+"/:username"
+
+Carga toda la información de un usuario, su progreso en los niveles originales, los niveles que publicó, su nombre de usuario, etc.
+
+"/loadLevel/level/:nombre"
+
+Carga un nivel de los niveles online que tenga el nombre puesto en la URL
+
+":username/configs"
+
+Carga las configuraciones de un usuario en específico
+
+":username/saveConfigs"
+
+Guarda las configuraciones de un usuario en específico, verificando también si la configuración es igual a la que había antes
+
+"/loadLeveles/original/all"
+
+Carga todos los niveles creados por los desarrolladores a la vez
+
+"saveFile/:username"
+
+Carga el archivo de guardado de un usuario en específico
+
+"level/original/:numNivel" GET
+
+Carga un nivel creado por los desarrolladores que tenga el número de nivel marcado en la URL
+
+"/level/original/:numNivel" POST
+
+Hace que el saveFile del usuario que se envió por el body se modifique para marcar como completado el nivel marcado en la URL.
+
+"/publishLevel/:username"
+
+Hace que el nivel recibido en el body sea publicado a nombre del usuario puesto en la URL
+
+"/level:nombre" POST
+
+Hace que el usuario enviado en el body entre a la lista de usuarios que completaron el nivel marcando en la URL.
+
+"/level:nombre" PUT
+
+Actualiza el nivel deseado en el archivo "niveles.json", sumandole +1 a su versión
 
 ## Endpoints
 
@@ -13,10 +77,11 @@
 |`POST`|`/logProfile`|UserProfile|`401 ERROR`{estatus:"Contraseña-incorrecta"}|
 |`POST`| `/logProfile` |UserProfile|`404 ERROR`{estatus:"Usuario-y/o-contraseña-incorrecta"}|
 |`GET`|`/loadLevels`|—| `200 OK`(listaDeNiveles)|
-|`GET`|`/loadLevelsUsers`|UserUsername|`200 OK`(listaDeNiveles)|
-|`GET`|`/loadLevelsUsers`|UserUsername|`404 ERROR`{estatus:"No-se-ha-encontrado-el-usuario-marcado"}|
-|`GET`|`/loadLevelsUsers`|UserUsername|`404 ERROR`{estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"}|
+|`GET`|`/loadLevels/:username`|UserUsername|`200 OK`(listaDeNiveles)|
+|`GET`|`/loadLevels/:username`|UserUsername|`404 ERROR`{estatus:"No-se-ha-encontrado-el-usuario-marcado"}|
+|`GET`|`/loadLevels/:username`|UserUsername|`404 ERROR`{estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"}|
 |`POST`|`/saveLevel`|Nivel|`200 OK` {estatus:"Nivel-guardado"}|
+|`POST`|`/saveLevel`|Nivel|`404 ERROR` {estatus:"Perfil-no-encontrado"}|
 |`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"Nivel-vacio"}|
 |`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"No-se-le-ha-puesto-nombre-al-nivel"}|
 |`POST`|`/saveLevel`|Nivel|`400 ERROR`{estatus:"No-se-especifico-un-usuario"}|
@@ -27,20 +92,49 @@
 |`GET`|`/:username/configs`|UserUsername|`200 OK` (configCargada)|
 |`GET`|`/:username/configs`|UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 |`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Nueva-configuracion-guardada"}|
-|`POST`|`/username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Misma-configuracion"}|
+|`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Misma-configuracion"}|
+|`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`404 ERROR` {estatus:"Configuracion-vacia"}|
 |`GET`|`/loadLevels/original/all`|—|`200 OK`|
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
-| [TODO] | [TODO]        | [TODO]         | [TODO] |
+|`GET`|`/saveFile/:username`|UserUsername|`200 OK` (requestedSaveFile)|
+|`GET`|`/saveFile/:username`|UserUsername|`400 ERROR` {estatus:"Archivo-de-guardado-no-encontrado"}|
+|`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`200 OK`{estatus:"Complecion-de-nivel-guardada"}|
+|`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`200 OK`{estatus:"Complecion-de-nivel-guardada"}|
+|`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`200 OK`{estatus:"Complecion-de-nivel-guardada"}|
+|`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`404 ERROR`{estatus:"No-hay-tal-nivel"}|
+|`GET`|`/level/original/:numNivel`|{numNivel:string}|`200 OK` (nivelBuscado)|
+|`GET`|`/level/original/:numNivel`|{numNivel:string}|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`200 OK` {estatus:"Nivel-publicado"}|
+|`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`409 OK` {estatus:"Ya-existe-un-nivel-con-ese-nombre"}|
+|`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`404 OK` {estatus:"No-hay-niveles-creados-por-ese-usuario"}|
+|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Usuario-ya-se-paso-el-nivel"}|
+|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Nivel-completado"}|
+|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`200 OK`{estatus:"Nivel-actualizado"}|
+|`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`404 ERROR`{estatus:"El-nivel-no-ha-sido-publicado"}|
 
 ## Datos
 
-[TODO: qué se guarda en `data/` y en qué formato, si aplica]
+Hay cinco archivos de datos:
+
+-main.json
+
+Almacena los perfiles del juego, en forma un array del tipo Profile
+
+-configs.json
+
+Almacena las configuraciones de cada usuario, en forma de array del tipo Config
+
+-saveFiles.json
+
+Almacena los archivos de guardado de cada usuario, en forma de array del tipo SaveFile
+
+-nivelesOriginales.json
+
+Almacena los niveles creados por los desarrolladores, en forma de array del tipo Nivel
+
+-niveles.json
+
+Almacena los niveles publicados por la comunidad, en forma de array del tipo Nivel
 
 ## Archivos
 

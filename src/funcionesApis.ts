@@ -402,6 +402,12 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
         resolution:request.body.resolution,
         user:request.params.username
     }
+    let configVacia:Config={
+        theme:"",
+        volume:0,
+        resolution:"",
+        user:""
+    }
 
     let n:number=0;
     let lamisma:number=0;
@@ -441,11 +447,18 @@ n=0;
       while (listaDeConfigsPreliminar.length>0){
         listaDeConfigsPreliminar.pop()
       }
-     
-      listaConfigsOGjson.push(configNueva);
+
+      if (configNueva===configVacia){
+       response.status(404).json({estatus:"Configuracion-vacia"});
+      }
+      else{
+listaConfigsOGjson.push(configNueva);
       let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson)
       fs.writeFileSync("./data/configs.json", listaConfigOGjsontxt)
       response.status(200).json({estatus:"Nueva-configuracion-guardada"})
+      }
+     
+      
         }
         else{
             response.status(200).json({estatus:"Misma-configuracion"})
