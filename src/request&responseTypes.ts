@@ -48,6 +48,7 @@ export type RequestUpdateLevel = Request<{nombre:string}, Estatus, Nivel>;
 //SaveFile
 
 export type RequestLoadSaveFile = Request<UserUsername,SaveFile>;
+export type RequestSaveLevelUser = Request<{nombre:string}, Estatus , UserUsername>;
 
 //RESPONSE
 
@@ -75,3 +76,4 @@ export type ResponseUpdateLevel = Response<Estatus>;
 //SaveFile
 
 export type ResponseLoadSaveFile = Response<Estatus | SaveFile>;
+export type ResponseSaveLevelUser = Response <Estatus>

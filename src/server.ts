@@ -6,7 +6,7 @@ import fs from 'fs'
 import { saveProfile , logProfile , loadProfile, loadConfig, saveConfig} from './funcionesApis.js';
 import { loadLevels , loadLevelsUsers, saveLevel, loadLevel, publishLevel, updateLevel} from './funcionesApis.js';
 import { loadLevelsOG, completeLevel, loadLevelOG, completeOnlineLevel} from './funcionesApis.js'; 
-import { loadSaveFile } from './funcionesApis.js';
+import { loadSaveFile, saveLevelUser} from './funcionesApis.js';
 import type {Profile , Objeto , Elemento} from './tipos.js'
 
 const app: Express = express();
@@ -66,6 +66,7 @@ app.post("/:username/saveConfigs" , saveConfig);
 //SAVEFILES
 
 app.get("/saveFile/:username", loadSaveFile);
+app.post("/saveLevelUser/:nombre", saveLevelUser);
 
 app.listen(PUERTO, (): void => {
   console.log(`Servidor abierto en http://localhost:${PUERTO}`);

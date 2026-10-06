@@ -15,7 +15,8 @@ export type Nivel = {
     id:number,
     nombre:string,
     usuariosQueCompletaron: string[],
-    version:number
+    version:number,
+    publicado:boolean
 }
 export type Config = {
     theme:string,
@@ -28,5 +29,6 @@ export type SaveFile = {
     nivelesOG2:boolean[],
     nivelesOG3:boolean[],
     nivelesCreados:Nivel[],
-    usernsame:string
+    usernsame:string,
+    nivelesGuardados:Nivel[]
 }

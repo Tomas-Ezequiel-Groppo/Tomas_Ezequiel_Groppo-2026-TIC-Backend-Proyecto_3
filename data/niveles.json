@@ -21,7 +21,8 @@
   "usuario": "holalan",
   "id": 1,
   "nombre": "Primer-nivel-testeo",
-  "version": 4
+  "version": 4,
+  "publicado":true
  },
  {
   "elementos": [
@@ -438,6 +439,7 @@
   "usuariosQueCompletaron": [],
   "id": 2,
   "nombre": "Jusenkyo",
-  "version": 1
+  "version": 1,
+  "publicado":true
  }
 ]

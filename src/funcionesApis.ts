@@ -9,7 +9,7 @@ import type {Profile, WholeProfile, Config} from './tipos.js'
 import type {Objeto, Elemento, Nivel} from './tipos.js'
 import type { SaveFile } from './tipos.js';
 
-import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig} from './request&responseTypes.js'
+import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser} from './request&responseTypes.js'
 import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel } from './request&responseTypes.js';
 
 import type { RequestLoadSaveFile } from './request&responseTypes.js';
@@ -52,7 +52,8 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
         nivelesOG2:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
         nivelesOG3:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
         nivelesCreados:[],
-        usernsame:request.body.username
+        usernsame:request.body.username,
+        nivelesGuardados:[]
     }
 
     while (n<mainjsonjsoncompleto.length){
@@ -124,7 +125,20 @@ export function logProfile(request:RequestLogProfile, response:ResponseLogProfil
 export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLevels){
      let lista:string=fs.readFileSync("./data/niveles.json" , "utf-8");
      let listajson: Nivel[]=JSON.parse(lista);
-     response.json(listajson)
+
+     let listaNivelesVisibles:Nivel[]=[]
+
+     let n:number=0;
+     while (n<listajson.length){
+        if (listajson[n].publicado===true){
+        listaNivelesVisibles.push(listajson[n]);
+        n++;
+        }
+        else{
+        n++;
+        }
+     }
+     response.json(listaNivelesVisibles);
 }
 export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:ResponseLoadLevelUsers){
 let listaOG :string = fs.readFileSync("./data/niveles.json", "utf-8");
@@ -136,7 +150,10 @@ let listavacia:Nivel[]=[];
 let userExists:boolean=false
 while (n<listajsonOG.length){
   if (listajsonOG[n].usuario===usuario){
-     listajson.push(listajsonOG[n]);
+
+    if (listajson[n].publicado===true){
+        listajson.push(listajsonOG[n]);
+    }
      userExists=true;
      n++;
   }
@@ -166,7 +183,8 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
         nivelesOG2:[],
         nivelesOG3:[],
         nivelesCreados:[],
-        usernsame:""
+        usernsame:"",
+        nivelesGuardados:[]
      }
      let n:number = 0;
      let m:number= 0;
@@ -197,7 +215,8 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         nombre:request.body.nombre,
         id:saveFileAModificar.nivelesCreados.length+1,
         usuariosQueCompletaron:[],
-        version:0
+        version:0,
+        publicado:false
      }
     let vacioLevel:Nivel={
         elementos:[],
@@ -205,7 +224,8 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         nombre:"",
         id:0,
         usuariosQueCompletaron:[],
-        version:0
+        version:0,
+        publicado:false
     }
      if (newLevel.elementos===vacioLevel.elementos){
         response.status(400).json({estatus:"Nivel-vacio"});
@@ -327,7 +347,8 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
     id:0,
     nombre:"",
     usuariosQueCompletaron:[],
-    version:0
+    version:0,
+    publicado:false
     }
     let n:number = 0;
 
@@ -347,7 +368,13 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
         response.status(404).json({estatus:"No-se-ha-encontrado-un-nivel-con-dicho-nombre"});
     }
     else{
-        response.json(nivelQueHayQueCargar);
+
+        if (nivelQueHayQueCargar.publicado===false){
+            response.status(404).json({estatus:"Nivel-esta-en-oculto"});
+        }
+        else{
+            response.json(nivelQueHayQueCargar);
+        }
     }
 }
 export function loadConfig (request:RequestLoadConfig, response:ResponseLoadConfig){
@@ -498,7 +525,8 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
        nivelesOG2:[],
        nivelesOG3:[],
        nivelesCreados:[],
-       usernsame:""
+       usernsame:"",
+       nivelesGuardados:[]
    }
 
    while (n<saveFilesjson.length){
@@ -507,6 +535,7 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
           requestedSaveFile.nivelesOG2=saveFilesjson[n].nivelesOG2;
           requestedSaveFile.nivelesOG3=saveFilesjson[n].nivelesOG3;
           requestedSaveFile.nivelesCreados=saveFilesjson[n].nivelesCreados;
+          requestedSaveFile.nivelesGuardados=saveFilesjson[n].nivelesGuardados;
           requestedSaveFile.usernsame=request.params.username;
           n=saveFilesjson.length;
     }
@@ -582,7 +611,8 @@ export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgL
     id:0,
     nombre:"",
     usuariosQueCompletaron:[],
-    version:0
+    version:0,
+    publicado:false
   }
 
   let n:number=0;
@@ -620,7 +650,8 @@ let nivelAGuardar:Nivel={
     usuariosQueCompletaron:[],
     id:listaNivelesOnlinejson.length+1,
     nombre:"",
-    version:1
+    version:1,
+    publicado:true
 }
 
 let usuario:string=request.params.username;
@@ -740,7 +771,8 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
     usuariosQueCompletaron:[],
     id:0,
     nombre:"",
-    version:0
+    version:0,
+    publicado:false
    }
 
    let n:number = 0;
@@ -750,6 +782,7 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
     if (listaNivelesOnlinejson[n].nombre===nombreDeNivel){
         nivelAActualizar=request.body;
         nivelAActualizar.version=listaNivelesOnlinejson[n].version+1;
+        nivelAActualizar.publicado=listaNivelesOnlinejson[n].publicado
         listaNivelesOnlinejson[n]=nivelAActualizar;
         existe=true;
         n=listaNivelesOnlinejson.length
@@ -767,4 +800,51 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
    else{
     response.status(404).json({estatus:"El-nivel-no-ha-sido-publicado"});
    }
+}
+export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSaveLevelUser){
+     let listaNivelesOnlinetxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+     let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+
+     let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles", "utf-8");
+     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+
+     let n:number=0;
+     let existe:boolean=false;
+     let i:number=0;
+     let nivelExiste:boolean=false;
+
+     while (n<listaSaveFilesjson.length){
+        if (listaSaveFilesjson[n].usernsame===request.body.username){
+            existe=true;
+            i=n;
+            n=listaSaveFilesjson.length;
+        }
+        else{
+            n++;
+        }
+     }
+
+     if (existe===true){
+        let m:number=0;
+        while (m<listaNivelesOnlinejson.length){
+            if (listaNivelesOnlinejson[m].nombre===request.params.nombre){
+                listaSaveFilesjson[i].nivelesGuardados.push(listaNivelesOnlinejson[m]);
+                fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson, null, 1));
+                response.status(200).json({estatus:"Nivel.guardado"});
+                nivelExiste=true;
+                n=listaNivelesOnlinejson.length
+            }
+            else{
+                n++;
+            }
+        }
+        if (nivelExiste===false){
+            response.status(404).json({estatus:"Nivel-no-encontrado"});
+        }
+     }
+     else{
+        response.status(404).json({estatus:"No-se-ha-encontrado-al-usuario"});
+     }
+
+
 }
