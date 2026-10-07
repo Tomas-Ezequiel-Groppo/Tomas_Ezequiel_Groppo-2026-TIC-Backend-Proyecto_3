@@ -33,6 +33,6 @@ export type SaveFile = {
     nivelesOG2:boolean[],
     nivelesOG3:boolean[],
     nivelesCreados:Nivel[],
-    usernsame:string,
+    username:string,
     nivelesGuardados:Nivel[]
 }
