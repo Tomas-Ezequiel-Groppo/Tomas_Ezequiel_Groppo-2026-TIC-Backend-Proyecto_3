@@ -5,8 +5,12 @@ export type WholeProfile={
     profileData:Profile,
     createdLevels:Nivel[]
 }
-
-export type Objeto = {orientacion:string|null;propiedadEspecial:string|null};
+type Portal ={
+    propiedadEspecial:string,
+    posicionXPortalB:number,
+    posicionYPortalB:number
+}
+export type Objeto = {orientacion:string|null;propiedadEspecial:string|null|Portal};
 export type ElementoPP = {propiedadEspecial:string|null}
 export type Elemento ={tipo:Objeto | ElementoPP; posicionX:number; posicionY:number}|null;
 export type Nivel = {
