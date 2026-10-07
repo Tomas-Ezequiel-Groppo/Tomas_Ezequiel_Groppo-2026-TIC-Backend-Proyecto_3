@@ -859,7 +859,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
             response.status(404).json({estatus:"Nivel-no-encontrado"});
         }
         else{
-            response.status(200).json({estatus:"Nivel.guardado"});
+            response.status(200).json({estatus:"Nivel-guardado"});
         }
      }
      else{
@@ -957,7 +957,11 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
         let nuevoNombre:string = request.body.nombre;
         let ID:number=Number(request.params.id);
 
-        let n:number=0;
+        if (nuevoNombre===""){
+            response.status(400).json({estatus:"No-se-ha-recibido-un-nombre"});
+        }
+        else{
+            let n:number=0;
         let i:number = 0;
         let usuarioExiste:boolean=false;
         let nivelExiste:boolean=false;
@@ -997,6 +1001,7 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
         }
         else{
             response.status(404).json({estatus:"Usuario-no-encontrado"});
+        }
         }
 }
 export function deleteLevel (request:RequestDeleteLevel , response:ResponseDeleteLevel){

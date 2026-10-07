@@ -135,6 +135,21 @@ Elimina un nivel creado del Save File del usuario correspondiente
 |`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"Nivel-no-encontrado"}|
 |`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`200 OK`{estatus:"Nivel-actualizado"}|
 |`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`404 ERROR`{estatus:"El-nivel-no-ha-sido-publicado"}|
+|`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Nivel-guardado"}|
+|`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"No-se-ha-encontrado-al-usuario"}|
+|`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/hideLevel/:nombre`|{nombre:string}|`200 OK` {estatus:"Nivel-ocultado"}|
+|`PUT`|`/hideLevel/:nombre`|{nombre:string}|`404 OK` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/showLevel/:nombre`|{nombre:string}|`200 OK` {estatus:"Nivel-mostrado"}|
+|`PUT`|`/showLevel/:nombre`|{nombre:string}|`404 OK` {estatus:"Nivel-no-encontrado"}|
+|`PATCH`|`/level/name/online/:id`|{id:string}/{nombre:string}|`200 OK` {estatus:"Nombre-de-nivel-cambiado"}|
+|`PATCH`|`/level/name/online/:id`|{id:string}/{nombre:string}|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel"}|
+|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`200 OK` {estatus:"No-se-especifico-el-nombre-del-nivel"}|
+|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel"}|
+|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
+|`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`200 OK` {estatus:"Nivel-eliminado"}|
+|`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 
 ## Datos
 
@@ -160,7 +175,7 @@ Almacena los niveles creados por los desarrolladores, en forma de array del tipo
 
 Almacena los niveles publicados por la comunidad, en forma de array del tipo Nivel
 
-## Archivos
+## Archivos de código
 
 index.ts: Archivo del commit inicial, no cumple una función en el archivo, está para recordar donde inició el proyecto
 
