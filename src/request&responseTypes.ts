@@ -44,6 +44,10 @@ export type RequestLoadOgLevel = Request<{numNivel:string}, Nivel>
 export type RequestPublishLevel= Request<UserUsername, Estatus , {nombre:string}>;
 export type RequestCompleteOnlineLevel = Request<{nombre:string}, Estatus , UserUsername>;
 export type RequestUpdateLevel = Request<{nombre:string}, Estatus, Nivel>;
+export type RequestHideLevel = Request<{nombre:string}, Estatus>;
+export type RequestUpdateLevelNameOnline=Request<{id:string}, Estatus , {nombre:string}>;
+export type RequestUpdateLevelNameOffline=Request<{id:string}, Estatus, {nombre:string}&{username:string}>;
+export type RequestDeleteLevel = Request<{id:string}, Estatus, UserUsername>
 
 //SaveFile
 
@@ -72,6 +76,10 @@ export type ResponseLoadOgLevel = Response<Estatus | Nivel>;
 export type ResponsePublishLevel = Response<Estatus>;
 export type ResponseCompleteOnlineLevel = Response<Estatus>;
 export type ResponseUpdateLevel = Response<Estatus>;
+export type ResponseHideLevel = Response <Estatus>;
+export type ResponseUpdateLevelNameOnline= Response<Estatus>;
+export type ResponseUpdateLevelNameOffline=Response<Estatus>;
+export type ResponseDeleteLevel=Response<Estatus>;
 
 //SaveFile
 

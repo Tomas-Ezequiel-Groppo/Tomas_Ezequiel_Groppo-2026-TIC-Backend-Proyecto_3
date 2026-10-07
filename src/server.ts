@@ -4,8 +4,8 @@ import express from 'express';
 import type { Express, Request, Response } from 'express';
 import fs from 'fs'
 import { saveProfile , logProfile , loadProfile, loadConfig, saveConfig} from './funcionesApis.js';
-import { loadLevels , loadLevelsUsers, saveLevel, loadLevel, publishLevel, updateLevel} from './funcionesApis.js';
-import { loadLevelsOG, completeLevel, loadLevelOG, completeOnlineLevel} from './funcionesApis.js'; 
+import { loadLevels , loadLevelsUsers, saveLevel, loadLevel, publishLevel, updateLevel, hideLevel, showLevel, updateLevelNameOnline} from './funcionesApis.js';
+import { loadLevelsOG, completeLevel, loadLevelOG, completeOnlineLevel, updateLevelNameOffline, deleteLevel} from './funcionesApis.js'; 
 import { loadSaveFile, saveLevelUser} from './funcionesApis.js';
 import type {Profile , Objeto , Elemento} from './tipos.js'
 
@@ -45,11 +45,25 @@ app.post("/level/:nombre", completeOnlineLevel)
 
 app.put("/level/:nombre", updateLevel);
 
+app.put("/level/hide/:nombre", hideLevel);
+
+app.put("/level/show/:nombre", showLevel);
+
+app.patch("/level/name/online/:id", updateLevelNameOnline);
+
+app.patch("/level/name/offline/:id", updateLevelNameOffline);
+
+app.delete("/level/delete/:id", deleteLevel)
+
+
 //offline
 
 app.get("/loadLevels/original/all", loadLevelsOG);
+
 app.post("/level/original/:numNivel", completeLevel);
+
 app.get("/level/original/:numNivel", loadLevelOG)
+
 app.post("/saveLevel", saveLevel);
 
 //PERFILES
@@ -66,6 +80,7 @@ app.post("/:username/saveConfigs" , saveConfig);
 //SAVEFILES
 
 app.get("/saveFile/:username", loadSaveFile);
+
 app.post("/saveLevelUser/:nombre", saveLevelUser);
 
 app.listen(PUERTO, (): void => {

@@ -18,8 +18,8 @@ import type { ResponseLoadSaveFile } from './request&responseTypes.js';
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel, ResponsePublishLevel} from './request&responseTypes.js';
 
-import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel, RequestCompleteOnlineLevel, RequestUpdateLevel } from './request&responseTypes.js';
-import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel, ResponseUpdateLevel} from './request&responseTypes.js';
+import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel, RequestCompleteOnlineLevel, RequestUpdateLevel, RequestHideLevel, RequestUpdateLevelNameOnline, RequestUpdateLevelNameOffline, RequestDeleteLevel} from './request&responseTypes.js';
+import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel, ResponseUpdateLevel, ResponseHideLevel, ResponseUpdateLevelNameOnline, ResponseUpdateLevelNameOffline, ResponseDeleteLevel} from './request&responseTypes.js';
 
 const app:Express= express();
 
@@ -204,6 +204,24 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
           }
      }
 
+     let i:number = 0;
+
+     let mayorValor:number=0;
+
+     while (i<saveFileAModificar.nivelesCreados.length){
+        if (i===0){
+            mayorValor=saveFileAModificar.nivelesCreados[i].id;
+        }
+        else if (i<mayorValor){
+            mayorValor=mayorValor;
+        }
+        else{
+            mayorValor=i;
+        }
+        i++;
+     }
+     mayorValor=mayorValor+1;
+
      if (saveFileAModificar.usernsame===""){
 response.status(404).json({estatus:"Perfil-no-encontrado"});
      }
@@ -213,7 +231,7 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         elementos:request.body.elementos,
         usuario:usuario,
         nombre:request.body.nombre,
-        id:saveFileAModificar.nivelesCreados.length+1,
+        id:mayorValor,
         usuariosQueCompletaron:[],
         version:0,
         publicado:false
@@ -847,4 +865,179 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
      }
 
 
+}
+export function hideLevel (request:RequestHideLevel, response:ResponseHideLevel){
+         let listaNivelestxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+         let listaNivelesjson: Nivel[]=JSON.parse(listaNivelestxt);
+
+         let nombreNivel:string=request.params.nombre;
+
+         let n:number=0;
+         let existe:boolean=false;
+
+         while (n<listaNivelesjson.length){
+            if (listaNivelesjson[n].nombre===nombreNivel){
+                existe=true;
+                listaNivelesjson[n].publicado=false;
+                n=listaNivelesjson.length;
+            }
+            else{
+                n++;
+            }
+         }
+         if (existe===true){
+            response.status(200).json({estatus:"Nivel-ocultado"})
+         }
+         else{
+            response.status(404).json({estatus:"Nivel-no-encontrado"});
+         }
+}
+export function showLevel (request:RequestHideLevel, response:ResponseHideLevel){
+      let listaNivelestxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+         let listaNivelesjson: Nivel[]=JSON.parse(listaNivelestxt);
+
+         let nombreNivel:string=request.params.nombre;
+
+         let n:number=0;
+         let existe:boolean=false;
+
+         while (n<listaNivelesjson.length){
+            if (listaNivelesjson[n].nombre===nombreNivel){
+                existe=true;
+                listaNivelesjson[n].publicado=true;
+                n=listaNivelesjson.length;
+            }
+            else{
+                n++;
+            }
+         }
+         if (existe===true){
+            response.status(200).json({estatus:"Nivel-mostrado"})
+         }
+         else{
+            response.status(404).json({estatus:"Nivel-no-encontrado"});
+         }
+}
+export function updateLevelNameOnline (request:RequestUpdateLevelNameOnline, response:ResponseUpdateLevelNameOnline){
+    let listaNivelesOnlinetxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+    let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+
+    let nuevoNombre:string=request.body.nombre;
+    let ID:number = Number(request.params.id);
+
+    let n:number = 0;
+
+    if (nuevoNombre===""){
+        response.status(400).json({estatus:"No-se-especifico-el-nombre-del-nivel"});
+    }
+    else{
+        while (n<listaNivelesOnlinejson.length){
+        if (listaNivelesOnlinejson[n].id===ID){
+            listaNivelesOnlinejson[n].nombre=nuevoNombre;
+            n=listaNivelesOnlinejson.length
+        }
+        else{
+            n++;
+        }
+    }
+
+    fs.writeFileSync("./data/niveles.json", JSON.stringify(listaNivelesOnlinejson, null, 1));
+
+    response.status(200).json({estatus:"Nombre-de-nivel-cambiado"});
+    }
+    
+}
+export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, response:ResponseUpdateLevelNameOffline){
+        let listaSaveFilestxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+        let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+
+        let usuario:string = request.body.username;
+        let nuevoNombre:string = request.body.nombre;
+        let ID:number=Number(request.params.id);
+
+        let n:number=0;
+        let i:number = 0;
+        let usuarioExiste:boolean=false;
+        let nivelExiste:boolean=false;
+
+        while (n<listaSaveFilesjson.length){
+            if (listaSaveFilesjson[n].usernsame===usuario){
+                usuarioExiste=true;
+                while (i<listaSaveFilesjson[n].nivelesCreados.length){
+                    if (listaSaveFilesjson[n].nivelesCreados[i].id===ID){
+                        listaSaveFilesjson[n].nivelesCreados[i].nombre=nuevoNombre;
+                        nivelExiste=true;
+                        i=listaSaveFilesjson[n].nivelesCreados.length;
+                    }
+                    else{
+                        i++;
+                    }
+                }
+            }
+            else{
+                n++;
+            }
+        }
+
+        if (usuarioExiste===true){
+            if (nivelExiste===true){
+                response.status(200).json({estatus:"El-nombre-del-nivel-ha-sido-cambiado"});
+            }
+            else{
+                response.status(404).json({estatus:"Nivel-no-encontrado"});
+            }
+        }
+        else{
+            response.status(404).json({estatus:"Usuario-no-encontrado"});
+        }
+}
+export function deleteLevel (request:RequestDeleteLevel , response:ResponseDeleteLevel){
+    let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+
+    let ID:number=Number(request.params.id);
+    let usuario:string=request.body.username;
+
+    let usuarioExiste:boolean=false;
+
+    let n:number=0;
+    let m:number=0;
+
+    while (n<listaSaveFilesjson.length){
+        if (listaSaveFilesjson[n].usernsame===usuario){
+            usuarioExiste=true;
+            m=n;
+            n=listaSaveFilesjson.length;
+        }
+        else{
+            n++;
+        }
+    }
+    let listaMedia:Nivel[]=[];
+
+    while (0<listaSaveFilesjson[m].nivelesCreados.length){
+        let i:number = listaSaveFilesjson[m].nivelesCreados.length-1;
+        if (listaSaveFilesjson[m].nivelesCreados[i].id===ID){
+            listaSaveFilesjson[m].nivelesCreados.pop()
+        }
+        else{
+            listaMedia.push(listaSaveFilesjson[m].nivelesCreados[i]);
+            listaSaveFilesjson.pop()
+        }
+    }
+
+    while (0<listaMedia.length){
+        let i=listaMedia.length-1;
+        listaSaveFilesjson[m].nivelesCreados.push(listaMedia[i]);
+        listaMedia.pop()
+    }
+    
+    fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson, null, 1));
+
+    if (usuarioExiste===true){
+        response.status(200).json({estatus:"Nivel-eliminado"});
+    }
+    else{
+        response.status(404).json({estatus:"Usuario-no-encontrado"});
+    }
 }
