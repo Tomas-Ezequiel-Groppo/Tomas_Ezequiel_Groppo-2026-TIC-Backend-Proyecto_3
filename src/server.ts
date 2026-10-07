@@ -53,7 +53,7 @@ app.patch("/level/name/online/:id", updateLevelNameOnline);
 
 app.patch("/level/name/offline/:id", updateLevelNameOffline);
 
-app.delete("/level/delete/:id", deleteLevel)
+app.delete("/level/delete/:id", deleteLevel);
 
 
 //offline

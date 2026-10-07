@@ -52,7 +52,7 @@ Carga un nivel creado por los desarrolladores que tenga el número de nivel marc
 
 "/level/original/:numNivel" POST
 
-Hace que el saveFile del usuario que se envió por el body se modifique para marcar como completado el nivel marcado en la URL.
+Hace que el saveFile del usuario que se envió por el body se modifique para marcar como completado el nivel marcado en la URL
 
 "/publishLevel/:username"
 
@@ -60,11 +60,35 @@ Hace que el nivel recibido en el body sea publicado a nombre del usuario puesto 
 
 "/level:nombre" POST
 
-Hace que el usuario enviado en el body entre a la lista de usuarios que completaron el nivel marcando en la URL.
+Hace que el usuario enviado en el body entre a la lista de usuarios que completaron el nivel marcando en la URL
 
 "/level:nombre" PUT
 
 Actualiza el nivel deseado en el archivo "niveles.json", sumandole +1 a su versión
+
+"/saveLevelUser/:nombre"
+
+Guarda el un nivel online en una parte del Save File del usuario
+
+"/level/hide/:nombre"
+
+Oculta un nivel online de la visión pública
+
+"/level/show/:nombre"
+
+Hace que un nivel que esté oculto reaparezca en la visión pública
+
+"/level/name/online/:id"
+
+Modifica el nombre de un nivel online
+
+"/level/name/offline/:id"
+
+Modifica el nombre de un nivel offline
+
+"/level/delete/:id"
+
+Elimina un nivel creado del Save File del usuario correspondiente
 
 ## Endpoints
 

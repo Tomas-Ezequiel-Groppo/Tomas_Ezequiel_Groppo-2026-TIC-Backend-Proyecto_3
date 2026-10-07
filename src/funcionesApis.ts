@@ -6,7 +6,7 @@ import express from 'express'
 import type {Express} from 'express';
 
 import type {Profile, WholeProfile, Config} from './tipos.js'
-import type {Objeto, Elemento, Nivel} from './tipos.js'
+import type {Nivel} from './tipos.js'
 import type { SaveFile } from './tipos.js';
 
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser} from './request&responseTypes.js'
@@ -1010,7 +1010,7 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
 
     let n:number=0;
     let m:number=0;
-
+   
     while (n<listaSaveFilesjson.length){
         if (listaSaveFilesjson[n].usernsame===usuario){
             usuarioExiste=true;
@@ -1023,20 +1023,23 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
     }
     let listaMedia:Nivel[]=[];
 
+    let i:number = 0;
+
     while (0<listaSaveFilesjson[m].nivelesCreados.length){
-        let i:number = listaSaveFilesjson[m].nivelesCreados.length-1;
-        
+
+        i = listaSaveFilesjson[m].nivelesCreados.length-1;
+
         if (listaSaveFilesjson[m].nivelesCreados[i].id===ID){
             listaSaveFilesjson[m].nivelesCreados.pop()
         }
         else{
             listaMedia.push(listaSaveFilesjson[m].nivelesCreados[i]);
-            listaSaveFilesjson.pop()
+            listaSaveFilesjson[m].nivelesCreados.pop()
         }
     }
 
     while (0<listaMedia.length){
-        let i=listaMedia.length-1;
+        i=listaMedia.length-1;
         listaSaveFilesjson[m].nivelesCreados.push(listaMedia[i]);
         listaMedia.pop()
     }
