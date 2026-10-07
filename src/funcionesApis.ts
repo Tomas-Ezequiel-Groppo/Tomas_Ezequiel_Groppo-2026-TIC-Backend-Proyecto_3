@@ -950,7 +950,7 @@ export function updateLevelNameOnline (request:RequestUpdateLevelNameOnline, res
     
 }
 export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, response:ResponseUpdateLevelNameOffline){
-        let listaSaveFilestxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
+        let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
         let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
 
         let usuario:string = request.body.username;
@@ -961,6 +961,8 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
         let i:number = 0;
         let usuarioExiste:boolean=false;
         let nivelExiste:boolean=false;
+        let m:number=0;
+        let g:number =0;
 
         while (n<listaSaveFilesjson.length){
             if (listaSaveFilesjson[n].usernsame===usuario){
@@ -969,12 +971,16 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
                     if (listaSaveFilesjson[n].nivelesCreados[i].id===ID){
                         listaSaveFilesjson[n].nivelesCreados[i].nombre=nuevoNombre;
                         nivelExiste=true;
+                        fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson, null, 1));
+                        m=i;
                         i=listaSaveFilesjson[n].nivelesCreados.length;
                     }
                     else{
                         i++;
                     }
                 }
+                g=n
+                n=listaSaveFilesjson.length;
             }
             else{
                 n++;
@@ -1019,6 +1025,7 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
 
     while (0<listaSaveFilesjson[m].nivelesCreados.length){
         let i:number = listaSaveFilesjson[m].nivelesCreados.length-1;
+        
         if (listaSaveFilesjson[m].nivelesCreados[i].id===ID){
             listaSaveFilesjson[m].nivelesCreados.pop()
         }
