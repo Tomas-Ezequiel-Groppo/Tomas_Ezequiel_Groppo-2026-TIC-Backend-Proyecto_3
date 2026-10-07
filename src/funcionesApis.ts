@@ -823,7 +823,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
      let listaNivelesOnlinetxt:string=fs.readFileSync("./data/niveles.json", "utf-8");
      let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
 
-     let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles", "utf-8");
+     let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
      let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
 
      let n:number=0;
@@ -848,16 +848,18 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
             if (listaNivelesOnlinejson[m].nombre===request.params.nombre){
                 listaSaveFilesjson[i].nivelesGuardados.push(listaNivelesOnlinejson[m]);
                 fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson, null, 1));
-                response.status(200).json({estatus:"Nivel.guardado"});
                 nivelExiste=true;
-                n=listaNivelesOnlinejson.length
+                m=listaNivelesOnlinejson.length
             }
             else{
-                n++;
+                m++;
             }
         }
         if (nivelExiste===false){
             response.status(404).json({estatus:"Nivel-no-encontrado"});
+        }
+        else{
+            response.status(200).json({estatus:"Nivel.guardado"});
         }
      }
      else{
