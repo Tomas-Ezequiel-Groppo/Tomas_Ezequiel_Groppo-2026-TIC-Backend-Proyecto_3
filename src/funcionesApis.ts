@@ -147,11 +147,11 @@ let usuario=request.params.username;
 let n: number = 0;
 let listajson: Nivel[]=[];
 let listavacia:Nivel[]=[];
-let userExists:boolean=false
+let userExists:boolean=false;
 while (n<listajsonOG.length){
   if (listajsonOG[n].usuario===usuario){
 
-    if (listajson[n].publicado===true){
+    if (listajsonOG[n].publicado===true){
         listajson.push(listajsonOG[n]);
     }
      userExists=true;
@@ -162,10 +162,12 @@ while (n<listajsonOG.length){
   }
 }
 if (userExists===true){
-    if (listajson===listavacia){
+    if (listajson.length===listavacia.length){
         response.status(404).json({estatus:"No-se-han-encontrado-niveles-a-nombre-de-ese-usuario"});
        }
-       response.json(listajson);
+       else{
+        response.json(listajson);
+       }
 }
 else{
     response.status(404).json({estatus:"No-se-ha-encontrado-el-usuario-marcado"});
@@ -509,7 +511,7 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
          }
          else{
    listaConfigsOGjson.push(configNueva);
-         let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson)
+         let listaConfigOGjsontxt:string=JSON.stringify(listaConfigsOGjson, null, 1);
          fs.writeFileSync("./data/configs.json", listaConfigOGjsontxt)
          response.status(200).json({estatus:"Nueva-configuracion-guardada"})
          }
