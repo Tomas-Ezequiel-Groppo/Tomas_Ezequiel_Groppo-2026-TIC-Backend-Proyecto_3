@@ -94,6 +94,10 @@ Elimina un nivel creado del Save File del usuario correspondiente
 
 Elimina un nivel guardado del Save File del usuario correspondiente
 
+"/showProgress/:username"
+
+Muestra el progreso de un archivo de guardado de un usuario en específico
+
 ## Endpoints
 
 | Método | Ruta          | Body / params | Respuesta |
@@ -158,6 +162,13 @@ Elimina un nivel guardado del Save File del usuario correspondiente
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"No-se-especifico-un-usuario"}|
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel-a-borrar"}|
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`200 OK` (listaSaveFilesjson[m].nivelesOG1)|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`200 OK` (listaSaveFilesjson[m].nivelesOG2)|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`200 OK` (listaSaveFilesjson[m].nivelesOG3)|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`400 ERROR` {estatus:"El-Save-File-marcado-no-existe"}|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`400 ERROR` {estatus:"No-se-especifico-ningun-usuario"}|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`400 ERROR` {estatus:"El-Save-File-marcado-no-existe"}|
+|`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 
 ## Datos
 

@@ -12,8 +12,8 @@ import type { SaveFile } from './tipos.js';
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser} from './request&responseTypes.js'
 import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel } from './request&responseTypes.js';
 
-import type { RequestLoadSaveFile, RequestDeleteSavedLevel} from './request&responseTypes.js';
-import type { ResponseLoadSaveFile, ResponseDeleteSavedLevel } from './request&responseTypes.js';
+import type { RequestLoadSaveFile, RequestDeleteSavedLevel, RequestShowUserProgress} from './request&responseTypes.js';
+import type { ResponseLoadSaveFile, ResponseDeleteSavedLevel, ResponseShowUserProgress} from './request&responseTypes.js';
 
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel, ResponsePublishLevel} from './request&responseTypes.js';
@@ -1114,5 +1114,51 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
     else{
         response.status(404).json({estatus:"Usuario-no-encontrado"});
     }
+    }
+}
+export function showUserProgress (request:RequestShowUserProgress, response:ResponseShowUserProgress){
+    let listaSaveFilestxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+
+    let usuario:string=request.params.username;
+    let saveFile:number=Number(request.body.saveFile);
+
+    if (usuario===""){
+        response.status(400).json({estatus:"No-se-especifico-ningun-usuario"});
+    }
+    else if (saveFile===0){
+        response.status(400).json({estatus:"El-Save-File-marcado-no-existe"});
+    }
+    else{
+        let usuarioExiste:boolean=false;
+        let m:number=0;
+        for (let n:number=0;n<listaSaveFilesjson.length;n++){
+            if (listaSaveFilesjson[n].username===usuario){
+                usuarioExiste=true;
+                m=n;
+                n=listaSaveFilesjson.length;
+            }
+            else{
+                n=n;
+            }
+        }
+
+        if (usuarioExiste===true){
+            if (saveFile===1){
+                response.json(listaSaveFilesjson[m].nivelesOG1);
+            }
+            else if (saveFile===2){
+                response.json(listaSaveFilesjson[m].nivelesOG2);
+            }
+            else if (saveFile===3){
+                response.json(listaSaveFilesjson[m].nivelesOG3);
+            }
+            else{
+                response.status(400).json({estatus:"El-Save-File-marcado-no-existe"});;
+            }
+        }
+        else{
+            response.status(404).json({estatus:"Usuario-no-encontrado"});
+        }
     }
 }
