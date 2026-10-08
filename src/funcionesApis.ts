@@ -12,8 +12,8 @@ import type { SaveFile } from './tipos.js';
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser} from './request&responseTypes.js'
 import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel } from './request&responseTypes.js';
 
-import type { RequestLoadSaveFile } from './request&responseTypes.js';
-import type { ResponseLoadSaveFile } from './request&responseTypes.js';
+import type { RequestLoadSaveFile, RequestDeleteSavedLevel} from './request&responseTypes.js';
+import type { ResponseLoadSaveFile, ResponseDeleteSavedLevel } from './request&responseTypes.js';
 
 import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, ResponseLoadProfile, ResponseLoadConfig} from './request&responseTypes.js';
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel, ResponsePublishLevel} from './request&responseTypes.js';
@@ -1056,5 +1056,61 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
     }
     else{
         response.status(404).json({estatus:"Usuario-no-encontrado"});
+    }
+}
+export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:ResponseDeleteSavedLevel){
+    let listaSaveFilesjsontxt:string=fs.readFileSync("./data/saveFiles.json", "utf-8");
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilesjsontxt);
+
+    let nombreNivel:string=request.params.nombre;
+    let usuario:string=request.body.username;
+    console.log(usuario);
+
+    if (usuario===""){
+        response.status(400).json({estatus:"No-se-especifico-un-usuario"});
+    }
+    else if (nombreNivel===""){
+        response.status(400).json({estatus:"No-se-especifico-el-nombre-del-nivel-a-borrar"})
+    }
+    else{
+        let n:number = 0;
+    let m:number = 0;
+    let usuarioExiste:boolean = false;
+
+    while (n<listaSaveFilesjson.length){
+        if (listaSaveFilesjson[n].username===usuario){
+            usuarioExiste=true
+            m=n
+            n=listaSaveFilesjson.length
+        }
+        else{
+            n++;
+        }
+    }
+    if (usuarioExiste===true){
+        let i:number = 0;
+        let listaMedia:Nivel[]=[]
+        while (0<listaSaveFilesjson[m].nivelesGuardados.length){
+            i = listaSaveFilesjson[m].nivelesGuardados.length-1
+            if (listaSaveFilesjson[m].nivelesGuardados[i].nombre===nombreNivel){
+                listaSaveFilesjson[m].nivelesGuardados.pop()
+            }
+            else{
+                listaMedia.push(listaSaveFilesjson[m].nivelesGuardados[i]);
+                listaSaveFilesjson[m].nivelesGuardados.pop()
+            }
+        }
+
+        while (listaMedia.length>0){
+            i=listaMedia.length-1;
+            listaSaveFilesjson[m].nivelesGuardados.push(listaMedia[i]);
+            listaMedia.pop()
+        }
+        fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson,null,1));
+        response.status(200).json({estatus:"Nivel-eliminado-correctamente"});
+    }
+    else{
+        response.status(404).json({estatus:"Usuario-no-encontrado"});
+    }
     }
 }

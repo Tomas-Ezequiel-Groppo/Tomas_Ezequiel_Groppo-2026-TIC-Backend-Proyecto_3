@@ -90,6 +90,10 @@ Modifica el nombre de un nivel offline
 
 Elimina un nivel creado del Save File del usuario correspondiente
 
+"/deleteLevelUser/:nombre"
+
+Elimina un nivel guardado del Save File del usuario correspondiente
+
 ## Endpoints
 
 | Método | Ruta          | Body / params | Respuesta |
@@ -150,6 +154,10 @@ Elimina un nivel creado del Save File del usuario correspondiente
 |`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 |`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`200 OK` {estatus:"Nivel-eliminado"}|
 |`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
+|`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/Userusername|`200 OK` {estatus:"Nivel-eliminado-correctamente"}|
+|`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/Userusername|`400 ERROR` {estatus:"No-se-especifico-un-usuario"}|
+|`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/Userusername|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel-a-borrar"}|
+|`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/Userusername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 
 ## Datos
 

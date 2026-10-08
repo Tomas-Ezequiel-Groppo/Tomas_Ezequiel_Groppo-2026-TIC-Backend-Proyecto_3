@@ -53,6 +53,7 @@ export type RequestDeleteLevel = Request<{id:string}, Estatus, UserUsername>
 
 export type RequestLoadSaveFile = Request<UserUsername,SaveFile>;
 export type RequestSaveLevelUser = Request<{nombre:string}, Estatus , UserUsername>;
+export type RequestDeleteSavedLevel = Request<{nombre:string}, Estatus, UserUsername>;
 
 //RESPONSE
 
@@ -85,3 +86,4 @@ export type ResponseDeleteLevel=Response<Estatus>;
 
 export type ResponseLoadSaveFile = Response<Estatus | SaveFile>;
 export type ResponseSaveLevelUser = Response <Estatus>
+export type ResponseDeleteSavedLevel = Response<Estatus>;
