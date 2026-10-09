@@ -236,7 +236,9 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         id:mayorValor,
         usuariosQueCompletaron:[],
         version:0,
-        publicado:false
+        publicado:false,
+        descargas:[],
+        cantidadDescargas:0
      }
     let vacioLevel:Nivel={
         elementos:[],
@@ -245,7 +247,9 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         id:0,
         usuariosQueCompletaron:[],
         version:0,
-        publicado:false
+        publicado:false,
+        descargas:[],
+        cantidadDescargas:0
     }
      if (newLevel.elementos===vacioLevel.elementos){
         response.status(400).json({estatus:"Nivel-vacio"});
@@ -368,7 +372,9 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
     nombre:"",
     usuariosQueCompletaron:[],
     version:0,
-    publicado:false
+    publicado:false,
+    descargas:[],
+    cantidadDescargas:0
     }
     let n:number = 0;
 
@@ -632,7 +638,9 @@ export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgL
     nombre:"",
     usuariosQueCompletaron:[],
     version:0,
-    publicado:false
+    publicado:false,
+    descargas:[],
+    cantidadDescargas:0
   }
 
   let n:number=0;
@@ -671,7 +679,9 @@ let nivelAGuardar:Nivel={
     id:listaNivelesOnlinejson.length+1,
     nombre:"",
     version:1,
-    publicado:true
+    publicado:true,
+    descargas:[],
+    cantidadDescargas:0
 }
 
 let usuario:string=request.params.username;
@@ -792,7 +802,9 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
     id:0,
     nombre:"",
     version:0,
-    publicado:false
+    publicado:false,
+    descargas:[],
+    cantidadDescargas:0
    }
 
    let n:number = 0;
@@ -848,6 +860,18 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
         let m:number=0;
         while (m<listaNivelesOnlinejson.length){
             if (listaNivelesOnlinejson[m].nombre===request.params.nombre){
+                let yaDescargado:boolean=false;
+                for (let g:number = 0;listaNivelesOnlinejson[m].descargas.length>0;g++){
+                    if (listaNivelesOnlinejson[m].descargas[g]===request.body.username){
+                        yaDescargado=true;
+                    }
+                    else{
+                        g=g;
+                    }
+                }
+                if (yaDescargado===true){
+
+                }
                 listaSaveFilesjson[i].nivelesGuardados.push(listaNivelesOnlinejson[m]);
                 fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson, null, 1));
                 nivelExiste=true;
@@ -883,6 +907,7 @@ export function hideLevel (request:RequestHideLevel, response:ResponseHideLevel)
             if (listaNivelesjson[n].nombre===nombreNivel){
                 existe=true;
                 listaNivelesjson[n].publicado=false;
+                    fs.writeFileSync("./data/niveles.json", JSON.stringify(listaNivelesjson, null, 1));
                 n=listaNivelesjson.length;
             }
             else{
@@ -909,6 +934,7 @@ export function showLevel (request:RequestHideLevel, response:ResponseHideLevel)
             if (listaNivelesjson[n].nombre===nombreNivel){
                 existe=true;
                 listaNivelesjson[n].publicado=true;
+                    fs.writeFileSync("./data/niveles.json", JSON.stringify(listaNivelesjson, null, 1));
                 n=listaNivelesjson.length;
             }
             else{

@@ -20,7 +20,9 @@ export type Nivel = {
     nombre:string,
     usuariosQueCompletaron: string[],
     version:number,
-    publicado:boolean
+    publicado:boolean,
+    descargas:string[],
+    cantidadDescargas:number
 }
 export type Config = {
     theme:string,
