@@ -22,7 +22,10 @@
   "id": 1,
   "nombre": "Pepito le clavo un clavito a Pablito",
   "version": 4,
-  "publicado": false
+  "publicado": false,
+  "usuariosQueCompletaron":[],
+  "descargas":[],
+  "cantidadDescargas":0
  },
  {
   "elementos": [
@@ -440,6 +443,8 @@
   "id": 2,
   "nombre": "Jusenkyo",
   "version": 1,
-  "publicado": true
+  "publicado": true,
+  "descargas":[],
+  "cantidadDescargas":0
  }
 ]

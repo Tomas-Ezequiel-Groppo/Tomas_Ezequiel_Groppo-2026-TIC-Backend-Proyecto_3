@@ -861,12 +861,9 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
         let m:number=0;
         while (m<listaNivelesOnlinejson.length){
             if (listaNivelesOnlinejson[m].nombre===request.params.nombre){
-                for (let g:number = 0;listaNivelesOnlinejson[m].descargas.length>0;g++){
+                for (let g:number = 0;listaNivelesOnlinejson[m].descargas.length>g;g++){
                     if (listaNivelesOnlinejson[m].descargas[g]===request.body.username){
                         yaDescargado=true;
-                    }
-                    else{
-                        g=g;
                     }
                 }
                 if (yaDescargado===false){
