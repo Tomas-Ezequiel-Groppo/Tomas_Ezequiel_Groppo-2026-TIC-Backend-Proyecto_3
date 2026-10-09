@@ -844,6 +844,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
      let existe:boolean=false;
      let i:number=0;
      let nivelExiste:boolean=false;
+     let nivelEnSaveFile:boolean=false;
 
      while (n<listaSaveFilesjson.length){
         if (listaSaveFilesjson[n].username===request.body.username){
@@ -855,12 +856,11 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
             n++;
         }
      }
-
+     let yaDescargado:boolean=false;
      if (existe===true){
         let m:number=0;
         while (m<listaNivelesOnlinejson.length){
             if (listaNivelesOnlinejson[m].nombre===request.params.nombre){
-                let yaDescargado:boolean=false;
                 for (let g:number = 0;listaNivelesOnlinejson[m].descargas.length>0;g++){
                     if (listaNivelesOnlinejson[m].descargas[g]===request.body.username){
                         yaDescargado=true;
@@ -869,8 +869,14 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
                         g=g;
                     }
                 }
-                if (yaDescargado===true){
-
+                if (yaDescargado===false){
+                    listaNivelesOnlinejson[m].descargas.push(request.body.username);
+                    listaNivelesOnlinejson[m].cantidadDescargas=listaNivelesOnlinejson[m].descargas.length;
+                }
+                for (let h:number=0;h<listaSaveFilesjson[i].nivelesGuardados.length;h++){
+                    if (listaSaveFilesjson[i].nivelesGuardados[h].nombre===request.params.nombre){
+                        nivelEnSaveFile=true;
+                    }
                 }
                 listaSaveFilesjson[i].nivelesGuardados.push(listaNivelesOnlinejson[m]);
                 fs.writeFileSync("./data/saveFiles.json", JSON.stringify(listaSaveFilesjson, null, 1));
@@ -885,7 +891,12 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
             response.status(404).json({estatus:"Nivel-no-encontrado"});
         }
         else{
-            response.status(200).json({estatus:"Nivel-guardado"});
+            if (nivelEnSaveFile===false){
+                response.status(200).json({estatus:"Nivel-guardado"});
+            }
+            else{
+                response.status(409).json({estatus:"Nivel-ya-ha-sido-guardado"})
+            }
         }
      }
      else{
