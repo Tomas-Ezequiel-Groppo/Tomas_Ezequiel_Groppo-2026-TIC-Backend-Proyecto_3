@@ -759,14 +759,10 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
                 }
             }
 
-            if (yaPaso===true){
-            
-            }
-            else{
-            listaNivelesOnlinejson[n].usuariosQueCompletaron.push(request.body.username);
+            if (yaPaso===false){ listaNivelesOnlinejson[n].usuariosQueCompletaron.push(request.body.username);
             existe=true;
-            n=listaNivelesOnlinejson.length;
             }
+n=listaNivelesOnlinejson.length;
         }
         else{
             n++;
@@ -815,6 +811,8 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
         nivelAActualizar=request.body;
         nivelAActualizar.version=listaNivelesOnlinejson[n].version+1;
         nivelAActualizar.publicado=listaNivelesOnlinejson[n].publicado
+nivelAActualizar.descargas=listaNivelesOnlinejson[n].descargas
+nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
         listaNivelesOnlinejson[n]=nivelAActualizar;
         existe=true;
         n=listaNivelesOnlinejson.length
