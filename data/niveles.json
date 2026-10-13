@@ -439,10 +439,12 @@
    }
   ],
   "usuario": "Pepito",
-  "usuariosQueCompletaron": [],
+  "usuariosQueCompletaron": [
+   "capitanjake007"
+  ],
   "id": 2,
   "nombre": "Jusenkyo",
-  "version": 1,
+  "version": 6,
   "publicado": true,
   "descargas": [],
   "cantidadDescargas": 0

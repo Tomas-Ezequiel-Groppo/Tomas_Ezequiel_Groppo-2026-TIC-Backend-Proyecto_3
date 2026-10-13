@@ -745,9 +745,13 @@ response.status(200).json({estatus:"Nivel-publicado"});
 export function completeOnlineLevel (request:RequestCompleteOnlineLevel, response:ResponseCompleteOnlineLevel){
      let listaNivelesOnlinetxt=fs.readFileSync(rutaNivelesjson, "utf-8");
      let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+     let listaPerfilestxt:string=fs.readFileSync(rutaMainjson, "utf-8");
+     let listaPerfilesjson:Profile[]=JSON.parse(listaPerfilestxt);
 
      let existe:boolean=false;
      let yaPaso:boolean=false;
+     let g:number=0;
+     let i:number = 0;
      
      for (let n:number = 0; n<listaNivelesOnlinejson.length; n++){
         if (listaNivelesOnlinejson[n].nombre===request.params.nombre){
@@ -755,21 +759,38 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
             for (let m:number = 0;m<listaNivelesOnlinejson[n].usuariosQueCompletaron.length; m++){
                 if (listaNivelesOnlinejson[n].usuariosQueCompletaron[m]===request.body.username){
                     yaPaso=true;
+                    i=m
                     m=listaNivelesOnlinejson[n].usuariosQueCompletaron.length;
                 }
             }
+            g=n;
             n=listaNivelesOnlinejson.length;
         }
      }
-     if (existe===true){
-        let listaNivelesOnlinejsontxt:string=JSON.stringify(listaNivelesOnlinejson, null, 1);
-        fs.writeFileSync(rutaNivelesjson, listaNivelesOnlinejsontxt);
 
-        if (yaPaso===true){
-            response.status(200).json({estatus:"Usuario-ya-se-paso-el-nivel"});
+     let usuarioExiste:boolean=false;
+
+     for (let h:number=0;h<listaPerfilesjson.length;h++){
+        if (listaPerfilesjson[h].username===request.body.username){
+            usuarioExiste=true;
+            h=listaPerfilesjson.length;
+        }
+     }
+     if (existe===true){
+
+        if (usuarioExiste===true){
+            if (yaPaso===true){
+                response.status(409).json({estatus:"Usuario-ya-se-paso-el-nivel"});
+            }
+            else{
+                listaNivelesOnlinejson[g].usuariosQueCompletaron.push(request.body.username);
+                let listaNivelesOnlinejsontxt:string=JSON.stringify(listaNivelesOnlinejson, null, 1);
+                fs.writeFileSync(rutaNivelesjson, listaNivelesOnlinejsontxt);
+                response.status(200).json({estatus:"Nivel-completado"});
+            }
         }
         else{
-            response.status(200).json({estatus:"Nivel-completado"});
+            response.status(404).json({estatus:"El-usuario-marcado-no-existe"});
         }
      }
      else{
@@ -813,14 +834,18 @@ nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
         n++;
     }
    }
-   
-   if (existe===true){
-    let listaNivelesOnlinejsontxt:string = JSON.stringify(listaNivelesOnlinejson, null, 1);
-    fs.writeFileSync("./data/niveles.json", listaNivelesOnlinejsontxt);
-    response.status(200).json({estatus:"Nivel-actualizado"});
+   if (nivelAActualizar.nombre!==request.params.nombre){
+    response.status(400).json({estatus:"Para-cambiar-el-nombre-usa-la-otra-API"})
    }
    else{
-    response.status(404).json({estatus:"El-nivel-no-ha-sido-publicado"});
+    if (existe===true){
+        let listaNivelesOnlinejsontxt:string = JSON.stringify(listaNivelesOnlinejson, null, 1);
+        fs.writeFileSync("./data/niveles.json", listaNivelesOnlinejsontxt);
+        response.status(200).json({estatus:"Nivel-actualizado"});
+       }
+       else{
+        response.status(404).json({estatus:"El-nivel-no-ha-sido-publicado"});
+       }
    }
 }
 export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSaveLevelUser){
