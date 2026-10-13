@@ -1899,7 +1899,6 @@
    false,
    false
   ],
-  "username": "Sesshomaru",
   "nivelesCreados": [
    {
     "elementos": [
@@ -2075,433 +2074,9 @@
     "id": 3,
     "usuariosQueCompletaron": [],
     "version": 0,
-    "publicado": false
-   }
-  ],
-  "nivelesGuardados": [
-   {
-    "elementos": [
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 2,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 3,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 4,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 5,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 6,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 7,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 8,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 9,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 10,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 11,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 12,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 13,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 14,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 15,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 2
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 2
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 3
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 3
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 5
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 5
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 6
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 6
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 7
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 7
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 8
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 8
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 9
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 9
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 2,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 3,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 4,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 5,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 6,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 7,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 8,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 9,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 10,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 11,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 12,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 13,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 14,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 15,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
-      },
-      "posicionX": 4,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
-      },
-      "posicionX": 8,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
-      },
-      "posicionX": 13,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
-      },
-      "posicionX": 10,
-      "posicionY": 6
-     },
-     {
-      "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
-      },
-      "posicionX": 4,
-      "posicionY": 5
-     },
-     {
-      "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
-      },
-      "posicionX": 9,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
-      },
-      "posicionX": 4,
-      "posicionY": 5
-     },
-     {
-      "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
-      },
-      "posicionX": 10,
-      "posicionY": 7
-     },
-     {
-      "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
-      },
-      "posicionX": 14,
-      "posicionY": 3
-     }
-    ],
-    "usuario": "Pepito",
-    "usuariosQueCompletaron": [
-     "capitanjake007"
-    ],
-    "id": 2,
-    "nombre": "Jusenkyo",
-    "version": 6,
-    "publicado": true,
-    "descargas": [
-     "Sesshomaru"
-    ],
-    "cantidadDescargas": 1
+    "publicado": false,
+    "descargas": [],
+    "cantidadDescargas": 0
    },
    {
     "elementos": [
@@ -2551,343 +2126,109 @@
       "tipo": {
        "propiedadEspecial": "Pared"
       },
-      "posicionX": 7,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 8,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 9,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 10,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 11,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 12,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 13,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 14,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 15,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 1
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
       "posicionX": 1,
       "posicionY": 2
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 2
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 3
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 3
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 4
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 5
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 5
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 6
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 6
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 7
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 7
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 8
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 8
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 9
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 9
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 1,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 2,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 3,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 4,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 5,
-      "posicionY": 10
      },
      {
       "tipo": {
        "propiedadEspecial": "Pared"
       },
       "posicionX": 6,
-      "posicionY": 10
+      "posicionY": 2
      },
      {
       "tipo": {
        "propiedadEspecial": "Pared"
       },
-      "posicionX": 7,
-      "posicionY": 10
+      "posicionX": 1,
+      "posicionY": 3
      },
      {
       "tipo": {
        "propiedadEspecial": "Pared"
       },
-      "posicionX": 8,
-      "posicionY": 10
+      "posicionX": 6,
+      "posicionY": 3
      },
      {
       "tipo": {
        "propiedadEspecial": "Pared"
       },
-      "posicionX": 9,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 10,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 11,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 12,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 13,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 14,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 15,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "propiedadEspecial": "Pared"
-      },
-      "posicionX": 16,
-      "posicionY": 10
-     },
-     {
-      "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
-      },
-      "posicionX": 4,
+      "posicionX": 1,
       "posicionY": 4
      },
      {
       "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
+       "propiedadEspecial": "Pared"
       },
-      "posicionX": 8,
+      "posicionX": 6,
       "posicionY": 4
      },
      {
       "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
+       "propiedadEspecial": "Pared"
       },
-      "posicionX": 13,
-      "posicionY": 4
+      "posicionX": 1,
+      "posicionY": 5
      },
      {
       "tipo": {
-       "orientacion": "arriba",
-       "propiedadEspecial": "espejo"
+       "propiedadEspecial": "Pared"
       },
-      "posicionX": 10,
-      "posicionY": 6
+      "posicionX": 2,
+      "posicionY": 5
      },
      {
       "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
+       "propiedadEspecial": "Pared"
+      },
+      "posicionX": 3,
+      "posicionY": 5
+     },
+     {
+      "tipo": {
+       "propiedadEspecial": "Pared"
       },
       "posicionX": 4,
       "posicionY": 5
      },
      {
       "tipo": {
+       "propiedadEspecial": "Pared"
+      },
+      "posicionX": 5,
+      "posicionY": 5
+     },
+     {
+      "tipo": {
+       "propiedadEspecial": "Pared"
+      },
+      "posicionX": 6,
+      "posicionY": 5
+     },
+     {
+      "tipo": {
+       "orientacion": null,
+       "propiedadEspecial": "meta"
+      },
+      "posicionX": 3,
+      "posicionY": 2
+     },
+     {
+      "tipo": {
+       "orientacion": null,
+       "propiedadEspecial": "meta"
+      },
+      "posicionX": 4,
+      "posicionY": 2
+     },
+     {
+      "tipo": {
        "orientacion": null,
        "propiedadEspecial": "caja"
       },
-      "posicionX": 9,
-      "posicionY": 4
+      "posicionX": 3,
+      "posicionY": 3
      },
      {
       "tipo": {
@@ -2895,39 +2236,29 @@
        "propiedadEspecial": "caja"
       },
       "posicionX": 4,
-      "posicionY": 5
+      "posicionY": 3
      },
      {
       "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
+       "orientacion": "arriba",
+       "propiedadEspecial": "jugador"
       },
-      "posicionX": 10,
-      "posicionY": 7
-     },
-     {
-      "tipo": {
-       "orientacion": null,
-       "propiedadEspecial": "caja"
-      },
-      "posicionX": 14,
+      "posicionX": 2,
       "posicionY": 3
      }
     ],
-    "usuario": "Pepito",
-    "usuariosQueCompletaron": [
-     "capitanjake007"
-    ],
-    "id": 2,
-    "nombre": "Jusenkyo",
-    "version": 6,
-    "publicado": true,
-    "descargas": [
-     "Sesshomaru"
-    ],
-    "cantidadDescargas": 1
+    "usuario": "Sesshomaru",
+    "nombre": "Aome-dice-abajo-porque-se-enojo-con-Inuyasha",
+    "id": 4,
+    "usuariosQueCompletaron": [],
+    "version": 0,
+    "publicado": false,
+    "descargas": [],
+    "cantidadDescargas": 0
    }
-  ]
+  ],
+  "username": "Sesshomaru",
+  "nivelesGuardados": []
  },
  {
   "nivelesOG1": [
