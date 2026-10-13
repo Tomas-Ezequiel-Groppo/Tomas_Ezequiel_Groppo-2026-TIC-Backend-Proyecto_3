@@ -23,9 +23,9 @@
   "nombre": "Pepito le clavo un clavito a Pablito",
   "version": 4,
   "publicado": false,
-  "usuariosQueCompletaron":[],
-  "descargas":[],
-  "cantidadDescargas":0
+  "usuariosQueCompletaron": [],
+  "descargas": [],
+  "cantidadDescargas": 0
  },
  {
   "elementos": [
@@ -444,7 +444,185 @@
   "nombre": "Jusenkyo",
   "version": 1,
   "publicado": true,
-  "descargas":[],
-  "cantidadDescargas":0
+  "descargas": [],
+  "cantidadDescargas": 0
+ },
+ {
+  "elementos": [
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 1,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 2,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 3,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 4,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 5,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 6,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 1,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 6,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 1,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 6,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 1,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 6,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 1,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 2,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 3,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 4,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 5,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "propiedadEspecial": "Pared"
+    },
+    "posicionX": 6,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "meta"
+    },
+    "posicionX": 3,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "meta"
+    },
+    "posicionX": 4,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "caja"
+    },
+    "posicionX": 3,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "caja"
+    },
+    "posicionX": 4,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": "arriba",
+     "propiedadEspecial": "jugador"
+    },
+    "posicionX": 2,
+    "posicionY": 3
+   }
+  ],
+  "usuario": "Sesshomaru",
+  "usuariosQueCompletaron": [],
+  "id": 3,
+  "nombre": "Sesshomaru deja de usar porque Rin le pega",
+  "version": 1,
+  "publicado": true,
+  "descargas": [],
+  "cantidadDescargas": 0
  }
 ]

@@ -20,7 +20,7 @@
   "nivelesOG2": [
    false,
    false,
-   false,
+   true,
    false,
    false,
    false,
@@ -2101,7 +2101,7 @@
   "nivelesOG2": [
    false,
    false,
-   false,
+   true,
    false,
    false,
    false,
