@@ -1092,6 +1092,7 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
     let usuario:string=request.body.username;
 
     let usuarioExiste:boolean=false;
+    let nivelExiste:boolean=false;
 
     let n:number=0;
     let m:number=0;
@@ -1106,6 +1107,13 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
             n++;
         }
     }
+
+    for (let i:number = 0; i<listaSaveFilesjson[m].nivelesCreados.length;i++){
+        if (listaSaveFilesjson[m].nivelesCreados[i].id===ID){
+            nivelExiste=true;
+        }
+    }
+
     let listaMedia:Nivel[]=[];
 
     let i:number = 0;
@@ -1132,7 +1140,12 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
     fs.writeFileSync(rutaSaveFilesjson, JSON.stringify(listaSaveFilesjson, null, 1));
 
     if (usuarioExiste===true){
-        response.status(200).json({estatus:"Nivel-eliminado"});
+        if (nivelExiste===true){
+            response.status(200).json({estatus:"Nivel-eliminado"});
+        }
+        else{
+           response.status(404).json({estatus:"No-existe-un-nivel-con-dicha-ID"});
+        }
     }
     else{
         response.status(404).json({estatus:"Usuario-no-encontrado"});
@@ -1144,7 +1157,6 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
 
     let nombreNivel:string=request.params.nombre;
     let usuario:string=request.body.username;
-    console.log(usuario);
 
     if (usuario===""){
         response.status(400).json({estatus:"No-se-especifico-un-usuario"});
@@ -1168,7 +1180,15 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
         }
     }
     if (usuarioExiste===true){
-        let i:number = 0;
+        let nivelEnSaveFile:boolean=false;
+        for (let j:number=0;j<listaSaveFilesjson[m].nivelesGuardados.length;j++){
+            if (listaSaveFilesjson[m].nivelesGuardados[j].nombre===nombreNivel){
+                nivelEnSaveFile=true
+            }
+        }
+
+        if (nivelEnSaveFile===true){
+            let i:number = 0;
         let listaMedia:Nivel[]=[]
         while (0<listaSaveFilesjson[m].nivelesGuardados.length){
             i = listaSaveFilesjson[m].nivelesGuardados.length-1
@@ -1188,6 +1208,10 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
         }
         fs.writeFileSync(rutaSaveFilesjson, JSON.stringify(listaSaveFilesjson,null,1));
         response.status(200).json({estatus:"Nivel-eliminado-correctamente"});
+        }
+        else{
+            response.status(404).json({estatus:"El-nivel-no-se-encuentra-en-el-save-file-del-usuario"});
+        }
     }
     else{
         response.status(404).json({estatus:"Usuario-no-encontrado"});
