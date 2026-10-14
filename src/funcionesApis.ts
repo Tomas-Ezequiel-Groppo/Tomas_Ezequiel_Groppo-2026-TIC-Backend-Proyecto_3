@@ -195,6 +195,7 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
               saveFileAModificar.nivelesOG2=listasaveFilesjson[n].nivelesOG2;
               saveFileAModificar.nivelesOG3=listasaveFilesjson[n].nivelesOG3;
               saveFileAModificar.nivelesCreados=listasaveFilesjson[n].nivelesCreados;
+              saveFileAModificar.nivelesGuardados=listasaveFilesjson[n].nivelesGuardados;
               saveFileAModificar.username=listasaveFilesjson[n].username;
               m=n;
               n=listasaveFilesjson.length;
@@ -826,6 +827,7 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
         nivelAActualizar.publicado=listaNivelesOnlinejson[n].publicado
 nivelAActualizar.descargas=listaNivelesOnlinejson[n].descargas
 nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
+nivelAActualizar.usuariosQueCompletaron=listaNivelesOnlinejson[n].usuariosQueCompletaron
         listaNivelesOnlinejson[n]=nivelAActualizar;
         existe=true;
         n=listaNivelesOnlinejson.length

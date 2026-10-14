@@ -7,7 +7,7 @@
      "propiedadEspecial": null
     },
     "posicionX": 1,
-    "posicionY": 14
+    "posicionY": 13
    },
    {
     "tipo": {
@@ -15,15 +15,17 @@
      "propiedadEspecial": "receptor"
     },
     "posicionX": 3,
-    "posicionY": 12
+    "posicionY": 11
    }
   ],
   "usuario": "holalan",
   "id": 1,
   "nombre": "Pepito le clavo un clavito a Pablito",
-  "version": 4,
+  "version": 6,
   "publicado": false,
-  "usuariosQueCompletaron": [],
+  "usuariosQueCompletaron": [
+   "Sesshomaru"
+  ],
   "descargas": [],
   "cantidadDescargas": 0
  },
@@ -434,7 +436,7 @@
      "orientacion": null,
      "propiedadEspecial": "caja"
     },
-    "posicionX": 14,
+    "posicionX": 13,
     "posicionY": 3
    }
   ],
@@ -444,7 +446,7 @@
   ],
   "id": 2,
   "nombre": "Jusenkyo",
-  "version": 6,
+  "version": 7,
   "publicado": true,
   "descargas": [
    "Sesshomaru",

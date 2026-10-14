@@ -1287,7 +1287,9 @@
     "nombre": "Jusenkyo",
     "id": 1,
     "usuariosQueCompletaron": [],
-    "version": 0
+    "version": 0,
+    "cantidadDescargas":0,
+    "descargas":[]
    }
   ],
   "username": "Pepito",
@@ -1424,7 +1426,10 @@
     "usuario": "holalan",
     "id": 1,
     "nombre": "Primer-nivel-testeo",
-    "version": 0
+    "version": 0,
+    "descargas":[],
+    "usuariosQueCompletaron":[],
+    "cantidadDescargas":0
    }
   ],
   "username": "holalan",
