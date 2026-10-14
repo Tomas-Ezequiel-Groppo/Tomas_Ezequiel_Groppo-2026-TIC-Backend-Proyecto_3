@@ -12,19 +12,19 @@ Verifica el username y contraseña recibidos para ver si coinciden en un perfil 
 
 "/loadLevels"
 
-Carga todos los niveles online del json "data/niveles.json"
+Carga todos los niveles online que estén publicados del json "data/niveles.json"
 
 "/loadLevels/:username"
 
-Carga todos los niveles online del json "data/niveles.json" que correspondan a un usuario específico
+Carga todos los niveles online que estén publicados del json "data/niveles.json" que correspondan a un usuario específico
 
 "/saveLevel"
 
-Guarda un nivel en la sección "nivelesCompletados" del save file de un usuario en específico, en el archivo "saveFiles.json"
+Guarda un nivel en la sección "nivelesCreados" del save file de un usuario en específico, en el archivo "saveFiles.json"
 
 "/:username"
 
-Carga toda la información de un usuario, su progreso en los niveles originales, los niveles que publicó, su nombre de usuario, etc.
+Carga información del usuario correspondiente, su Usuario, Contraseña e ID y también los niveles que publicó
 
 "/loadLevel/level/:nombre"
 
@@ -121,47 +121,59 @@ Muestra el progreso de un archivo de guardado de un usuario en específico
 |`GET`|`/:username`|UserUsername|`404 ERROR`{estatus:"Perfil-no-encontrado"}|
 |`GET`|`/loadLevel/level/:nombre`|{nombre:string}|`200 OK` (nivelQueHayQueCargar)|
 |`GET`|`/loadLevel/level/:nombre`|{nombre:string}|`404 ERROR` {estatus:"No-se-ha-encontrado-un-nivel-con-dicho-nombre"}|
+|`GET`|`/loadLevel/level/:nombre`|{nombre:string}|`404 ERROR` {estatus:"Nivel-esta-en-oculto"}|
 |`GET`|`/:username/configs`|UserUsername|`200 OK` (configCargada)|
 |`GET`|`/:username/configs`|UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 |`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Nueva-configuracion-guardada"}|
 |`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`200 OK` {estatus:"Misma-configuracion"}|
 |`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`404 ERROR` {estatus:"Configuracion-vacia"}|
+|`POST`|`/:username/saveConfigs`|ConfigNoUser&UserUsername|`404 ERROR` {estatus:"Tal-perfil-no-existe"}|
 |`GET`|`/loadLevels/original/all`|—|`200 OK`|
 |`GET`|`/saveFile/:username`|UserUsername|`200 OK` (requestedSaveFile)|
-|`GET`|`/saveFile/:username`|UserUsername|`400 ERROR` {estatus:"Archivo-de-guardado-no-encontrado"}|
+|`GET`|`/saveFile/:username`|UserUsername|`404 ERROR` {estatus:"Archivo-de-guardado-no-encontrado"}|
 |`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`200 OK`{estatus:"Complecion-de-nivel-guardada"}|
 |`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`200 OK`{estatus:"Complecion-de-nivel-guardada"}|
 |`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`200 OK`{estatus:"Complecion-de-nivel-guardada"}|
 |`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`404 ERROR`{estatus:"No-hay-tal-nivel"}|
+|`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`404 ERROR`{estatus:"No-hay-tal-archivo-de-guardado"}|
+|`POST`|`/level/original/:numNivel`|{numNivel:string}/UserUsername&{nombre:string}|`404 ERROR`{estatus:"No-se-ha-encontrado-el-usuario-correspondiente"}|
 |`GET`|`/level/original/:numNivel`|{numNivel:string}|`200 OK` (nivelBuscado)|
 |`GET`|`/level/original/:numNivel`|{numNivel:string}|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
 |`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`200 OK` {estatus:"Nivel-publicado"}|
 |`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`409 OK` {estatus:"Ya-existe-un-nivel-con-ese-nombre"}|
-|`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`404 OK` {estatus:"No-hay-niveles-creados-por-ese-usuario"}|
-|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Usuario-ya-se-paso-el-nivel"}|
+|`POST`|`/publisLevel/:username`|UserUsername/{nombre:string}|`404 OK` {estatus:"Tal-nivel-no-fue-creado-por-el-usuario-correspondiente"}|
+|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`409 ERROR` {estatus:"Usuario-ya-se-paso-el-nivel"}|
 |`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Nivel-completado"}|
-|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`POST`|`/level/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"El-usuario-marcado-no-existe"}|
 |`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`200 OK`{estatus:"Nivel-actualizado"}|
 |`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`404 ERROR`{estatus:"El-nivel-no-ha-sido-publicado"}|
+|`PUT`|`/level/:nombre`|{nombre:string}/Nivel|`400 ERROR`{estatus:""Para-cambiar-el-nombre-usa-la-API-correspondiente""}|
 |`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Nivel-guardado"}|
 |`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"No-se-ha-encontrado-al-usuario"}|
 |`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`POST`|`/saveLevel/:nombre`|{nombre:string}/UserUsername|`409 ERROR` {estatus:"Nivel-ya-esta-guardado"}|
 |`PUT`|`/hideLevel/:nombre`|{nombre:string}|`200 OK` {estatus:"Nivel-ocultado"}|
-|`PUT`|`/hideLevel/:nombre`|{nombre:string}|`404 OK` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/hideLevel/:nombre`|{nombre:string}|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/hideLevel/:nombre`|{nombre:string}|`409 ERROR` {estatus:"El-nivel-ya-esta-oculto"}|
 |`PUT`|`/showLevel/:nombre`|{nombre:string}|`200 OK` {estatus:"Nivel-mostrado"}|
-|`PUT`|`/showLevel/:nombre`|{nombre:string}|`404 OK` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/showLevel/:nombre`|{nombre:string}|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
+|`PUT`|`/showLevel/:nombre`|{nombre:string}|`409 ERROR` {estatus:"Nivel-ya-esta-siendo-mostrado"}|
 |`PATCH`|`/level/name/online/:id`|{id:string}/{nombre:string}|`200 OK` {estatus:"Nombre-de-nivel-cambiado"}|
-|`PATCH`|`/level/name/online/:id`|{id:string}/{nombre:string}|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel"}|
-|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`200 OK` {estatus:"No-se-especifico-el-nombre-del-nivel"}|
-|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel"}|
+|`PATCH`|`/level/name/online/:id`|{id:string}/{nombre:string}|`400 ERROR` {estatus:"No-se-especifico-la-ID-del-nivel"}|
+|`PATCH`|`/level/name/online/:id`|{id:string}/{nombre:string}|`404 ERROR` {estatus:"No-hay-un-nivel-con-dicha-ID"}|
+|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`200 OK` {estatus:"El-nombre-del-nivel-ha-sido-cambiado"}|
+|`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`400 ERROR` {estatus:"No-se-ha-recibido-un-nombre"}|
 |`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`404 ERROR` {estatus:"Nivel-no-encontrado"}|
 |`PATCH`|`/level/name/offline/:id`|{id:string}/{nombre:string}|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
 |`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`200 OK` {estatus:"Nivel-eliminado"}|
 |`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
+|`DELETE`|`/deleteLevel/:id`|{id:string}/UserUsername|`404 ERROR` {estatus:"No-existe-un-nivel-con-dicha-ID"}|
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`200 OK` {estatus:"Nivel-eliminado-correctamente"}|
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"No-se-especifico-un-usuario"}|
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`400 ERROR` {estatus:"No-se-especifico-el-nombre-del-nivel-a-borrar"}|
 |`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"Usuario-no-encontrado"}|
+|`DELETE`|`/deleteLevelUser/:nombre`|{nombre:string}/UserUsername|`404 ERROR` {estatus:"El-nivel-no-se-encuentra-en-el-save-file-del-usuario"}|
 |`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`200 OK` (listaSaveFilesjson[m].nivelesOG1)|
 |`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`200 OK` (listaSaveFilesjson[m].nivelesOG2)|
 |`GET`|`/showProgress/:username`|UserUsername/{saveFile:string}|`200 OK` (listaSaveFilesjson[m].nivelesOG3)|

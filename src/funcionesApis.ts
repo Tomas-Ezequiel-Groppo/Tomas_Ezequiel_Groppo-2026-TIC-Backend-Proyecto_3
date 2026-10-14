@@ -835,7 +835,7 @@ nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
     }
    }
    if (nivelAActualizar.nombre!==request.params.nombre){
-    response.status(400).json({estatus:"Para-cambiar-el-nombre-usa-la-otra-API"})
+    response.status(400).json({estatus:"Para-cambiar-el-nombre-usa-la-API-correspondiente"});
    }
    else{
     if (existe===true){
@@ -907,7 +907,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
                 response.status(200).json({estatus:"Nivel-guardado"});
             }
             else{
-                response.status(409).json({estatus:"Nivel-ya-ha-sido-guardado"})
+                response.status(409).json({estatus:"Nivel-ya-esta-guardado"});
             }
         }
      }
@@ -1007,7 +1007,7 @@ export function updateLevelNameOnline (request:RequestUpdateLevelNameOnline, res
     }
 
     if (nuevoNombre===""){
-        response.status(400).json({estatus:"No-se-especifico-el-nombre-del-nivel"});
+        response.status(400).json({estatus:"No-se-especifico-la-ID-del-nivel"});
     }
     else if(IDexiste===false){
         response.status(404).json({estatus:"No-hay-un-nivel-con-dicha-ID"});
