@@ -598,7 +598,7 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
             n++;
         }
     }
-    if (numNivel<1 || numNivel>15){
+    if (numNivel<0 || numNivel>15){
        response.status(404).json({estatus:"No-hay-tal-nivel"});
     }
     else if (existe===false){
@@ -892,6 +892,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
                 }
                 listaSaveFilesjson[i].nivelesGuardados.push(listaNivelesOnlinejson[m]);
                 fs.writeFileSync(rutaSaveFilesjson, JSON.stringify(listaSaveFilesjson, null, 1));
+                fs.writeFileSync(rutaNivelesjson, JSON.stringify(listaNivelesOnlinejson, null, 1))
                 nivelExiste=true;
                 m=listaNivelesOnlinejson.length
             }
