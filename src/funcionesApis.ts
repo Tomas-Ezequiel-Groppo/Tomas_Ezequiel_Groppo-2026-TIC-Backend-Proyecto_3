@@ -748,6 +748,7 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
      let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
      let listaPerfilestxt:string=fs.readFileSync(rutaMainjson, "utf-8");
      let listaPerfilesjson:Profile[]=JSON.parse(listaPerfilestxt);
+     let listaSaveFilesjson:SaveFile[]=JSON.parse(fs.readFileSync(rutaSaveFilesjson, "utf-8"));
 
      let existe:boolean=false;
      let yaPaso:boolean=false;
@@ -787,6 +788,18 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
                 listaNivelesOnlinejson[g].usuariosQueCompletaron.push(request.body.username);
                 let listaNivelesOnlinejsontxt:string=JSON.stringify(listaNivelesOnlinejson, null, 1);
                 fs.writeFileSync(rutaNivelesjson, listaNivelesOnlinejsontxt);
+                for (let j:number=0; j<listaSaveFilesjson.length;j++){
+                    if (listaSaveFilesjson[j].username===request.body.username){
+                        for (let k:number=0;k<listaSaveFilesjson[j].nivelesGuardados.length;k++){
+                            if (listaSaveFilesjson[j].nivelesGuardados[k].nombre===request.params.nombre){
+                                listaSaveFilesjson[j].nivelesGuardados[k].usuariosQueCompletaron.push(request.body.username);
+                                fs.writeFileSync(rutaSaveFilesjson, JSON.stringify(listaSaveFilesjson));
+                                k=listaSaveFilesjson[j].nivelesGuardados.length
+                            }
+                        }
+                        j=listaSaveFilesjson.length
+                    }
+                }
                 response.status(200).json({estatus:"Nivel-completado"});
             }
         }
