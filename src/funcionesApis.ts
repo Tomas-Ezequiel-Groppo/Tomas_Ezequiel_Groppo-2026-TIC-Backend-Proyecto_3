@@ -840,7 +840,6 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
         nivelAActualizar.publicado=listaNivelesOnlinejson[n].publicado
 nivelAActualizar.descargas=listaNivelesOnlinejson[n].descargas
 nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
-nivelAActualizar.usuariosQueCompletaron=listaNivelesOnlinejson[n].usuariosQueCompletaron
         listaNivelesOnlinejson[n]=nivelAActualizar;
         existe=true;
         n=listaNivelesOnlinejson.length
