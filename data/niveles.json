@@ -2198,16 +2198,18 @@
   "usuariosQueCompletaron": [
    "Pepito",
    "Sesshomaru",
-   "Alfredo"
+   "Alfredo",
+   "igna"
   ],
   "version": 2,
   "publicado": true,
   "descargas": [
    "Pepito",
    "Sesshomaru",
-   "Alfredo"
+   "Alfredo",
+   "igna"
   ],
-  "cantidadDescargas": 3
+  "cantidadDescargas": 4
  },
  {
   "elementos": [
@@ -3302,10 +3304,1118 @@
   "usuario": "Diddy69",
   "usuariosQueCompletaron": [
    "Sesshomaru",
-   "Pepito"
+   "Pepito",
+   "Alfredo"
   ],
   "id": 3,
   "nombre": "Nivel de testeo 2",
+  "version": 1,
+  "publicado": true,
+  "descargas": [
+   "Sesshomaru",
+   "Pepito",
+   "igna",
+   "Alfredo"
+  ],
+  "cantidadDescargas": 4
+ },
+ {
+  "elementos": [
+   {
+    "tipo": {
+     "propiedadEspecial": "community/editor/1:{\"filas\":9,\"columnas\":15,\"idLocal\":\"1792151818843\",\"ultimaModificacion\":1792151828078,\"links\":[]}"
+    },
+    "posicionX": -1,
+    "posicionY": -1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[25,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 0
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[66,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 1
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 2
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 3
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 4
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[30,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[13,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 5
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 6
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[1,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 7
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 0,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 1,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 2,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 3,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 4,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 5,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 6,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 7,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 8,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 9,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 10,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 11,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 12,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[39,-1]"
+    },
+    "posicionX": 13,
+    "posicionY": 8
+   },
+   {
+    "tipo": {
+     "orientacion": null,
+     "propiedadEspecial": "community/celda/1:[64,-1]"
+    },
+    "posicionX": 14,
+    "posicionY": 8
+   }
+  ],
+  "usuario": "Sesshomaru",
+  "usuariosQueCompletaron": [
+   "Sesshomaru",
+   "Pepito"
+  ],
+  "id": 4,
+  "nombre": "Nivel testeo 3",
   "version": 1,
   "publicado": true,
   "descargas": [
