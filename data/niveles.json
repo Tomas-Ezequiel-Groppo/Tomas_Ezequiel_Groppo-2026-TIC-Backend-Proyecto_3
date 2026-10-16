@@ -3,644 +3,6 @@
   "elementos": [
    {
     "tipo": {
-     "orientación": "derecha",
-     "propiedadEspecial": null
-    },
-    "posicionX": 1,
-    "posicionY": 13
-   },
-   {
-    "tipo": {
-     "orientación": "izquierda",
-     "propiedadEspecial": "receptor"
-    },
-    "posicionX": 3,
-    "posicionY": 11
-   }
-  ],
-  "usuario": "holalan",
-  "id": 1,
-  "nombre": "Pepito le clavo un clavito a Pablito",
-  "version": 6,
-  "publicado": false,
-  "usuariosQueCompletaron": [
-   "Sesshomaru"
-  ],
-  "descargas": [],
-  "cantidadDescargas": 0
- },
- {
-  "elementos": [
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 2,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 3,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 4,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 5,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 7,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 8,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 9,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 10,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 11,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 12,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 13,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 14,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 15,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 2
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 2
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 3
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 3
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 6
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 6
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 7
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 7
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 8
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 8
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 9
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 9
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 2,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 3,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 4,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 5,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 7,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 8,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 9,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 10,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 11,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 12,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 13,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 14,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 15,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 16,
-    "posicionY": 10
-   },
-   {
-    "tipo": {
-     "orientacion": "arriba",
-     "propiedadEspecial": "espejo"
-    },
-    "posicionX": 4,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "orientacion": "arriba",
-     "propiedadEspecial": "espejo"
-    },
-    "posicionX": 8,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "orientacion": "arriba",
-     "propiedadEspecial": "espejo"
-    },
-    "posicionX": 13,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "orientacion": "arriba",
-     "propiedadEspecial": "espejo"
-    },
-    "posicionX": 10,
-    "posicionY": 6
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 4,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 9,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 4,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 10,
-    "posicionY": 7
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 13,
-    "posicionY": 3
-   }
-  ],
-  "usuario": "Pepito",
-  "usuariosQueCompletaron": [
-   "capitanjake007"
-  ],
-  "id": 2,
-  "nombre": "Jusenkyo",
-  "version": 7,
-  "publicado": true,
-  "descargas": [
-   "Sesshomaru",
-   "holalan",
-   "capitanjake007",
-   "xXJuanelcrackXx",
-   "Pepito"
-  ],
-  "cantidadDescargas": 5
- },
- {
-  "elementos": [
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 2,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 3,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 4,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 5,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 1
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 2
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 2
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 3
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 3
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 4
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 1,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 2,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 3,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 4,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 5,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "propiedadEspecial": "Pared"
-    },
-    "posicionX": 6,
-    "posicionY": 5
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "meta"
-    },
-    "posicionX": 3,
-    "posicionY": 2
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "meta"
-    },
-    "posicionX": 4,
-    "posicionY": 2
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 3,
-    "posicionY": 3
-   },
-   {
-    "tipo": {
-     "orientacion": null,
-     "propiedadEspecial": "caja"
-    },
-    "posicionX": 4,
-    "posicionY": 3
-   },
-   {
-    "tipo": {
-     "orientacion": "arriba",
-     "propiedadEspecial": "jugador"
-    },
-    "posicionX": 2,
-    "posicionY": 3
-   }
-  ],
-  "usuario": "Sesshomaru",
-  "usuariosQueCompletaron": [],
-  "id": 3,
-  "nombre": "Sesshomaru deja de usar porque Rin le pega",
-  "version": 1,
-  "publicado": true,
-  "descargas": [
-   "Sesshomaru"
-  ],
-  "cantidadDescargas": 1
- },
- {
-  "elementos": [
-   {
-    "tipo": {
      "propiedadEspecial": "community/editor/1:{\"filas\":9,\"columnas\":15,\"idLocal\":\"1792078813820\",\"ultimaModificacion\":1792078851969,\"links\":[]}"
     },
     "posicionX": -1,
@@ -1731,7 +1093,7 @@
   "usuariosQueCompletaron": [
    "Sesshomaru"
   ],
-  "id": 4,
+  "id": 1,
   "nombre": "Nivel creado 1",
   "version": 1,
   "publicado": false,
@@ -1744,7 +1106,7 @@
   "elementos": [
    {
     "tipo": {
-     "propiedadEspecial": "community/editor/1:{\"filas\":9,\"columnas\":15,\"idLocal\":\"1792079115846\",\"ultimaModificacion\":1792079443635,\"links\":[[10,8,9,0],[3,0,5,4]]}"
+     "propiedadEspecial": "community/editor/1:{\"filas\":9,\"columnas\":15,\"idLocal\":\"1792079115846\",\"ultimaModificacion\":1792103242134,\"links\":[[10,8,9,0],[3,0,5,4]]}"
     },
     "posicionX": -1,
     "posicionY": -1
@@ -1896,7 +1258,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[1,-1]"
+     "propiedadEspecial": "community/celda/1:[4,-1]"
     },
     "posicionX": 3,
     "posicionY": 1
@@ -2184,7 +1546,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[4,-1]"
+     "propiedadEspecial": "community/celda/1:[1,-1]"
     },
     "posicionX": 9,
     "posicionY": 3
@@ -2392,7 +1754,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[3,-1]"
+     "propiedadEspecial": "community/celda/1:[1,-1]"
     },
     "posicionX": 5,
     "posicionY": 5
@@ -2512,7 +1874,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[1,-1]"
+     "propiedadEspecial": "community/celda/1:[3,-1]"
     },
     "posicionX": 5,
     "posicionY": 6
@@ -2831,19 +2193,21 @@
    }
   ],
   "usuario": "Pepito",
+  "id": 2,
+  "nombre": "Estanques de Jusenkyo",
   "usuariosQueCompletaron": [
    "Pepito",
-   "Sesshomaru"
+   "Sesshomaru",
+   "Alfredo"
   ],
-  "id": 5,
-  "nombre": "Estanques de Jusenkyo",
-  "version": 1,
+  "version": 2,
   "publicado": true,
   "descargas": [
    "Pepito",
-   "Sesshomaru"
+   "Sesshomaru",
+   "Alfredo"
   ],
-  "cantidadDescargas": 2
+  "cantidadDescargas": 3
  },
  {
   "elementos": [
@@ -3937,15 +3301,17 @@
   ],
   "usuario": "Diddy69",
   "usuariosQueCompletaron": [
-   "Sesshomaru"
+   "Sesshomaru",
+   "Pepito"
   ],
-  "id": 6,
+  "id": 3,
   "nombre": "Nivel de testeo 2",
   "version": 1,
   "publicado": true,
   "descargas": [
-   "Sesshomaru"
+   "Sesshomaru",
+   "Pepito"
   ],
-  "cantidadDescargas": 1
+  "cantidadDescargas": 2
  }
 ]
