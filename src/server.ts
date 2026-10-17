@@ -13,7 +13,6 @@ const PUERTO: number = Number(process.env.PORT ?? 3000);
 
 app.use(express.json());
 app.use(cors({origin:"http://localhost:5173"}));
-app.use(express.static('FrontTesteo'));
 
 
 /** Ruta de control: responde 200 con el texto OK. */

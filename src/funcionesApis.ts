@@ -100,7 +100,6 @@ export function logProfile(request:RequestLogProfile, response:ResponseLogProfil
         n=mainjsonjsoncompleto.length;
     }
     else{
-        existeElUsername===false;
         n++;
     }
   }
@@ -138,7 +137,7 @@ export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLev
 export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:ResponseLoadLevelUsers):void{
 let listaOG :string = fs.readFileSync(rutaNivelesjson, "utf-8");
 let listajsonOG : Nivel[]=JSON.parse(listaOG);
-let usuario=request.params.username;
+let usuario:string=request.params.username;
 let n: number = 0;
 let listajson: Nivel[]=[];
 let listavacia:Nivel[]=[];
@@ -210,11 +209,8 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
         if (i===0){
             mayorValor=saveFileAModificar.nivelesCreados[i].id;
         }
-        else if (saveFileAModificar.nivelesCreados[i].id<mayorValor){
-            mayorValor=mayorValor;
-        }
-        else{
-            mayorValor=saveFileAModificar.nivelesCreados[i].id;
+        else if (saveFileAModificar.nivelesCreados[i].id>mayorValor){
+            mayorValor=saveFileAModificar.nivelesCreados[i].id
         }
         i++;
      }
@@ -576,7 +572,7 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
 export function completeLevel (request:RequestCompleteLevel, response:ResponseCompleteLevel):void{
   let numNivel:number=Number(request.params.numNivel)-1;
   let usuario:string=request.body.username;
-  let saveFile=Number(request.body.saveFile);
+  let saveFile:number=Number(request.body.saveFile);
   
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson , "utf-8");
     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
@@ -631,7 +627,7 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
 export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgLevel):void{
   let listaNivelesOGtxt:string=fs.readFileSync(rutaNivelesOgjson, "utf-8");
   let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt);
-  let numNivel=Number(request.params.numNivel);
+  let numNivel:number=Number(request.params.numNivel);
 
   let nivelBuscado:Nivel={
     elementos:[],
@@ -741,7 +737,7 @@ response.status(200).json({estatus:"Nivel-publicado"});
 }
 }
 export function completeOnlineLevel (request:RequestCompleteOnlineLevel, response:ResponseCompleteOnlineLevel):void{
-     let listaNivelesOnlinetxt=fs.readFileSync(rutaNivelesjson, "utf-8");
+     let listaNivelesOnlinetxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
      let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
      let listaPerfilestxt:string=fs.readFileSync(rutaMainjson, "utf-8");
      let listaPerfilesjson:Profile[]=JSON.parse(listaPerfilestxt);
@@ -750,7 +746,6 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
      let existe:boolean=false;
      let yaPaso:boolean=false;
      let g:number=0;
-     let i:number = 0;
      
      for (let n:number = 0; n<listaNivelesOnlinejson.length; n++){
         if (listaNivelesOnlinejson[n].nombre===request.params.nombre){
@@ -758,7 +753,6 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
             for (let m:number = 0;m<listaNivelesOnlinejson[n].usuariosQueCompletaron.length; m++){
                 if (listaNivelesOnlinejson[n].usuariosQueCompletaron[m]===request.body.username){
                     yaPaso=true;
-                    i=m
                     m=listaNivelesOnlinejson[n].usuariosQueCompletaron.length;
                 }
             }
@@ -1057,8 +1051,6 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
         let i:number = 0;
         let usuarioExiste:boolean=false;
         let nivelExiste:boolean=false;
-        let m:number=0;
-        let g:number =0;
 
         while (n<listaSaveFilesjson.length){
             if (listaSaveFilesjson[n].username===usuario){
@@ -1068,14 +1060,12 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
                         listaSaveFilesjson[n].nivelesCreados[i].nombre=nuevoNombre;
                         nivelExiste=true;
                         fs.writeFileSync(rutaSaveFilesjson, JSON.stringify(listaSaveFilesjson, null, 1));
-                        m=i;
                         i=listaSaveFilesjson[n].nivelesCreados.length;
                     }
                     else{
                         i++;
                     }
                 }
-                g=n
                 n=listaSaveFilesjson.length;
             }
             else{
@@ -1251,9 +1241,6 @@ export function showUserProgress (request:RequestShowUserProgress, response:Resp
                 usuarioExiste=true;
                 m=n;
                 n=listaSaveFilesjson.length;
-            }
-            else{
-                n=n;
             }
         }
 

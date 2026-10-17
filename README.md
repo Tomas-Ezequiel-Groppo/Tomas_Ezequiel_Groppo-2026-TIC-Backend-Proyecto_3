@@ -208,8 +208,6 @@ Almacena los niveles publicados por la comunidad, en forma de array del tipo Niv
 
 ## Archivos de código
 
-index.ts: Archivo del commit inicial, no cumple una función en el archivo, está para recordar donde inició el proyecto
-
 server.ts: Archivo principal del proyecto, contiene todas las rutas de las API
 
 tipos.ts: Archivo de tipos que no sean los de Request o Response
