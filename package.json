@@ -1,7 +1,7 @@
 {
-  "name": "[TODO: nombre-del-ejercicio]",
+  "name": "Lindsey's Lasers",
   "version": "1.0.0",
-  "description": "[TODO: descripción del ejercicio]",
+  "description": "Videojuego Sokoban (Lado del back-end)",
   "type": "module",
   "engines": {
     "node": ">=20"

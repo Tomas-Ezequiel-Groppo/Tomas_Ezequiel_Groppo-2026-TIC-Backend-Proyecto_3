@@ -7571,15 +7571,17 @@
   ],
   "usuario": "Pepito",
   "usuariosQueCompletaron": [
-   "Sesshomaru"
+   "Sesshomaru",
+   "Alfredo"
   ],
   "id": 5,
   "nombre": "Estanques de Jusenkyo",
   "version": 1,
   "publicado": true,
   "descargas": [
-   "Sesshomaru"
+   "Sesshomaru",
+   "Alfredo"
   ],
-  "cantidadDescargas": 1
+  "cantidadDescargas": 2
  }
 ]
