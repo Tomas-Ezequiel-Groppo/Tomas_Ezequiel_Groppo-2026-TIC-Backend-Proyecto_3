@@ -71,7 +71,7 @@
   "resolution": "1600x1200",
   "user": "capitanjake007"
  },
-{
+ {
   "theme": "Dark",
   "volume": 75,
   "resolution": "1920x1080",
@@ -82,5 +82,17 @@
   "volume": 75,
   "resolution": "1920x1080",
   "user": "igna"
+ },
+ {
+  "theme": "Dark",
+  "volume": 75,
+  "resolution": "1920x1080",
+  "user": "BuenasGente"
+ },
+ {
+  "theme": "Dark",
+  "volume": 75,
+  "resolution": "1920x1080",
+  "user": "DevTeam"
  }
 ]

@@ -7572,7 +7572,8 @@
   "usuario": "Pepito",
   "usuariosQueCompletaron": [
    "Sesshomaru",
-   "Alfredo"
+   "Alfredo",
+   "BuenasGente"
   ],
   "id": 5,
   "nombre": "Estanques de Jusenkyo",
@@ -7580,8 +7581,9 @@
   "publicado": true,
   "descargas": [
    "Sesshomaru",
-   "Alfredo"
+   "Alfredo",
+   "BuenasGente"
   ],
-  "cantidadDescargas": 2
+  "cantidadDescargas": 3
  }
 ]

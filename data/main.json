@@ -68,5 +68,15 @@
   "username": "igna",
   "password": "igna",
   "profileID": 14
+ },
+ {
+  "username": "BuenasGente",
+  "password": "Marie",
+  "profileID": 15
+ },
+ {
+  "username": "DevTeam",
+  "password": "ParaElPPT",
+  "profileID": 16
  }
 ]
