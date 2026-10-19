@@ -25,14 +25,14 @@ const rutaConfigsjson:string = "./data/configs.json";
 const rutaSaveFilesjson:string= "./data/saveFiles.json";
 
 const mainjsontxtcompleto : string = fs.readFileSync(rutaMainjson, "utf-8");
-const mainjsonjsoncompleto : Profile[] = JSON.parse(mainjsontxtcompleto);
+const mainjsonjsoncompleto : Profile[] = JSON.parse(mainjsontxtcompleto) as Profile[];
 
 export function saveProfile(request: RequestSaveProfile, response:ResponseSaveProfile):void{
     let n:number=0;
     let yaExiste:boolean=false;
 
     let configstxt:string=fs.readFileSync(rutaConfigsjson , "utf-8");
-    let configsjson:Config[]=JSON.parse(configstxt);
+    let configsjson:Config[]=JSON.parse(configstxt) as Config[];
     let configPred:Config={
         theme:"Dark",
         volume:75,
@@ -41,7 +41,7 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
     }
 
     let saveFiletxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-    let saveFilejson:SaveFile[]=JSON.parse(saveFiletxt);
+    let saveFilejson:SaveFile[]=JSON.parse(saveFiletxt) as SaveFile[];
     let saveFilePred:SaveFile={
         nivelesOG1:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
         nivelesOG2:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
@@ -118,7 +118,7 @@ export function logProfile(request:RequestLogProfile, response:ResponseLogProfil
 }
 export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLevels):void{
      let lista:string=fs.readFileSync(rutaNivelesjson , "utf-8");
-     let listajson: Nivel[]=JSON.parse(lista);
+     let listajson: Nivel[]=JSON.parse(lista) as Nivel[];
 
      let listaNivelesVisibles:Nivel[]=[]
 
@@ -136,7 +136,7 @@ export function loadLevels (request:RequestLoadLevels , response:ResponseLoadLev
 }
 export function loadLevelsUsers (request:RequestLoadLevelsUsers, response:ResponseLoadLevelUsers):void{
 let listaOG :string = fs.readFileSync(rutaNivelesjson, "utf-8");
-let listajsonOG : Nivel[]=JSON.parse(listaOG);
+let listajsonOG : Nivel[]=JSON.parse(listaOG) as Nivel[];
 let usuario:string=request.params.username;
 let n: number = 0;
 let listajson: Nivel[]=[];
@@ -170,7 +170,7 @@ else{
 }
 export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel):void{
   let listaSaveFiles:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-     let listasaveFilesjson: SaveFile[] = JSON.parse(listaSaveFiles);
+     let listasaveFilesjson: SaveFile[] = JSON.parse(listaSaveFiles) as SaveFile[];
 
      let usuario:string=request.body.usuario;
 
@@ -306,10 +306,10 @@ let p:number=0;
 }
 export function loadProfile (request:RequestLoadProfile, response:ResponseLoadProfile):void{
       let listaUsersOGtxt:string=fs.readFileSync(rutaMainjson, "utf-8");
-      let listaUsersOGjson: Profile[]=JSON.parse(listaUsersOGtxt);
+      let listaUsersOGjson: Profile[]=JSON.parse(listaUsersOGtxt) as Profile[];
       
       let listaLevelsOGtxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-      let listaLevelsOGjson:Nivel[]=JSON.parse(listaLevelsOGtxt);
+      let listaLevelsOGjson:Nivel[]=JSON.parse(listaLevelsOGtxt) as Nivel[];
 
       let profileNew:Profile={
         username:"",
@@ -355,7 +355,7 @@ let userUsername:string=profileLoaded.username
 }
 export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel):void{
     let listaNivelesOGtxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-    let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt);
+    let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt) as Nivel[];
 
     let nivelVacio:Nivel={
          elementos:[],
@@ -397,7 +397,7 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
 }
 export function loadConfig (request:RequestLoadConfig, response:ResponseLoadConfig):void{
   let listaConfigOGtxt:string=fs.readFileSync(rutaConfigsjson, "utf-8");
-  let listaConfigOGjson:Config[]=JSON.parse(listaConfigOGtxt);
+  let listaConfigOGjson:Config[]=JSON.parse(listaConfigOGtxt) as Config[];
 
   let configVacia :Config={
     theme:"",
@@ -437,7 +437,7 @@ export function loadConfig (request:RequestLoadConfig, response:ResponseLoadConf
 export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConfig):void{
 
     let listaConfigsOGtxt:string=fs.readFileSync(rutaConfigsjson, "utf-8");
-    let listaConfigsOGjson:Config[]=JSON.parse(listaConfigsOGtxt);
+    let listaConfigsOGjson:Config[]=JSON.parse(listaConfigsOGtxt) as Config[];
 
     let configNueva:Config={
         theme:request.body.theme,
@@ -529,7 +529,7 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
 }
 export function loadLevelsOG (request:RequestLoadOgLevels , response:ResponseLoadOgLevels):void{
      let lista:string=fs.readFileSync(rutaNivelesOgjson , "utf-8");
-     let listajson: Nivel[]=JSON.parse(lista);
+     let listajson: Nivel[]=JSON.parse(lista) as Nivel[];
      response.json(listajson)
 }
 export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoadSaveFile):void{
@@ -537,7 +537,7 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
    let n:number=0;
 
    let saveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-   let saveFilesjson: SaveFile[] = JSON.parse(saveFilestxt);
+   let saveFilesjson: SaveFile[] = JSON.parse(saveFilestxt) as SaveFile[];
    let requestedSaveFile: SaveFile = {
        nivelesOG1:[],
        nivelesOG2:[],
@@ -575,7 +575,7 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
   let saveFile:number=Number(request.body.saveFile);
   
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson , "utf-8");
-    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
     let n:number = 0;
     let m:number=0;
@@ -626,7 +626,7 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
 }
 export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgLevel):void{
   let listaNivelesOGtxt:string=fs.readFileSync(rutaNivelesOgjson, "utf-8");
-  let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt);
+  let listaNivelesOGjson:Nivel[]=JSON.parse(listaNivelesOGtxt) as Nivel[];
   let numNivel:number=Number(request.params.numNivel);
 
   let nivelBuscado:Nivel={
@@ -664,10 +664,10 @@ response.json(nivelBuscado);
 }
 export function publishLevel(request:RequestPublishLevel, response:ResponsePublishLevel):void{
 let listaNivelesOnlinetxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-let listaNivelesOnlinejson: Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+let listaNivelesOnlinejson: Nivel[]=JSON.parse(listaNivelesOnlinetxt) as Nivel[];
 
 let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
 
 let nivelAGuardar:Nivel={
@@ -738,10 +738,10 @@ response.status(200).json({estatus:"Nivel-publicado"});
 }
 export function completeOnlineLevel (request:RequestCompleteOnlineLevel, response:ResponseCompleteOnlineLevel):void{
      let listaNivelesOnlinetxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-     let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+     let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt) as Nivel[];
      let listaPerfilestxt:string=fs.readFileSync(rutaMainjson, "utf-8");
-     let listaPerfilesjson:Profile[]=JSON.parse(listaPerfilestxt);
-     let listaSaveFilesjson:SaveFile[]=JSON.parse(fs.readFileSync(rutaSaveFilesjson, "utf-8"));
+     let listaPerfilesjson:Profile[]=JSON.parse(listaPerfilestxt) as Profile[];
+     let listaSaveFilesjson:SaveFile[]=JSON.parse(fs.readFileSync(rutaSaveFilesjson, "utf-8")) as SaveFile[];
 
      let existe:boolean=false;
      let yaPaso:boolean=false;
@@ -805,7 +805,7 @@ export function completeOnlineLevel (request:RequestCompleteOnlineLevel, respons
 }
 export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdateLevel):void{
    let listaNivelesOnlinetxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-   let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+   let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt) as Nivel[];
 
    let nombreDeNivel:string=request.params.nombre
 
@@ -855,10 +855,10 @@ nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
 }
 export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSaveLevelUser):void{
      let listaNivelesOnlinetxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-     let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+     let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt) as Nivel[];
 
      let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
      let n:number=0;
      let existe:boolean=false;
@@ -925,7 +925,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
 }
 export function hideLevel (request:RequestHideLevel, response:ResponseHideLevel):void{
          let listaNivelestxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-         let listaNivelesjson: Nivel[]=JSON.parse(listaNivelestxt);
+         let listaNivelesjson: Nivel[]=JSON.parse(listaNivelestxt) as Nivel[];
 
          let nombreNivel:string=request.params.nombre;
 
@@ -961,7 +961,7 @@ export function hideLevel (request:RequestHideLevel, response:ResponseHideLevel)
 }
 export function showLevel (request:RequestHideLevel, response:ResponseHideLevel):void{
       let listaNivelestxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-         let listaNivelesjson: Nivel[]=JSON.parse(listaNivelestxt);
+         let listaNivelesjson: Nivel[]=JSON.parse(listaNivelestxt) as Nivel[];
 
          let nombreNivel:string=request.params.nombre;
 
@@ -997,7 +997,7 @@ export function showLevel (request:RequestHideLevel, response:ResponseHideLevel)
 }
 export function updateLevelNameOnline (request:RequestUpdateLevelNameOnline, response:ResponseUpdateLevelNameOnline):void{
     let listaNivelesOnlinetxt:string=fs.readFileSync(rutaNivelesjson, "utf-8");
-    let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt);
+    let listaNivelesOnlinejson:Nivel[]=JSON.parse(listaNivelesOnlinetxt) as Nivel[];
 
     let nuevoNombre:string=request.body.nombre;
     let ID:number = Number(request.params.id);
@@ -1037,7 +1037,7 @@ export function updateLevelNameOnline (request:RequestUpdateLevelNameOnline, res
 }
 export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, response:ResponseUpdateLevelNameOffline):void{
         let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-        let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+        let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
         let usuario:string = request.body.username;
         let nuevoNombre:string = request.body.nombre;
@@ -1088,7 +1088,7 @@ export function updateLevelNameOffline (request:RequestUpdateLevelNameOffline, r
 }
 export function deleteLevel (request:RequestDeleteLevel , response:ResponseDeleteLevel):void{
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
     let ID:number=Number(request.params.id);
     let usuario:string=request.body.username;
@@ -1155,7 +1155,7 @@ export function deleteLevel (request:RequestDeleteLevel , response:ResponseDelet
 }
 export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:ResponseDeleteSavedLevel):void{
     let listaSaveFilesjsontxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilesjsontxt);
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilesjsontxt) as SaveFile[];
 
     let nombreNivel:string=request.params.nombre;
     let usuario:string=request.body.username;
@@ -1222,7 +1222,7 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
 }
 export function showUserProgress (request:RequestShowUserProgress, response:ResponseShowUserProgress):void{
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
-    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt);
+    let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
     let usuario:string=request.params.username;
     let saveFile:number=Number(request.body.saveFile);
