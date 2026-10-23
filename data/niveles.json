@@ -1506,12 +1506,18 @@
    }
   ],
   "usuario": "Pepito",
-  "usuariosQueCompletaron": [],
+  "usuariosQueCompletaron": [
+   "Sorrylag",
+   "Sesshomaru"
+  ],
   "id": 1,
   "nombre": "Estanques de Jusenkyo",
   "version": 1,
   "publicado": true,
-  "descargas": [],
-  "cantidadDescargas": 0
+  "descargas": [
+   "Sorrylag",
+   "Sesshomaru"
+  ],
+  "cantidadDescargas": 2
  }
 ]
