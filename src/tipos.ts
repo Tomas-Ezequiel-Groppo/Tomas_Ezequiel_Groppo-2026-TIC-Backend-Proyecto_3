@@ -26,8 +26,9 @@ export type Nivel = {
 }
 export type Config = {
     theme:string,
-    volume:number,
-    resolution:string,
+    volumeMusic:number,
+    volumeSFX:number,
+    language:string,
     user:string
 }
 export type SaveFile = {

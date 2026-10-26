@@ -13,8 +13,9 @@ export type UserUsername = {
 }
 type ConfigNoUser={
     theme:string,
-    volume:number,
-    resolution:string
+    volumeMusic:number,
+    language:string,
+    volumeSFX:number
 }
 
 type Estatus={

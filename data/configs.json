@@ -1,110 +1,135 @@
 [
  {
   "theme": "Dark",
-  "volume": 75,
-  "resolution": "1600x1200",
-  "user": "Sesshomaru"
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "DARÍO"
  },
  {
   "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "Hola"
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Sorrylag"
  },
  {
   "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "XDdab"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "alalala"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "qwerty"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "totot"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "hola"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "123456778"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "xXJuanelcrackXx"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1600x1200",
-  "user": "holalan"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "Pepito"
- },
- {
-  "theme": "light",
-  "volume": 100,
-  "resolution": "1600x1200",
-  "user": "capitanjake007"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "Alfredo"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "igna"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "BuenasGente"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "DevTeam"
- },
- {
-  "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
   "user": "Runcinated Icositetrachoron"
  },
  {
   "theme": "Dark",
-  "volume": 75,
-  "resolution": "1920x1080",
-  "user": "Sorrylag"
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "DevTeam"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "BuenasGente"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "igna"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Alfredo"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Pepito"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "holalan"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "xXJuanelcrackXx"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "123456778"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "hola"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "totot"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "qwerty"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "alalala"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "XDdab"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Hola"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Sesshomaru"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 100,
+  "volumeSFX": 60,
+  "language": "spanish",
+  "user": "capitanjake007"
  }
 ]

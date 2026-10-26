@@ -35,8 +35,9 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
     let configsjson:Config[]=JSON.parse(configstxt) as Config[];
     let configPred:Config={
         theme:"Dark",
-        volume:75,
-        resolution:"1920x1080",
+        volumeMusic:75,
+        volumeSFX:75,
+        language:"english",
         user:request.body.username
     }
 
@@ -401,15 +402,17 @@ export function loadConfig (request:RequestLoadConfig, response:ResponseLoadConf
 
   let configVacia :Config={
     theme:"",
-    volume:0,
-    resolution:"",
+    volumeMusic:0,
+    volumeSFX:0,
+    language:"",
     user:""
   }
   let n :number = 0;
   let configCargada:Config={
     theme:"",
-    volume:0,
-    resolution:"",
+    volumeMusic:0,
+    volumeSFX:0,
+    language:"",
     user:""
   }
 
@@ -417,9 +420,10 @@ export function loadConfig (request:RequestLoadConfig, response:ResponseLoadConf
    
     if (listaConfigOGjson[n].user===request.params.username){
        configCargada.user=listaConfigOGjson[n].user;
-       configCargada.resolution=listaConfigOGjson[n].resolution;
+       configCargada.language=listaConfigOGjson[n].language;
        configCargada.theme=listaConfigOGjson[n].theme;
-       configCargada.volume=listaConfigOGjson[n].volume;
+       configCargada.volumeMusic=listaConfigOGjson[n].volumeMusic;
+       configCargada.volumeSFX=listaConfigOGjson[n].volumeSFX
        n++;
     }
     else{
@@ -441,14 +445,16 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
 
     let configNueva:Config={
         theme:request.body.theme,
-        volume:request.body.volume,
-        resolution:request.body.resolution,
+        volumeMusic:request.body.volumeMusic,
+        volumeSFX:request.body.volumeSFX,
+        language:request.body.language,
         user:request.params.username
     }
     let configVacia:Config={
         theme:"",
-        volume:0,
-        resolution:"",
+        volumeSFX:0,
+        volumeMusic:0,
+        language:"",
         user:""
     }
 
@@ -469,7 +475,7 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
     if (existe===true){
         n=0;
         while (n<listaConfigsOGjson.length){
-           if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].resolution===configNueva.resolution&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volume===configNueva.volume){
+           if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].language===configNueva.language&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volumeMusic===configNueva.volumeMusic&&listaConfigsOGjson[n].volumeSFX===listaConfigsOGjson[n].volumeSFX){
                lamisma=1;
                n=listaConfigsOGjson.length;
            }
