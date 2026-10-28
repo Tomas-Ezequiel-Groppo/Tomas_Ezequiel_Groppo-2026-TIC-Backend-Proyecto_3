@@ -31,6 +31,8 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
     let n:number=0;
     let yaExiste:boolean=false;
 
+    let listaNivelesOGjson: Nivel[]=JSON.parse(fs.readFileSync(rutaNivelesOgjson, "utf-8")) as Nivel[];
+
     let configstxt:string=fs.readFileSync(rutaConfigsjson , "utf-8");
     let configsjson:Config[]=JSON.parse(configstxt) as Config[];
     let configPred:Config={
@@ -44,12 +46,18 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
     let saveFiletxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
     let saveFilejson:SaveFile[]=JSON.parse(saveFiletxt) as SaveFile[];
     let saveFilePred:SaveFile={
-        nivelesOG1:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-        nivelesOG2:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-        nivelesOG3:[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+        nivelesOG1:[],
+        nivelesOG2:[],
+        nivelesOG3:[],
         nivelesCreados:[],
         username:request.body.username,
         nivelesGuardados:[]
+    }
+
+    for (let z:number=0; z<listaNivelesOGjson.length;z++){
+        saveFilePred.nivelesOG1.push(false)
+        saveFilePred.nivelesOG2.push(false)
+        saveFilePred.nivelesOG3.push(false)
     }
 
     while (n<mainjsonjsoncompleto.length){
