@@ -475,7 +475,7 @@ export function saveConfig (request:RequestSaveConfig, response:ResponseSaveConf
     if (existe===true){
         n=0;
         while (n<listaConfigsOGjson.length){
-           if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].language===configNueva.language&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volumeMusic===configNueva.volumeMusic&&listaConfigsOGjson[n].volumeSFX===listaConfigsOGjson[n].volumeSFX){
+           if (listaConfigsOGjson[n].user===configNueva.user&&listaConfigsOGjson[n].language===configNueva.language&&listaConfigsOGjson[n].theme===configNueva.theme&&listaConfigsOGjson[n].volumeMusic===configNueva.volumeMusic&&listaConfigsOGjson[n].volumeSFX===configNueva.volumeSFX){
                lamisma=1;
                n=listaConfigsOGjson.length;
            }
