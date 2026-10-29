@@ -131,5 +131,12 @@
   "volumeSFX": 50,
   "language": "spanish",
   "user": "Sesshomaru"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "DanteLasers"
  }
 ]
