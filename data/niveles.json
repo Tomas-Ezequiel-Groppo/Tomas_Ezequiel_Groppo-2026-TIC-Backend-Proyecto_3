@@ -1510,7 +1510,8 @@
    "Sorrylag",
    "Sesshomaru",
    "Pepito",
-   "DanteLasers"
+   "DanteLasers",
+   "capitanjake007"
   ],
   "id": 1,
   "nombre": "Estanques de Jusenkyo",
@@ -1520,9 +1521,10 @@
    "Sorrylag",
    "Sesshomaru",
    "Pepito",
-   "DanteLasers"
+   "DanteLasers",
+   "capitanjake007"
   ],
-  "cantidadDescargas": 4
+  "cantidadDescargas": 5
  },
  {
   "elementos": [
@@ -4550,13 +4552,17 @@
    }
   ],
   "usuario": "capitanjake007",
-  "usuariosQueCompletaron": [],
+  "usuariosQueCompletaron": [
+   "capitanjake007"
+  ],
   "id": 3,
   "nombre": "Rotaciones",
   "version": 1,
   "publicado": true,
-  "descargas": [],
-  "cantidadDescargas": 0
+  "descargas": [
+   "capitanjake007"
+  ],
+  "cantidadDescargas": 1
  },
  {
   "elementos": [
@@ -7580,12 +7586,16 @@
    }
   ],
   "usuario": "holalan",
-  "usuariosQueCompletaron": [],
+  "usuariosQueCompletaron": [
+   "capitanjake007"
+  ],
   "id": 5,
   "nombre": "No cake allowed",
   "version": 1,
   "publicado": true,
-  "descargas": [],
-  "cantidadDescargas": 0
+  "descargas": [
+   "capitanjake007"
+  ],
+  "cantidadDescargas": 1
  }
 ]
