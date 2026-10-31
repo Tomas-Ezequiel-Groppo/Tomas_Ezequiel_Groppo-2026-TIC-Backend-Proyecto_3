@@ -3041,9 +3041,10 @@
   "version": 1,
   "publicado": true,
   "descargas": [
-   "Sesshomaru"
+   "Sesshomaru",
+   "Pepito"
   ],
-  "cantidadDescargas": 1
+  "cantidadDescargas": 2
  },
  {
   "elementos": [
@@ -4553,16 +4554,20 @@
   ],
   "usuario": "capitanjake007",
   "usuariosQueCompletaron": [
-   "capitanjake007"
+   "capitanjake007",
+   "Sesshomaru",
+   "Pepito"
   ],
   "id": 3,
   "nombre": "Rotaciones",
   "version": 1,
   "publicado": true,
   "descargas": [
-   "capitanjake007"
+   "capitanjake007",
+   "Sesshomaru",
+   "Pepito"
   ],
-  "cantidadDescargas": 1
+  "cantidadDescargas": 3
  },
  {
   "elementos": [
@@ -6071,19 +6076,24 @@
    }
   ],
   "usuario": "Alfredo",
-  "usuariosQueCompletaron": [],
+  "usuariosQueCompletaron": [
+   "Sesshomaru"
+  ],
   "id": 4,
   "nombre": "Mirrors",
   "version": 1,
   "publicado": true,
-  "descargas": [],
-  "cantidadDescargas": 0
+  "descargas": [
+   "Sesshomaru",
+   "Pepito"
+  ],
+  "cantidadDescargas": 2
  },
  {
   "elementos": [
    {
     "tipo": {
-     "propiedadEspecial": "community/editor/1:{\"filas\":11,\"columnas\":17,\"idLocal\":\"1793289436066\",\"ultimaModificacion\":1793289561612,\"links\":[[4,9,1,4],[10,1,15,4]]}"
+     "propiedadEspecial": "community/editor/1:{\"filas\":11,\"columnas\":17,\"idLocal\":\"1793289436066\",\"ultimaModificacion\":1793463550355,\"links\":[[4,9,1,4],[10,1,15,4]]}"
     },
     "posicionX": -1,
     "posicionY": -1
@@ -7195,7 +7205,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[1,-1]"
+     "propiedadEspecial": "community/celda/1:[27,-1]"
     },
     "posicionX": 2,
     "posicionY": 8
@@ -7203,7 +7213,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[27,-1]"
+     "propiedadEspecial": "community/celda/1:[1,-1]"
     },
     "posicionX": 3,
     "posicionY": 8
@@ -7586,16 +7596,19 @@
    }
   ],
   "usuario": "holalan",
-  "usuariosQueCompletaron": [
-   "capitanjake007"
-  ],
   "id": 5,
   "nombre": "No cake allowed",
-  "version": 1,
+  "usuariosQueCompletaron": [
+   "capitanjake007",
+   "Sesshomaru"
+  ],
+  "version": 2,
   "publicado": true,
   "descargas": [
-   "capitanjake007"
+   "capitanjake007",
+   "Sesshomaru",
+   "Pepito"
   ],
-  "cantidadDescargas": 1
+  "cantidadDescargas": 3
  }
 ]

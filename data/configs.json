@@ -1,13 +1,6 @@
 [
  {
   "theme": "Dark",
-  "volumeMusic": 100,
-  "volumeSFX": 50,
-  "language": "spanish",
-  "user": "Sesshomaru"
- },
- {
-  "theme": "Dark",
   "volumeMusic": 75,
   "volumeSFX": 75,
   "language": "english",
@@ -145,5 +138,12 @@
   "volumeSFX": 60,
   "language": "spanish",
   "user": "capitanjake007"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 46,
+  "volumeSFX": 50,
+  "language": "spanish",
+  "user": "Sesshomaru"
  }
 ]
