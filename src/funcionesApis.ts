@@ -591,6 +591,8 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson , "utf-8");
     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
+    let listaNiveles:Nivel[]=JSON.parse(fs.readFileSync(rutaNivelesOgjson, "utf-8")) as Nivel[];
+
     let n:number = 0;
     let m:number=0;
     let existe:boolean=false;
@@ -606,7 +608,7 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
             n++;
         }
     }
-    if (numNivel<0 || numNivel>15){
+    if (numNivel<0 || numNivel>listaNiveles.length){
        response.status(404).json({estatus:"No-hay-tal-nivel"});
     }
     else if (existe===false){
