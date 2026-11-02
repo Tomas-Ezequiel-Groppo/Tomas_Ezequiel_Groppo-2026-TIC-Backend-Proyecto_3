@@ -1,129 +1,10 @@
 [
  {
   "theme": "Dark",
-  "volumeMusic": 46,
-  "volumeSFX": 50,
-  "language": "spanish",
-  "user": "Sesshomaru"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "spanish",
-  "user": "Lohan"
- },
- {
-  "theme": "Dark",
   "volumeMusic": 75,
   "volumeSFX": 75,
   "language": "english",
-  "user": "DARÍO"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "Sorrylag"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "Runcinated Icositetrachoron"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "DevTeam"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "BuenasGente"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "igna"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "Alfredo"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "Pepito"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "holalan"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "xXJuanelcrackXx"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "123456778"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "hola"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "totot"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "qwerty"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "alalala"
- },
- {
-  "theme": "Dark",
-  "volumeMusic": 75,
-  "volumeSFX": 75,
-  "language": "english",
-  "user": "XDdab"
+  "user": "DanteLasers"
  },
  {
   "theme": "Dark",
@@ -137,11 +18,130 @@
   "volumeMusic": 75,
   "volumeSFX": 75,
   "language": "english",
-  "user": "DanteLasers"
+  "user": "XDdab"
  },
  {
   "theme": "Dark",
-  "volumeMusic": 0,
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "alalala"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "qwerty"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "totot"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "hola"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "123456778"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "xXJuanelcrackXx"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "holalan"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Pepito"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Alfredo"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "igna"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "BuenasGente"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "DevTeam"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Runcinated Icositetrachoron"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "Sorrylag"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "english",
+  "user": "DARÍO"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 75,
+  "volumeSFX": 75,
+  "language": "spanish",
+  "user": "Lohan"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 46,
+  "volumeSFX": 50,
+  "language": "spanish",
+  "user": "Sesshomaru"
+ },
+ {
+  "theme": "Dark",
+  "volumeMusic": 100,
   "volumeSFX": 60,
   "language": "spanish",
   "user": "capitanjake007"

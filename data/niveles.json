@@ -3050,7 +3050,7 @@
   "elementos": [
    {
     "tipo": {
-     "propiedadEspecial": "community/editor/1:{\"filas\":11,\"columnas\":17,\"idLocal\":\"1793288989916\",\"ultimaModificacion\":1793289169778,\"links\":[[6,1,1,7],[13,1,15,5]]}"
+     "propiedadEspecial": "community/editor/1:{\"filas\":11,\"columnas\":17,\"idLocal\":\"1793288989916\",\"ultimaModificacion\":1793585363443,\"links\":[[6,1,1,7],[13,1,15,5]]}"
     },
     "posicionX": -1,
     "posicionY": -1
@@ -3234,7 +3234,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[17,-1]"
+     "propiedadEspecial": "community/celda/1:[16,-1]"
     },
     "posicionX": 5,
     "posicionY": 1
@@ -3370,7 +3370,7 @@
    {
     "tipo": {
      "orientacion": null,
-     "propiedadEspecial": "community/celda/1:[1,-1]"
+     "propiedadEspecial": "community/celda/1:[39,-1]"
     },
     "posicionX": 5,
     "posicionY": 2
@@ -4553,14 +4553,14 @@
    }
   ],
   "usuario": "capitanjake007",
+  "id": 3,
+  "nombre": "Rotaciones",
   "usuariosQueCompletaron": [
    "capitanjake007",
    "Sesshomaru",
    "Pepito"
   ],
-  "id": 3,
-  "nombre": "Rotaciones",
-  "version": 1,
+  "version": 2,
   "publicado": true,
   "descargas": [
    "capitanjake007",
