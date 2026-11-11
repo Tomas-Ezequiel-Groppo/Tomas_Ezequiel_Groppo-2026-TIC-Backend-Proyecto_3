@@ -278,7 +278,8 @@
   ],
   "nivelesCreados": [],
   "username": "xXJuanelcrackXx",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 1
  },
  {
   "nivelesOG1": [
@@ -559,7 +560,9 @@
   ],
   "nivelesCreados": [],
   "username": "123456778",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 2
+  
  },
  {
   "nivelesOG1": [
@@ -840,7 +843,8 @@
   ],
   "nivelesCreados": [],
   "username": "hola",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 3
  },
  {
   "nivelesOG1": [
@@ -1121,7 +1125,8 @@
   ],
   "nivelesCreados": [],
   "username": "totot",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 4
  },
  {
   "nivelesOG1": [
@@ -1402,7 +1407,8 @@
   ],
   "nivelesCreados": [],
   "username": "qwerty",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 5
  },
  {
   "nivelesOG1": [
@@ -1683,7 +1689,8 @@
   ],
   "nivelesCreados": [],
   "username": "alalala",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 6
  },
  {
   "nivelesOG1": [
@@ -1964,7 +1971,8 @@
   ],
   "nivelesCreados": [],
   "username": "XDdab",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 7
  },
  {
   "nivelesOG1": [
@@ -11370,7 +11378,8 @@
     ],
     "cantidadDescargas": 2
    }
-  ]
+  ],
+  "id": 8
  },
  {
   "nivelesOG1": [
@@ -11651,7 +11660,8 @@
   ],
   "nivelesCreados": [],
   "username": "Hola",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 9
  },
  {
   "nivelesOG1": [
@@ -13448,7 +13458,8 @@
    }
   ],
   "username": "holalan",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 10
  },
  {
   "nivelesOG1": [
@@ -30427,7 +30438,8 @@
     ],
     "cantidadDescargas": 3
    }
-  ]
+  ],
+  "id": 11
  },
  {
   "nivelesOG1": [
@@ -36797,7 +36809,8 @@
     ],
     "cantidadDescargas": 3
    }
-  ]
+  ],
+  "id": 12
  },
  {
   "nivelesOG1": [
@@ -38594,7 +38607,8 @@
    }
   ],
   "username": "Alfredo",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 13
  },
  {
   "nivelesOG1": [
@@ -38875,7 +38889,8 @@
   ],
   "nivelesCreados": [],
   "username": "igna",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 14
  },
  {
   "nivelesOG1": [
@@ -39156,7 +39171,8 @@
   ],
   "nivelesCreados": [],
   "username": "BuenasGente",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 15
  },
  {
   "nivelesOG1": [
@@ -39437,7 +39453,8 @@
   ],
   "nivelesCreados": [],
   "username": "DevTeam",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 16
  },
  {
   "nivelesOG1": [
@@ -39718,7 +39735,8 @@
   ],
   "nivelesCreados": [],
   "username": "Runcinated Icositetrachoron",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 17
  },
  {
   "nivelesOG1": [
@@ -41523,7 +41541,8 @@
     ],
     "cantidadDescargas": 3
    }
-  ]
+  ],
+  "id": 18
  },
  {
   "nivelesOG1": [
@@ -41804,7 +41823,8 @@
   ],
   "nivelesCreados": [],
   "username": "DARÍO",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 19
  },
  {
   "nivelesOG1": [
@@ -43611,7 +43631,8 @@
     ],
     "cantidadDescargas": 4
    }
-  ]
+  ],
+  "id": 20
  },
  {
   "nivelesOG1": [
@@ -43892,6 +43913,7 @@
   ],
   "nivelesCreados": [],
   "username": "Lohan",
-  "nivelesGuardados": []
+  "nivelesGuardados": [],
+  "id": 21
  }
 ]

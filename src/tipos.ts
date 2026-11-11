@@ -1,8 +1,9 @@
 //ARCHIVO DE LOS TIPOS DEL PROYECTO
 
-export type Profile = {username:string ; password:string ; profileID:number};
+export type Profile = {username:string , password:string , profileID:number};
+export type ProfileNoPassword = {username:string , profileID:number}
 export type WholeProfile={
-    profileData:Profile,
+    profileData:ProfileNoPassword,
     createdLevels:Nivel[]
 }
 type Portal ={
@@ -37,5 +38,6 @@ export type SaveFile = {
     nivelesOG3:boolean[],
     nivelesCreados:Nivel[],
     username:string,
-    nivelesGuardados:Nivel[]
+    nivelesGuardados:Nivel[],
+    id:number
 }

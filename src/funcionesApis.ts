@@ -51,7 +51,8 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
         nivelesOG3:[],
         nivelesCreados:[],
         username:request.body.username,
-        nivelesGuardados:[]
+        nivelesGuardados:[],
+        id:saveFilejson.length+1
     }
 
     for (let z:number=0; z<listaNivelesOGjson.length;z++){
@@ -94,17 +95,17 @@ export function saveProfile(request: RequestSaveProfile, response:ResponseSavePr
 }
 export function logProfile(request:RequestLogProfile, response:ResponseLogProfile):void{
     let logProfile:Profile={
-        username:request.body.username,
+        username:"",
         password:request.body.password,
-        profileID:1,
+        profileID:request.body.id,
     }
   let n:number=0;
-  let existeElUsername:boolean=false;
+  let existeElPerfil:boolean=false;
   let correctProfile: Profile | undefined;
   
   while (n<mainjsonjsoncompleto.length){
-    if (logProfile.username===mainjsonjsoncompleto[n]!.username){
-        existeElUsername=true;
+    if (logProfile.profileID===mainjsonjsoncompleto[n].profileID){
+        existeElPerfil=true;
         correctProfile=mainjsonjsoncompleto[n]
         n=mainjsonjsoncompleto.length;
     }
@@ -112,7 +113,7 @@ export function logProfile(request:RequestLogProfile, response:ResponseLogProfil
         n++;
     }
   }
-    if (existeElUsername===true){
+    if (existeElPerfil===true){
      if (logProfile.password===correctProfile?.password){
          response.json({estatus:"Logueado-correctamente"})
          response.status(200);
@@ -189,7 +190,8 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
         nivelesOG3:[],
         nivelesCreados:[],
         username:"",
-        nivelesGuardados:[]
+        nivelesGuardados:[],
+        id:0
      }
      let n:number = 0;
      let m:number= 0;
@@ -202,6 +204,7 @@ export function saveLevel (request:RequestSaveLevel, response:ResponseSaveLevel)
               saveFileAModificar.nivelesCreados=listasaveFilesjson[n].nivelesCreados;
               saveFileAModificar.nivelesGuardados=listasaveFilesjson[n].nivelesGuardados;
               saveFileAModificar.username=listasaveFilesjson[n].username;
+              saveFileAModificar.id=listasaveFilesjson[n].id;
               m=n;
               n=listasaveFilesjson.length;
           }
@@ -331,7 +334,7 @@ export function loadProfile (request:RequestLoadProfile, response:ResponseLoadPr
 
       let n:number=0;
       while (n<listaUsersOGjson.length){
-        if (listaUsersOGjson[n].username===request.params.username){
+        if (listaUsersOGjson[n].profileID===Number(request.params.id)){
             profileLoaded=listaUsersOGjson[n];
             n=listaUsersOGjson.length
         }
@@ -547,7 +550,7 @@ export function loadLevelsOG (request:RequestLoadOgLevels , response:ResponseLoa
      response.json(listajson)
 }
 export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoadSaveFile):void{
-   let usuario:string=request.params.username
+   let Id:number=Number(request.params.id);
    let n:number=0;
 
    let saveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
@@ -558,24 +561,26 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
        nivelesOG3:[],
        nivelesCreados:[],
        username:"",
-       nivelesGuardados:[]
+       nivelesGuardados:[],
+       id:0
    }
 
    while (n<saveFilesjson.length){
-    if (saveFilesjson[n].username===usuario){
+    if (saveFilesjson[n].id===Id){
           requestedSaveFile.nivelesOG1=saveFilesjson[n].nivelesOG1;
           requestedSaveFile.nivelesOG2=saveFilesjson[n].nivelesOG2;
           requestedSaveFile.nivelesOG3=saveFilesjson[n].nivelesOG3;
           requestedSaveFile.nivelesCreados=saveFilesjson[n].nivelesCreados;
           requestedSaveFile.nivelesGuardados=saveFilesjson[n].nivelesGuardados;
-          requestedSaveFile.username=request.params.username;
+          requestedSaveFile.username=saveFilesjson[n].username;
+          requestedSaveFile.id=Id;
           n=saveFilesjson.length;
     }
     else{
         n++;
     }
    }
-   if (requestedSaveFile.username===""){
+   if (requestedSaveFile.id===0){
       response.status(404).json({estatus:"Archivo-de-guardado-no-encontrado"});
    }
    else{
@@ -585,7 +590,7 @@ export function loadSaveFile (request:RequestLoadSaveFile , response:ResponseLoa
 }
 export function completeLevel (request:RequestCompleteLevel, response:ResponseCompleteLevel):void{
   let numNivel:number=Number(request.params.numNivel)-1;
-  let usuario:string=request.body.username;
+  let Id:number=Number(request.body.id);
   let saveFile:number=Number(request.body.saveFile);
   
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson , "utf-8");
@@ -599,7 +604,7 @@ export function completeLevel (request:RequestCompleteLevel, response:ResponseCo
     
 
     while (n<listaSaveFilesjson.length){
-        if (listaSaveFilesjson[n].username===usuario){
+        if (listaSaveFilesjson[n].id===Id){
             m=n
             existe=true
             n=listaSaveFilesjson.length
@@ -690,7 +695,7 @@ let nivelAGuardar:Nivel={
     elementos:[],
     usuario:"",
     usuariosQueCompletaron:[],
-    id:listaNivelesOnlinejson.length+1,
+    id:0,
     nombre:"",
     version:1,
     publicado:true,
@@ -698,19 +703,20 @@ let nivelAGuardar:Nivel={
     cantidadDescargas:0
 }
 
-let usuario:string=request.params.username;
+let Id:number=Number(request.params.id);
 
 let n:number=0;
 let m:number=0;
 
 while (n<listaSaveFilesjson.length){
-    if (listaSaveFilesjson[n].username===usuario){
+    if (listaSaveFilesjson[n].id===Id){
        while (m<listaSaveFilesjson[n].nivelesCreados.length){
            if (listaSaveFilesjson[n].nivelesCreados[m].nombre===request.body.nombre){
             nivelAGuardar.elementos=listaSaveFilesjson[n].nivelesCreados[m].elementos;
             nivelAGuardar.nombre=listaSaveFilesjson[n].nivelesCreados[m].nombre;
             nivelAGuardar.usuario=listaSaveFilesjson[n].nivelesCreados[m].usuario;
             nivelAGuardar.usuariosQueCompletaron=listaSaveFilesjson[n].nivelesCreados[m].usuariosQueCompletaron;
+            nivelAGuardar.id=Id + 1;
             m=listaSaveFilesjson[n].nivelesCreados.length;
            }
            else{
@@ -732,7 +738,7 @@ let existe:boolean=false;
 let o:number=0;
 
 while (o<listaNivelesOnlinejson.length){
-    if (listaNivelesOnlinejson[o].nombre===nivelAGuardar.nombre){
+    if (listaNivelesOnlinejson[o].id===nivelAGuardar.id){
       existe=true;
       o=listaNivelesOnlinejson.length
     }
@@ -742,7 +748,7 @@ while (o<listaNivelesOnlinejson.length){
 }
 
 if (existe===true){
-response.status(409).json({estatus:"Ya-existe-un-nivel-con-ese-nombre"});
+response.status(409).json({estatus:"Ya-existe-ese-nivel"});
 }
 else{
 listaNivelesOnlinejson.push(nivelAGuardar);
@@ -876,6 +882,16 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
      let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
      let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
+     let listaUsuarios : Profile[] = JSON.parse(fs.readFileSync(rutaMainjson, "utf-8"));
+     let usernameDeseado:string="";
+
+     for (let z:number=0; listaUsuarios;z++){
+        if (listaUsuarios[z].profileID===Number(request.body.id)){
+            usernameDeseado=listaUsuarios[z].username
+            z=listaUsuarios.length;
+        }
+     }
+
      let n:number=0;
      let existe:boolean=false;
      let i:number=0;
@@ -883,7 +899,7 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
      let nivelEnSaveFile:boolean=false;
 
      while (n<listaSaveFilesjson.length){
-        if (listaSaveFilesjson[n].username===request.body.username){
+        if (listaSaveFilesjson[n].id===Number(request.body.id)){
             existe=true;
             i=n;
             n=listaSaveFilesjson.length;
@@ -898,12 +914,12 @@ export function saveLevelUser (request:RequestSaveLevelUser, response:ResponseSa
         while (m<listaNivelesOnlinejson.length){
             if (listaNivelesOnlinejson[m].nombre===request.params.nombre){
                 for (let g:number = 0;listaNivelesOnlinejson[m].descargas.length>g;g++){
-                    if (listaNivelesOnlinejson[m].descargas[g]===request.body.username){
+                    if (listaNivelesOnlinejson[m].descargas[g]===usernameDeseado){
                         yaDescargado=true;
                     }
                 }
                 if (yaDescargado===false){
-                    listaNivelesOnlinejson[m].descargas.push(request.body.username);
+                    listaNivelesOnlinejson[m].descargas.push(usernameDeseado);
                     listaNivelesOnlinejson[m].cantidadDescargas=listaNivelesOnlinejson[m].descargas.length;
                 }
                 for (let h:number=0;h<listaSaveFilesjson[i].nivelesGuardados.length;h++){
@@ -1173,13 +1189,13 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
     let listaSaveFilesjsontxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilesjsontxt) as SaveFile[];
 
-    let nombreNivel:string=request.params.nombre;
+    let idNivel:number=Number(request.params.id);
     let usuario:string=request.body.username;
 
     if (usuario===""){
         response.status(400).json({estatus:"No-se-especifico-un-usuario"});
     }
-    else if (nombreNivel===""){
+    else if (idNivel===0){
         response.status(400).json({estatus:"No-se-especifico-el-nombre-del-nivel-a-borrar"})
     }
     else{
@@ -1200,7 +1216,7 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
     if (usuarioExiste===true){
         let nivelEnSaveFile:boolean=false;
         for (let j:number=0;j<listaSaveFilesjson[m].nivelesGuardados.length;j++){
-            if (listaSaveFilesjson[m].nivelesGuardados[j].nombre===nombreNivel){
+            if (listaSaveFilesjson[m].nivelesGuardados[j].id===idNivel){
                 nivelEnSaveFile=true
             }
         }
@@ -1210,7 +1226,7 @@ export function deleteSavedLevel (request:RequestDeleteSavedLevel, response:Resp
         let listaMedia:Nivel[]=[]
         while (0<listaSaveFilesjson[m].nivelesGuardados.length){
             i = listaSaveFilesjson[m].nivelesGuardados.length-1
-            if (listaSaveFilesjson[m].nivelesGuardados[i].nombre===nombreNivel){
+            if (listaSaveFilesjson[m].nivelesGuardados[i].id===idNivel){
                 listaSaveFilesjson[m].nivelesGuardados.pop()
             }
             else{
@@ -1240,10 +1256,10 @@ export function showUserProgress (request:RequestShowUserProgress, response:Resp
     let listaSaveFilestxt:string=fs.readFileSync(rutaSaveFilesjson, "utf-8");
     let listaSaveFilesjson:SaveFile[]=JSON.parse(listaSaveFilestxt) as SaveFile[];
 
-    let usuario:string=request.params.username;
+    let idNivel:number=Number(request.params.id);
     let saveFile:number=Number(request.body.saveFile);
 
-    if (usuario===""){
+    if (idNivel===0){
         response.status(400).json({estatus:"No-se-especifico-ningun-usuario"});
     }
     else if (saveFile===0){
@@ -1253,7 +1269,7 @@ export function showUserProgress (request:RequestShowUserProgress, response:Resp
         let usuarioExiste:boolean=false;
         let m:number=0;
         for (let n:number=0;n<listaSaveFilesjson.length;n++){
-            if (listaSaveFilesjson[n].username===usuario){
+            if (listaSaveFilesjson[n].id===idNivel){
                 usuarioExiste=true;
                 m=n;
                 n=listaSaveFilesjson.length;

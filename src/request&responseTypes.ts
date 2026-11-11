@@ -8,7 +8,10 @@ type UserProfile = {
     username:string,
     password:string
 }
-export type UserUsername = {
+type Id = {
+    id:string
+}
+type UserUsername = {
     username:string
 }
 type ConfigNoUser={
@@ -28,8 +31,8 @@ type Estatus={
 
 export type RequestSaveProfile = Request<unknown, unknown , UserProfile>;
 export type RequestSaveConfig = Request<UserUsername, unknown, ConfigNoUser>;
-export type RequestLogProfile = Request<unknown,unknown , UserProfile>;
-export type RequestLoadProfile = Request<UserUsername, WholeProfile>;
+export type RequestLogProfile = Request<unknown,unknown , {id:number} & {password:string}>;
+export type RequestLoadProfile = Request<Id, WholeProfile>;
 export type RequestLoadConfig = Request<UserUsername, Config>;
 
 
@@ -40,22 +43,22 @@ export type RequestLoadLevels = Request<unknown, Nivel[]>;
 export type RequestLoadLevelsUsers = Request<UserUsername, Nivel[]>;
 export type RequestLoadLevel = Request<{nombre:string},Nivel>;
 export type RequestLoadOgLevels = Request<unknown, Nivel[]>;
-export type RequestCompleteLevel = Request<{numNivel:string}, Estatus, UserUsername & {saveFile:string}>;
+export type RequestCompleteLevel = Request<{numNivel:string}, Estatus, Id & {saveFile:string}>;
 export type RequestLoadOgLevel = Request<{numNivel:string}, Nivel>
-export type RequestPublishLevel= Request<UserUsername, Estatus , {nombre:string}>;
+export type RequestPublishLevel= Request<Id, Estatus , {nombre:string}>;
 export type RequestCompleteOnlineLevel = Request<{nombre:string}, Estatus , UserUsername>;
 export type RequestUpdateLevel = Request<{nombre:string}, Estatus, Nivel>;
 export type RequestHideLevel = Request<{nombre:string}, Estatus>;
 export type RequestUpdateLevelNameOnline=Request<{id:string}, Estatus , {nombre:string}>;
 export type RequestUpdateLevelNameOffline=Request<{id:string}, Estatus, {nombre:string}&{username:string}>;
-export type RequestDeleteLevel = Request<{id:string}, Estatus, UserUsername>
+export type RequestDeleteLevel = Request<Id, Estatus, UserUsername>
 
 //SaveFile
 
-export type RequestLoadSaveFile = Request<UserUsername,SaveFile>;
-export type RequestSaveLevelUser = Request<{nombre:string}, Estatus , UserUsername>;
-export type RequestDeleteSavedLevel = Request<{nombre:string}, Estatus, UserUsername>;
-export type RequestShowUserProgress = Request<UserUsername, boolean[], {saveFile:string}>;
+export type RequestLoadSaveFile = Request<Id,SaveFile>;
+export type RequestSaveLevelUser = Request<{nombre:string}, Estatus , Id>;
+export type RequestDeleteSavedLevel = Request<Id, Estatus, UserUsername>;
+export type RequestShowUserProgress = Request<Id, boolean[], {saveFile:string}>;
 
 //RESPONSE
 
