@@ -2,7 +2,7 @@
 
 import type {Request, Response } from 'express';
 import type {Nivel, WholeProfile, Config} from './tipos.js'
-import type { SaveFile } from './tipos.js';
+import type { SaveFile, Comment } from './tipos.js';
 
 type UserProfile = {
     username:string,
@@ -49,6 +49,8 @@ export type RequestHideLevel = Request<{nombre:string}, Estatus>;
 export type RequestUpdateLevelNameOnline=Request<{id:string}, Estatus , {nombre:string}>;
 export type RequestUpdateLevelNameOffline=Request<{id:string}, Estatus, {nombre:string}&{username:string}>;
 export type RequestDeleteLevel = Request<{id:string}, Estatus, UserUsername>
+export type RequestCommunityAction = Request<{id:string}, Estatus, {action:string} & UserUsername & {valoracion:string}>;
+export type RequestCommentLevel = Request<{id:string}, Estatus>
 
 //SaveFile
 
@@ -83,6 +85,7 @@ export type ResponseHideLevel = Response <Estatus>;
 export type ResponseUpdateLevelNameOnline= Response<Estatus>;
 export type ResponseUpdateLevelNameOffline=Response<Estatus>;
 export type ResponseDeleteLevel=Response<Estatus>;
+export type ResponseCommunityAction = Response<Estatus>;
 
 //SaveFile
 

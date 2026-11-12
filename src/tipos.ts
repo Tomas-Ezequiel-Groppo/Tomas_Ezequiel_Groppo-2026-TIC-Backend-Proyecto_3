@@ -22,7 +22,12 @@ export type Nivel = {
     version:number,
     publicado:boolean,
     descargas:string[],
-    cantidadDescargas:number
+    cantidadDescargas:number,
+    meGustas:string[],
+    noMegustas:string[],
+    valoraciones:number[],
+    valoracionPromedio:number,
+    comments:Comment[]
 }
 export type Config = {
     theme:string,
@@ -38,4 +43,12 @@ export type SaveFile = {
     nivelesCreados:Nivel[],
     username:string,
     nivelesGuardados:Nivel[]
+}
+export type Comment = {
+    user:string,
+    message:string,
+    id:number,
+    inFavor:string[],
+    against:string[],
+    responses:Comment[]
 }

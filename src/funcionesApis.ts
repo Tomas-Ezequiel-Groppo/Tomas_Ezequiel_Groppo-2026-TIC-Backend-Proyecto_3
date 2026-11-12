@@ -7,7 +7,7 @@ import type {Nivel} from './tipos.js'
 import type { SaveFile } from './tipos.js';
 
 import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser} from './request&responseTypes.js'
-import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel } from './request&responseTypes.js';
+import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel, RequestCommunityAction } from './request&responseTypes.js';
 
 import type { RequestLoadSaveFile, RequestDeleteSavedLevel, RequestShowUserProgress} from './request&responseTypes.js';
 import type { ResponseLoadSaveFile, ResponseDeleteSavedLevel, ResponseShowUserProgress} from './request&responseTypes.js';
@@ -16,7 +16,7 @@ import type { ResponseSaveProfile , ResponseLogProfile, ResponseSaveConfig, Resp
 import type { ResponseSaveLevel, ResponseLoadLevels, ResponseLoadLevelUsers, ResponseLoadLevel, ResponsePublishLevel} from './request&responseTypes.js';
 
 import type { RequestLoadOgLevels, RequestCompleteLevel, RequestLoadOgLevel, RequestCompleteOnlineLevel, RequestUpdateLevel, RequestHideLevel, RequestUpdateLevelNameOnline, RequestUpdateLevelNameOffline, RequestDeleteLevel} from './request&responseTypes.js';
-import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel, ResponseUpdateLevel, ResponseHideLevel, ResponseUpdateLevelNameOnline, ResponseUpdateLevelNameOffline, ResponseDeleteLevel} from './request&responseTypes.js';
+import type { ResponseLoadOgLevels, ResponseCompleteLevel, ResponseLoadOgLevel, ResponseCompleteOnlineLevel, ResponseUpdateLevel, ResponseHideLevel, ResponseUpdateLevelNameOnline, ResponseUpdateLevelNameOffline, ResponseDeleteLevel, ResponseCommunityAction} from './request&responseTypes.js';
 
 const rutaMainjson:string = "./data/main.json";
 const rutaNivelesjson:string = "./data/niveles.json";
@@ -239,7 +239,11 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         version:0,
         publicado:false,
         descargas:[],
-        cantidadDescargas:0
+        cantidadDescargas:0,
+        meGustas:[],
+        noMegustas:[],
+        valoraciones:[],
+        valoracionPromedio:0
      }
     let vacioLevel:Nivel={
         elementos:[],
@@ -250,7 +254,11 @@ response.status(404).json({estatus:"Perfil-no-encontrado"});
         version:0,
         publicado:false,
         descargas:[],
-        cantidadDescargas:0
+        cantidadDescargas:0,
+        meGustas:[],
+        noMegustas:[],
+        valoraciones:[],
+        valoracionPromedio:0
     }
      if (newLevel.elementos.length===vacioLevel.elementos.length){
         response.status(400).json({estatus:"Nivel-vacio"});
@@ -375,7 +383,11 @@ export function loadLevel (request:RequestLoadLevel, response:ResponseLoadLevel)
     version:0,
     publicado:false,
     descargas:[],
-    cantidadDescargas:0
+    cantidadDescargas:0,
+    meGustas:[],
+    noMegustas:[],
+    valoraciones:[],
+    valoracionPromedio:0
     }
     let n:number = 0;
 
@@ -654,7 +666,11 @@ export function loadLevelOG(request:RequestLoadOgLevel, response:ResponseLoadOgL
     version:0,
     publicado:false,
     descargas:[],
-    cantidadDescargas:0
+    cantidadDescargas:0,
+    meGustas:[],
+    noMegustas:[],
+    valoraciones:[],
+    valoracionPromedio:0
   }
 
   let n:number=0;
@@ -695,7 +711,11 @@ let nivelAGuardar:Nivel={
     version:1,
     publicado:true,
     descargas:[],
-    cantidadDescargas:0
+    cantidadDescargas:0,
+    meGustas:[],
+    noMegustas:[],
+    valoraciones:[],
+    valoracionPromedio:0
 }
 
 let usuario:string=request.params.username;
@@ -834,7 +854,11 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
     version:0,
     publicado:false,
     descargas:[],
-    cantidadDescargas:0
+    cantidadDescargas:0,
+    meGustas:[],
+    noMegustas:[],
+    valoraciones:[],
+    valoracionPromedio:0
    }
 
    let n:number = 0;
@@ -844,9 +868,13 @@ export function updateLevel (request:RequestUpdateLevel , response:ResponseUpdat
     if (listaNivelesOnlinejson[n].nombre===nombreDeNivel){
         nivelAActualizar=request.body;
         nivelAActualizar.version=listaNivelesOnlinejson[n].version+1;
-        nivelAActualizar.publicado=listaNivelesOnlinejson[n].publicado
-nivelAActualizar.descargas=listaNivelesOnlinejson[n].descargas
+        nivelAActualizar.publicado=listaNivelesOnlinejson[n].publicado;
+nivelAActualizar.descargas=listaNivelesOnlinejson[n].descargas;
 nivelAActualizar.cantidadDescargas=listaNivelesOnlinejson[n].cantidadDescargas
+nivelAActualizar.valoracionPromedio=listaNivelesOnlinejson[n].valoracionPromedio;
+nivelAActualizar.valoraciones=listaNivelesOnlinejson[n].valoraciones;
+nivelAActualizar.meGustas=listaNivelesOnlinejson[n].meGustas;
+nivelAActualizar.noMegustas=listaNivelesOnlinejson[n].noMegustas;
         listaNivelesOnlinejson[n]=nivelAActualizar;
         existe=true;
         n=listaNivelesOnlinejson.length
@@ -1278,4 +1306,50 @@ export function showUserProgress (request:RequestShowUserProgress, response:Resp
             response.status(404).json({estatus:"Usuario-no-encontrado"});
         }
     }
+}
+export function communityAction(request:RequestCommunityAction, response:ResponseCommunityAction):void{
+
+    let listaNivelesOnline:Nivel[] = JSON.parse(fs.readFileSync(rutaNivelesjson, "utf-8")) as Nivel[];
+
+    if (request.body.action==="Like"){
+        for (let n:number = 0; listaNivelesOnline.length>n;n++){
+            if (listaNivelesOnline[n].id===Number(request.params.id)){
+                listaNivelesOnline[n].meGustas.push(request.body.username)
+            }
+        }
+    }
+    else if(request.body.action==="Dislike"){
+         for (let n:number = 0; listaNivelesOnline.length>n;n++){
+            if (listaNivelesOnline[n].id===Number(request.params.id)){
+                listaNivelesOnline[n].noMegustas.push(request.body.username)
+            }
+        }
+    }
+    else if (request.body.action==="Valorar"){
+        let valor:number=Number(request.params.id)
+        let valorPromedio:number = 0;
+        for (let n:number = 0; listaNivelesOnline.length>n;n++){
+            if (listaNivelesOnline[n].id===Number(request.params.id)){
+                listaNivelesOnline[n].valoraciones.push(valor);
+                for (let m:number = 0; listaNivelesOnline[n].valoraciones.length>m;m++){
+                    if (m===0){
+                        valorPromedio=listaNivelesOnline[n].valoraciones[m];
+                    }
+                    else{
+                        valorPromedio+=listaNivelesOnline[n].valoraciones[m];
+                    }
+                }
+                valorPromedio=valorPromedio/listaNivelesOnline[n].valoraciones.length;
+                listaNivelesOnline[n].valoracionPromedio=valorPromedio;
+            }
+        }
+    }
+    else{
+        response.status(400).json({estatus:"La-accion-presentada-no-es-valida"});
+        return;
+    }
+    fs.writeFileSync(rutaNivelesjson, JSON.stringify(listaNivelesOnline, null, 1));
+}
+export function commentLevel(){
+    
 }
