@@ -6,7 +6,7 @@ import type {Profile, WholeProfile, Config} from './tipos.js'
 import type {Nivel} from './tipos.js'
 import type { SaveFile } from './tipos.js';
 
-import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser} from './request&responseTypes.js'
+import type {RequestSaveProfile, RequestLogProfile, RequestLoadProfile, RequestLoadConfig, RequestSaveConfig, RequestSaveLevelUser, ResponseSaveLevelUser, RequestCommentLevel, ResponseCommentLevel} from './request&responseTypes.js'
 import type { RequestLoadLevels , RequestLoadLevelsUsers, RequestSaveLevel, RequestLoadLevel, RequestPublishLevel, RequestCommunityAction } from './request&responseTypes.js';
 
 import type { RequestLoadSaveFile, RequestDeleteSavedLevel, RequestShowUserProgress} from './request&responseTypes.js';
@@ -1350,6 +1350,6 @@ export function communityAction(request:RequestCommunityAction, response:Respons
     }
     fs.writeFileSync(rutaNivelesjson, JSON.stringify(listaNivelesOnline, null, 1));
 }
-export function commentLevel(){
+export function commentLevel(request:RequestCommentLevel , response:ResponseCommentLevel){
     
 }

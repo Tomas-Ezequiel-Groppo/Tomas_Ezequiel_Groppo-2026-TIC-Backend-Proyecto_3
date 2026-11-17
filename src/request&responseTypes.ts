@@ -86,6 +86,7 @@ export type ResponseUpdateLevelNameOnline= Response<Estatus>;
 export type ResponseUpdateLevelNameOffline=Response<Estatus>;
 export type ResponseDeleteLevel=Response<Estatus>;
 export type ResponseCommunityAction = Response<Estatus>;
+export type ResponseCommentLevel = Response<Estatus>;
 
 //SaveFile
 
