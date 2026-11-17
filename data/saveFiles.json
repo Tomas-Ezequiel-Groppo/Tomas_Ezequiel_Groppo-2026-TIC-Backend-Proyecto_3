@@ -3757,7 +3757,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ],
   "username": "Pepito",
@@ -5283,7 +5287,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -6806,7 +6814,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -8328,7 +8340,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -9848,7 +9864,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 2
+    "cantidadDescargas": 2,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -11368,7 +11388,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 2
+    "cantidadDescargas": 2,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ]
  },
@@ -13444,7 +13468,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ],
   "username": "holalan",
@@ -15241,7 +15269,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -16756,7 +16788,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -18271,7 +18307,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -19786,7 +19826,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -21302,9 +21346,10 @@
     "publicado": false,
     "descargas": [],
     "cantidadDescargas": 0,
-    "meGustas": [],
-    "valoraciones": [],
-    "valoracionPromedio": 0
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -22820,9 +22865,10 @@
     "publicado": false,
     "descargas": [],
     "cantidadDescargas": 0,
-    "meGustas": [],
-    "valoraciones": [],
-    "valoracionPromedio": 0
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ],
   "username": "Sesshomaru",
@@ -24348,7 +24394,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -25867,7 +25917,11 @@
     "descargas": [
      "Sesshomaru"
     ],
-    "cantidadDescargas": 1
+    "cantidadDescargas": 1,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -27386,7 +27440,11 @@
     "descargas": [
      "Sesshomaru"
     ],
-    "cantidadDescargas": 1
+    "cantidadDescargas": 1,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -28908,7 +28966,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -30431,7 +30493,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -31951,9 +32017,10 @@
      "Sesshomaru"
     ],
     "cantidadDescargas": 1,
-    "valoracionPromedio": 0,
-    "valoraciones": [],
-    "meGustas": []
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ]
  },
@@ -33748,7 +33815,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ],
   "username": "capitanjake007",
@@ -35278,7 +35349,11 @@
      "DanteLasers",
      "capitanjake007"
     ],
-    "cantidadDescargas": 5
+    "cantidadDescargas": 5,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [

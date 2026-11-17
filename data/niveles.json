@@ -1524,7 +1524,11 @@
    "DanteLasers",
    "capitanjake007"
   ],
-  "cantidadDescargas": 5
+  "cantidadDescargas": 5,
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  },
  {
   "elementos": [
@@ -3044,7 +3048,11 @@
    "Sesshomaru",
    "Pepito"
   ],
-  "cantidadDescargas": 2
+  "cantidadDescargas": 2,
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  },
  {
   "elementos": [
@@ -4567,7 +4575,11 @@
    "Sesshomaru",
    "Pepito"
   ],
-  "cantidadDescargas": 3
+  "cantidadDescargas": 3,
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  },
  {
   "elementos": [
@@ -6087,7 +6099,11 @@
    "Sesshomaru",
    "Pepito"
   ],
-  "cantidadDescargas": 2
+  "cantidadDescargas": 2,
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  },
  {
   "elementos": [
@@ -7609,7 +7625,11 @@
    "Sesshomaru",
    "Pepito"
   ],
-  "cantidadDescargas": 3
+  "cantidadDescargas": 3,
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  },
  {
   "elementos": [
@@ -9129,9 +9149,10 @@
    "Sesshomaru"
   ],
   "cantidadDescargas": 1,
-  "valoracionPromedio": 0,
-  "valoraciones": [],
-  "meGustas": []
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  },
  {
   "elementos": [
@@ -10647,8 +10668,9 @@
   "publicado": true,
   "descargas": [],
   "cantidadDescargas": 0,
-  "meGustas": [],
-  "valoraciones": [],
-  "valoracionPromedio": 0
+  "meGustas":[],
+  "noMegustas":[],
+  "valoraciones":[],
+  "valoracionPromedio":0
  }
 ]

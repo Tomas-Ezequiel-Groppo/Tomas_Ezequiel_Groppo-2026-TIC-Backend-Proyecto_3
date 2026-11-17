@@ -27,7 +27,7 @@ export type Nivel = {
     noMegustas:string[],
     valoraciones:number[],
     valoracionPromedio:number,
-    comments:Comment[]
+   // comments:Comment[]
 }
 export type Config = {
     theme:string,
