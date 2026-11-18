@@ -10,6 +10,10 @@ type Portal ={
     posicionXPortalB:number,
     posicionYPortalB:number
 }
+type Valoracion = {
+    userId:number;
+    valoracion:number
+}
 export type Objeto = {orientacion:string|null;propiedadEspecial:string|null|Portal};
 export type ElementoPP = {propiedadEspecial:string|null}
 export type Elemento ={tipo:Objeto | ElementoPP; posicionX:number; posicionY:number}|null;
@@ -25,7 +29,7 @@ export type Nivel = {
     cantidadDescargas:number,
     meGustas:number[],
     noMegustas:number[],
-    valoraciones:number[],
+    valoraciones:Valoracion[],
     valoracionPromedio:number,
    // comments:Comment[]
 }

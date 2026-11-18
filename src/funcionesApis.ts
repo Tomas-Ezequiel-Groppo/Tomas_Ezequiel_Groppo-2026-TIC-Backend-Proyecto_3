@@ -1310,27 +1310,65 @@ export function showUserProgress (request:RequestShowUserProgress, response:Resp
 export function communityAction(request:RequestCommunityAction, response:ResponseCommunityAction):void{
 
     let listaNivelesOnline:Nivel[] = JSON.parse(fs.readFileSync(rutaNivelesjson, "utf-8")) as Nivel[];
+    let levelExists:boolean = false;
 
-    if (request.body.action==="Like"){
+    if (request.body.action==="like"){
         for (let n:number = 0; listaNivelesOnline.length>n;n++){
             if (listaNivelesOnline[n].id===Number(request.params.id)){
+                for (let m:number = 0; m<listaNivelesOnline[n].meGustas.length;m++){
+                    if (listaNivelesOnline[n].meGustas[m]===Number(request.params.id)){
+                        response.status(409).json({estatus:"Ese-usuario-ya-likeo-el-nivel"});
+                        return;
+                    }
+                }
+                for (let o:number= 0; o<listaNivelesOnline[n].noMegustas.length;o++){
+                    if (listaNivelesOnline[n].noMegustas[o]===Number(request.params.id)){
+                        response.status(400).json({estatus:"No-se-puede-likear-y-deslikear-un-nivel-a-la-vez"});
+                        return ;
+                    }
+                }
                 listaNivelesOnline[n].meGustas.push(request.body.id)
+                levelExists = true
             }
         }
+        if (!levelExists){
+            response.status(404).json({estatus:"El-nivel-no-se-ha-encontrado"});
+            return;
+        }
+        response.status(200).json({estatus:"Se-hizo-la-acción-correspondiente"});
     }
-    else if(request.body.action==="Dislike"){
+    else if(request.body.action==="dislike"){
          for (let n:number = 0; listaNivelesOnline.length>n;n++){
             if (listaNivelesOnline[n].id===Number(request.params.id)){
+                for (let m:number = 0; m<listaNivelesOnline[n].noMegustas.length;m++){
+                    if (listaNivelesOnline[n].meGustas[m]===Number(request.params.id)){
+                        response.status(409).json({estatus:"Ese-usuario-ya-deslikeo-el-nivel"});
+                        return;
+                    }
+                }
+                for (let o:number= 0; o<listaNivelesOnline[n].meGustas.length;o++){
+                    if (listaNivelesOnline[n].noMegustas[o]===Number(request.params.id)){
+                        response.status(400).json({estatus:"No-se-puede-likear-y-deslikear-un-nivel-a-la-vez"});
+                        return ;
+                    }
+                }
                 listaNivelesOnline[n].noMegustas.push(request.body.id)
+                levelExists=true;
             }
         }
+        if (!levelExists){
+            response.status(404).json({estatus:"El-nivel-no-se-ha-encontrado"});
+            return;
+        }
+        response.status(200).json({estatus:"Se-hizo-la-acción-correspondiente"});
     }
-    else if (request.body.action==="Valorar"){
-        let valor:number=Number(request.params.id)
+    else if (request.body.action==="valorar"){
+        let valor:number=request.body.valoracion
         let valorPromedio:number = 0;
         for (let n:number = 0; listaNivelesOnline.length>n;n++){
             if (listaNivelesOnline[n].id===Number(request.params.id)){
-                listaNivelesOnline[n].valoraciones.push(valor);
+
+                listaNivelesOnline[n].valoraciones.push({userId:request.body.id, valoracion:valor});
                 for (let m:number = 0; listaNivelesOnline[n].valoraciones.length>m;m++){
                     if (m===0){
                         valorPromedio=listaNivelesOnline[n].valoraciones[m];
@@ -1343,6 +1381,11 @@ export function communityAction(request:RequestCommunityAction, response:Respons
                 listaNivelesOnline[n].valoracionPromedio=valorPromedio;
             }
         }
+        if (!levelExists){
+            response.status(404).json({estatus:"El-nivel-no-se-ha-encontrado"});
+            return;
+        }
+        response.status(200).json({estatus:"Se-hizo-la-acción-correspondiente"});
     }
     else{
         response.status(400).json({estatus:"La-accion-presentada-no-es-valida"});

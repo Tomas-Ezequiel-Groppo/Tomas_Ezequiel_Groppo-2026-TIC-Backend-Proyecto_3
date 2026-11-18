@@ -4,7 +4,7 @@ import express from 'express';
 import type { Express, Request, Response } from 'express';
 import cors from 'cors'
 import { saveProfile , logProfile , loadProfile, loadConfig, saveConfig} from './funcionesApis.js';
-import { loadLevels , loadLevelsUsers, saveLevel, loadLevel, publishLevel, updateLevel, hideLevel, showLevel, updateLevelNameOnline} from './funcionesApis.js';
+import { loadLevels , loadLevelsUsers, saveLevel, loadLevel, publishLevel, updateLevel, hideLevel, showLevel, updateLevelNameOnline , communityAction} from './funcionesApis.js';
 import { loadLevelsOG, completeLevel, loadLevelOG, completeOnlineLevel, updateLevelNameOffline, deleteLevel} from './funcionesApis.js'; 
 import { loadSaveFile, saveLevelUser, deleteSavedLevel, showUserProgress} from './funcionesApis.js';
 
@@ -48,6 +48,8 @@ app.patch("/level/name/online/:id", updateLevelNameOnline);
 app.patch("/level/name/offline/:id", updateLevelNameOffline);
 
 app.delete("/level/delete/:id", deleteLevel);
+
+app.post("/level/action/:id", communityAction);
 
 
 //offline

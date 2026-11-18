@@ -49,7 +49,7 @@ export type RequestHideLevel = Request<{nombre:string}, Estatus>;
 export type RequestUpdateLevelNameOnline=Request<{id:string}, Estatus , {nombre:string}>;
 export type RequestUpdateLevelNameOffline=Request<{id:string}, Estatus, {nombre:string}&{username:string}>;
 export type RequestDeleteLevel = Request<{id:string}, Estatus, UserUsername>
-export type RequestCommunityAction = Request<{id:string}, Estatus, {action:string} & {id:number} & {valoracion:string}>;
+export type RequestCommunityAction = Request<{id:string}, Estatus, {action:string} & {id:number} & {valoracion:number}>;
 export type RequestCommentLevel = Request<{id:string}, Estatus>
 
 //SaveFile
