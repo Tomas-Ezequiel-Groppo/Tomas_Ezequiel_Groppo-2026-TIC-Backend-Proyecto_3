@@ -23,8 +23,8 @@ export type Nivel = {
     publicado:boolean,
     descargas:string[],
     cantidadDescargas:number,
-    meGustas:string[],
-    noMegustas:string[],
+    meGustas:number[],
+    noMegustas:number[],
     valoraciones:number[],
     valoracionPromedio:number,
    // comments:Comment[]

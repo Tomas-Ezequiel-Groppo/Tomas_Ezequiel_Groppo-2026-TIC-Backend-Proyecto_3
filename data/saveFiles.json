@@ -36875,7 +36875,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    },
    {
     "elementos": [
@@ -38398,7 +38402,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ]
  },
@@ -40193,7 +40201,11 @@
     "version": 0,
     "publicado": false,
     "descargas": [],
-    "cantidadDescargas": 0
+    "cantidadDescargas": 0,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ],
   "username": "Alfredo",
@@ -43124,7 +43136,11 @@
      "Sesshomaru",
      "Pepito"
     ],
-    "cantidadDescargas": 3
+    "cantidadDescargas": 3,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ]
  },
@@ -45212,7 +45228,11 @@
      "Pepito",
      "DanteLasers"
     ],
-    "cantidadDescargas": 4
+    "cantidadDescargas": 4,
+    "meGustas":[],
+    "noMegustas":[],
+    "valoraciones":[],
+    "valoracionPromedio":0
    }
   ]
  },

@@ -1314,14 +1314,14 @@ export function communityAction(request:RequestCommunityAction, response:Respons
     if (request.body.action==="Like"){
         for (let n:number = 0; listaNivelesOnline.length>n;n++){
             if (listaNivelesOnline[n].id===Number(request.params.id)){
-                listaNivelesOnline[n].meGustas.push(request.body.username)
+                listaNivelesOnline[n].meGustas.push(request.body.id)
             }
         }
     }
     else if(request.body.action==="Dislike"){
          for (let n:number = 0; listaNivelesOnline.length>n;n++){
             if (listaNivelesOnline[n].id===Number(request.params.id)){
-                listaNivelesOnline[n].noMegustas.push(request.body.username)
+                listaNivelesOnline[n].noMegustas.push(request.body.id)
             }
         }
     }
